@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24 12:31:41",
- "total": 1202,
+ "generated_at": "2026-11-25 08:59:27",
+ "total": 1674,
  "source": "live",
  "period": {
   "from": "2026-08-10",
@@ -17,9 +17,9 @@
    "status": "성공",
    "count": 70,
    "pages": 7,
-   "collected_at": "2026-11-24 11:54:32",
+   "collected_at": "2026-11-25 08:50:33",
    "error": "",
-   "elapsed": 157.1
+   "elapsed": 142.8
   },
   {
    "id": "gwd",
@@ -31,9 +31,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:26:54",
+   "collected_at": "2026-11-25 08:53:54",
    "error": "",
-   "elapsed": 6.9
+   "elapsed": 10.7
   },
   {
    "id": "gangneung",
@@ -45,9 +45,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:25:14",
+   "collected_at": "2026-11-25 08:53:29",
    "error": "",
-   "elapsed": 26.8
+   "elapsed": 24.9
   },
   {
    "id": "goseong",
@@ -59,9 +59,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:19:30",
+   "collected_at": "2026-11-25 08:56:24",
    "error": "",
-   "elapsed": 13.1
+   "elapsed": 26.9
   },
   {
    "id": "donghae",
@@ -73,9 +73,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:25:41",
+   "collected_at": "2026-11-25 08:54:07",
    "error": "",
-   "elapsed": 12.3
+   "elapsed": 18.9
   },
   {
    "id": "samcheok",
@@ -83,27 +83,33 @@
    "category": "시군",
    "parser": "auto",
    "url": "https://www.samcheok.go.kr/contract/continfo",
-   "note": "",
+   "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 사유만 남긴다.",
    "status": "실패",
    "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:10",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 5.1
+   "pages": 2,
+   "collected_at": "2026-11-25 08:55:33",
+   "error": "웹방화벽(WAF) 차단: https://www.samcheok.go.kr/contract/continfo (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
+   "elapsed": 1.4
   },
   {
    "id": "sokcho",
    "name": "속초시",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.sokcho.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:18",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 18.5
+   "parser": "table_post_multi",
+   "url": "",
+   "note": "속초시 세입세출 계약정보공개(confin.sokcho.go.kr). 시청 홈페이지 '입찰공고'가 이 시스템으로 연결. 인증서 체인이 불완전해 이 호스트만 검증을 완화. POST pageIndex 페이지네이션·8열 표.",
+   "status": "성공",
+   "count": 90,
+   "pages": 3,
+   "collected_at": "2026-11-25 08:55:35",
+   "error": "",
+   "tls": {
+    "relaxed_hosts": [
+     "confin.sokcho.go.kr"
+    ],
+    "cert_sha256": "6ab0cf14eb70be52fd174ba67bb953ed997344d8338c08b06068afbc2c187fed"
+   },
+   "elapsed": 32.9
   },
   {
    "id": "yanggu",
@@ -115,9 +121,9 @@
    "status": "성공",
    "count": 120,
    "pages": 3,
-   "collected_at": "2026-11-24 12:31:33",
+   "collected_at": "2026-11-25 08:54:25",
    "error": "",
-   "elapsed": 8.6
+   "elapsed": 14.2
   },
   {
    "id": "yangyang",
@@ -129,9 +135,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:19:43",
+   "collected_at": "2026-11-25 08:56:51",
    "error": "",
-   "elapsed": 22.4
+   "elapsed": 25.5
   },
   {
    "id": "yeongwol",
@@ -143,9 +149,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:19:04",
+   "collected_at": "2026-11-25 08:54:40",
    "error": "",
-   "elapsed": 8.1
+   "elapsed": 15.0
   },
   {
    "id": "wonju",
@@ -157,23 +163,29 @@
    "status": "성공",
    "count": 60,
    "pages": 6,
-   "collected_at": "2026-11-24 12:26:27",
+   "collected_at": "2026-11-25 08:53:08",
    "error": "",
-   "elapsed": 26.5
+   "elapsed": 21.5
   },
   {
    "id": "inje",
    "name": "인제군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.inje.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:35:13",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 15.0
+   "parser": "yanggu_ajax",
+   "url": "https://www.inje.go.kr/contract/basis/optionalList.do",
+   "note": "인제군 계약정보공개시스템(수의계약현황). 목록이 jqGrid AJAX(ajaxOptionalList.do JSON)로 그려져 정적 HTML에 표가 없다. 인증서 체인이 불완전해 이 호스트만 검증을 완화한다.",
+   "status": "성공",
+   "count": 120,
+   "pages": 3,
+   "collected_at": "2026-11-25 08:56:08",
+   "error": "",
+   "tls": {
+    "relaxed_hosts": [
+     "www.inje.go.kr"
+    ],
+    "cert_sha256": "e469ca512cae4facba6073bb608d2910a99f1cd4d753df370b8f4e0690ac7264"
+   },
+   "elapsed": 16.3
   },
   {
    "id": "jeongseon",
@@ -185,23 +197,23 @@
    "status": "성공",
    "count": 90,
    "pages": 3,
-   "collected_at": "2026-11-24 12:27:13",
+   "collected_at": "2026-11-25 08:54:55",
    "error": "",
-   "elapsed": 28.4
+   "elapsed": 38.9
   },
   {
    "id": "cheorwon",
    "name": "철원군",
    "category": "시군",
    "parser": "auto",
-   "url": "https://www.cw.go.kr/contract/continfo",
-   "note": "",
+   "url": "https://www.cwg.go.kr/contract/continfo",
+   "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 수집 불가.",
    "status": "실패",
    "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:50",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 10.8
+   "pages": 2,
+   "collected_at": "2026-11-25 08:58:25",
+   "error": "자동 판별 실패: www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/contract/continfo (<urlopen error [SSL: CERT / www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/gyeyak/contract/lists (<urlopen error [SSL: ",
+   "elapsed": 10.0
   },
   {
    "id": "chuncheon",
@@ -213,9 +225,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:26:17",
+   "collected_at": "2026-11-25 08:52:56",
    "error": "",
-   "elapsed": 9.9
+   "elapsed": 11.9
   },
   {
    "id": "taebaek",
@@ -223,13 +235,13 @@
    "category": "시군",
    "parser": "gyeyak",
    "url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
-   "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 홈페이지의 '계약정보공개' 링크가 이 시스템으로 연결. 웹방화벽이 데이터센터 IP의 자동 요청을 차단하는 경우가 있어 실패 시 meta.json에 사유가 남는다.",
+   "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 데이터 수집은 불가.",
    "status": "실패",
    "count": 0,
    "pages": 8,
-   "collected_at": "2026-11-24 12:27:43",
-   "error": "fetch failed: https://ehojo.taebaek.go.kr/contract/lists?p=1 (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>)",
-   "elapsed": 8.8
+   "collected_at": "2026-11-25 08:57:53",
+   "error": "웹방화벽(WAF) 차단(HTTP 403): https://ehojo.taebaek.go.kr/contract/lists?p=1 (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
+   "elapsed": 2.6
   },
   {
    "id": "pyeongchang",
@@ -241,9 +253,9 @@
    "status": "성공",
    "count": 120,
    "pages": 8,
-   "collected_at": "2026-11-24 12:27:01",
+   "collected_at": "2026-11-25 08:57:43",
    "error": "",
-   "elapsed": 11.8
+   "elapsed": 9.9
   },
   {
    "id": "hongcheon",
@@ -255,23 +267,23 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:25:53",
+   "collected_at": "2026-11-25 08:57:18",
    "error": "",
-   "elapsed": 20.5
+   "elapsed": 24.7
   },
   {
    "id": "hwacheon",
    "name": "화천군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.hwacheon.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:35:01",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 11.7
+   "parser": "ihc_api",
+   "url": "https://contract.ihc.go.kr/situ/2",
+   "note": "화천군 계약정보시스템(contract.ihc.go.kr). 군청 도메인은 www.ihc.go.kr(기존 www.hwacheon.go.kr 는 없는 도메인). 목록은 /api/situ JSON(10건 단위)으로 그려진다.",
+   "status": "성공",
+   "count": 80,
+   "pages": 8,
+   "collected_at": "2026-11-25 08:59:07",
+   "error": "",
+   "elapsed": 19.9
   },
   {
    "id": "hoengseong",
@@ -283,9 +295,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 12:19:12",
+   "collected_at": "2026-11-25 08:57:56",
    "error": "",
-   "elapsed": 18.5
+   "elapsed": 29.3
   }
  ]
 }

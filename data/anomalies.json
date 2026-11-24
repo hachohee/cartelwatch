@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24 12:31:41",
- "base_generated_at": "2026-11-24 12:31:41",
+ "generated_at": "2026-11-25 08:59:29",
+ "base_generated_at": "2026-11-25 08:59:27",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -18,27 +18,347 @@
   "YEAR_END_MIN_SHARE": 0.25
  },
  "summary": {
-  "total": 13,
+  "total": 22,
   "by_type": {
-   "SPLIT": 5,
+   "SPLIT": 14,
    "NEWCOMER": 8
   },
   "amount_by_type": {
-   "SPLIT": 129820000,
+   "SPLIT": 406562220,
    "NEWCOMER": 9675859010
   }
  },
  "contract_stats": {
-  "total": 1201,
+  "total": 1673,
   "bad_dates": 1,
-  "with_amount": 1200,
-  "with_vendor": 1187,
+  "with_amount": 1672,
+  "with_vendor": 1632,
   "period": [
    "2026-08-10",
-   "2026-11-25"
+   "2029-01-29"
   ]
  },
  "anomalies": [
+  {
+   "id": "split-sokcho:b2ff1815dd78-sokcho:ee5f525aa4f8",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "속초시 속초시립박물관 · 속초시립박물관 증축 및 리모델링 사업 전기공사 감리용역",
+   "vendor": "풀이음이엔지",
+   "agency": "속초시",
+   "department": "속초시립박물관",
+   "amount": 39430000,
+   "count": 2,
+   "summary": "풀이음이엔지가 7일 안에 2건을 나눠 받음 · 합산 3,943만 원 (건별 최대 1,994만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 39430000,
+    "건수": 2,
+    "건별금액": [
+     19940000,
+     19490000
+    ],
+    "기간": "2026-11-10 ~ 2026-11-12"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "sokcho:ee5f525aa4f8",
+     "agency": "속초시",
+     "department": "속초시립박물관",
+     "contract_no": "8367",
+     "title": "속초시립박물관 증축 및 리모델링 사업 전기공사 감리용역",
+     "amount": 19940000,
+     "contract_date": "2026-11-10",
+     "vendor": "풀이음이엔지",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/conservice?ctrtAcctBookMngNo=202600212603"
+    },
+    {
+     "id": "sokcho:b2ff1815dd78",
+     "agency": "속초시",
+     "department": "속초시립박물관",
+     "contract_no": "8372",
+     "title": "속초시립박물관 증축 및 리모델링 사업 통신공사 감리용역",
+     "amount": 19490000,
+     "contract_date": "2026-11-12",
+     "vendor": "풀이음이엔지",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/conservice?ctrtAcctBookMngNo=202600212662"
+    }
+   ]
+  },
+  {
+   "id": "split-hwacheon:5fd927b25dd8-hwacheon:6aee7e9bb",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 접경지역 복합공동체 마을 조성사업(토목) 관급자재 식생옹벽 2",
+   "vendor": "",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 38700810,
+   "count": 5,
+   "summary": "업체 미상가 7일 안에 5건을 나눠 받음 · 합산 3,870만 원 (건별 최대 1,363만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 38700810,
+    "건수": 5,
+    "건별금액": [
+     13634500,
+     10000000,
+     8550000,
+     4956310,
+     1560000
+    ],
+    "기간": "2026-11-16 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:7869c9337e96",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314159",
+     "title": "접경지역 복합공동체 마을 조성사업(토목) 관급자재 식생옹벽 2",
+     "amount": 8550000,
+     "contract_date": "2026-11-16",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314159"
+    },
+    {
+     "id": "hwacheon:7fc196ffe49e",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314160",
+     "title": "접경지역 복합공동체 마을 조성사업(토목) 관급자재 아스콘 추가",
+     "amount": 4956310,
+     "contract_date": "2026-11-17",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314160"
+    },
+    {
+     "id": "hwacheon:5fd927b25dd8",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314193",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-메시울타리(대일)",
+     "amount": 13634500,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314193"
+    },
+    {
+     "id": "hwacheon:6aee7e9bb60f",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314194",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-퍼걸러(신우)",
+     "amount": 10000000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314194"
+    },
+    {
+     "id": "hwacheon:86bf7e682c1e",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314192",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-벤치(신우)",
+     "amount": 1560000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314192"
+    }
+   ]
+  },
+  {
+   "id": "split-yangyang:5a69ee4e7beb-yangyang:63b75b02e",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "양양군 손양면 · 2026년 동호리 해변 관광 활성화사업 포토존 조형물 제작 설치",
+   "vendor": "강원디자인개발연구소",
+   "agency": "양양군",
+   "department": "손양면",
+   "amount": 37986700,
+   "count": 2,
+   "summary": "강원디자인개발연구소가 7일 안에 2건을 나눠 받음 · 합산 3,799만 원 (건별 최대 1,899만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 37986700,
+    "건수": 2,
+    "건별금액": [
+     18993350,
+     18993350
+    ],
+    "기간": "2026-11-23 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "yangyang:5a69ee4e7beb",
+     "agency": "양양군",
+     "department": "손양면",
+     "contract_no": "41220",
+     "title": "2026년 동호리 해변 관광 활성화사업 포토존 조형물 제작 설치",
+     "amount": 18993350,
+     "contract_date": "2026-11-23",
+     "vendor": "강원디자인개발연구소",
+     "detail_url": "http://gyeyak.yangyang.go.kr/contract/post/41220"
+    },
+    {
+     "id": "yangyang:63b75b02e438",
+     "agency": "양양군",
+     "department": "손양면",
+     "contract_no": "41220",
+     "title": "2026년 동호리 해변 관광 활성화사업 포토존 조형물 제작 설치",
+     "amount": 18993350,
+     "contract_date": "2026-11-24",
+     "vendor": "강원디자인개발연구소",
+     "detail_url": "http://gyeyak.yangyang.go.kr/contract/post/41220"
+    }
+   ]
+  },
+  {
+   "id": "split-hwacheon:7bc0e1e20862-hwacheon:a99fd3203",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 2026년 산타공원 조성공사(전기) 실시설계 용역",
+   "vendor": "주식회사 에스에이치",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 34414000,
+   "count": 2,
+   "summary": "주식회사 에스에이치가 7일 안에 2건을 나눠 받음 · 합산 3,441만 원 (건별 최대 1,934만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 34414000,
+    "건수": 2,
+    "건별금액": [
+     19345000,
+     15069000
+    ],
+    "기간": "2026-11-17 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:7bc0e1e20862",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600214167",
+     "title": "2026년 산타공원 조성공사(전기) 실시설계 용역",
+     "amount": 19345000,
+     "contract_date": "2026-11-17",
+     "vendor": "주식회사 에스에이치",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600214167"
+    },
+    {
+     "id": "hwacheon:a99fd32037e4",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600214217",
+     "title": "화천군 도시재생 경관개선사업(루돌프거리) 전기공사 실시설계 용역",
+     "amount": 15069000,
+     "contract_date": "2026-11-19",
+     "vendor": "주식회사 에스에이치",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600214217"
+    }
+   ]
+  },
+  {
+   "id": "split-hwacheon:5fd927b25dd8-hwacheon:6aee7e9bb",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 접경지역 복합공동체 마을 조성사업(토목) 관급자재 아스콘 추가",
+   "vendor": "",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 30150810,
+   "count": 4,
+   "summary": "업체 미상가 7일 안에 4건을 나눠 받음 · 합산 3,015만 원 (건별 최대 1,363만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 30150810,
+    "건수": 4,
+    "건별금액": [
+     13634500,
+     10000000,
+     4956310,
+     1560000
+    ],
+    "기간": "2026-11-17 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:7fc196ffe49e",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314160",
+     "title": "접경지역 복합공동체 마을 조성사업(토목) 관급자재 아스콘 추가",
+     "amount": 4956310,
+     "contract_date": "2026-11-17",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314160"
+    },
+    {
+     "id": "hwacheon:5fd927b25dd8",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314193",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-메시울타리(대일)",
+     "amount": 13634500,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314193"
+    },
+    {
+     "id": "hwacheon:6aee7e9bb60f",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314194",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-퍼걸러(신우)",
+     "amount": 10000000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314194"
+    },
+    {
+     "id": "hwacheon:86bf7e682c1e",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314192",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-벤치(신우)",
+     "amount": 1560000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314192"
+    }
+   ]
+  },
   {
    "id": "split-pyeongchang:4aa41c0e72da-pyeongchang:8f8",
    "type": "SPLIT",
@@ -144,6 +464,58 @@
    ]
   },
   {
+   "id": "split-sokcho:5c5dbf044940-sokcho:bd121520c866",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "속초시 - · 소하천정비종합계획(하도문천) 일부 변경 및 소하천 정비사업 완료고시 용역",
+   "vendor": "(주)정엔지니어링",
+   "agency": "속초시",
+   "department": "-",
+   "amount": 27364000,
+   "count": 2,
+   "summary": "(주)정엔지니어링이 7일 안에 2건을 나눠 받음 · 합산 2,736만 원 (건별 최대 1,610만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 27364000,
+    "건수": 2,
+    "건별금액": [
+     16104000,
+     11260000
+    ],
+    "기간": "2026-11-03 ~ 2026-11-06"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "sokcho:bd121520c866",
+     "agency": "속초시",
+     "department": "-",
+     "contract_no": "8356",
+     "title": "소하천정비종합계획(하도문천) 일부 변경 및 소하천 정비사업 완료고시 용역",
+     "amount": 16104000,
+     "contract_date": "2026-11-03",
+     "vendor": "(주)정엔지니어링",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/conservice?ctrtAcctBookMngNo=202600212574"
+    },
+    {
+     "id": "sokcho:5c5dbf044940",
+     "agency": "속초시",
+     "department": "-",
+     "contract_no": "8363",
+     "title": "속초 도시관리계획(지구단위계획: 영랑동공업지역) 결정(변경) 용역",
+     "amount": 11260000,
+     "contract_date": "2026-11-06",
+     "vendor": "(주)정엔지니어링",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/conservice?ctrtAcctBookMngNo=202600212657"
+    }
+   ]
+  },
+  {
    "id": "split-pyeongchang:2bacd1fb46cf-pyeongchang:3f8",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -192,6 +564,70 @@
      "contract_date": "2026-10-27",
      "vendor": "(주)다우",
      "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600112959"
+    }
+   ]
+  },
+  {
+   "id": "split-hwacheon:5fd927b25dd8-hwacheon:6aee7e9bb",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-메시울타리(대일)",
+   "vendor": "",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 25194500,
+   "count": 3,
+   "summary": "업체 미상가 7일 안에 3건을 나눠 받음 · 합산 2,519만 원 (건별 최대 1,363만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 25194500,
+    "건수": 3,
+    "건별금액": [
+     13634500,
+     10000000,
+     1560000
+    ],
+    "기간": "2026-11-19 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:5fd927b25dd8",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314193",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-메시울타리(대일)",
+     "amount": 13634500,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314193"
+    },
+    {
+     "id": "hwacheon:6aee7e9bb60f",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314194",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-퍼걸러(신우)",
+     "amount": 10000000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314194"
+    },
+    {
+     "id": "hwacheon:86bf7e682c1e",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314192",
+     "title": "화천군 친환경에너지타운 조성사업(커뮤니티센터)(토목)-벤치(신우)",
+     "amount": 1560000,
+     "contract_date": "2026-11-19",
+     "vendor": "",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314192"
     }
    ]
   },
@@ -248,6 +684,58 @@
    ]
   },
   {
+   "id": "split-hwacheon:3fad99a63205-hwacheon:6c0a5c8a3",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 장미 파크골프장 입구 안내 간판 제작 설치공사 시행",
+   "vendor": "사내광고",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 23447400,
+   "count": 2,
+   "summary": "사내광고가 7일 안에 2건을 나눠 받음 · 합산 2,345만 원 (건별 최대 1,177만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 23447400,
+    "건수": 2,
+    "건별금액": [
+     11768400,
+     11679000
+    ],
+    "기간": "2026-11-17 ~ 2026-11-20"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:6c0a5c8a3680",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600114181",
+     "title": "장미 파크골프장 입구 안내 간판 제작 설치공사 시행",
+     "amount": 11679000,
+     "contract_date": "2026-11-17",
+     "vendor": "사내광고",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600114181"
+    },
+    {
+     "id": "hwacheon:3fad99a63205",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314259",
+     "title": "2026년 목재문화체험장 간판 제작 설치",
+     "amount": 11768400,
+     "contract_date": "2026-11-20",
+     "vendor": "사내광고",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314259"
+    }
+   ]
+  },
+  {
    "id": "split-hoengseong:1a6d3c962742-hoengseong:ce3a8",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -296,6 +784,70 @@
      "contract_date": "2026-11-24",
      "vendor": "남산건설(주)",
      "detail_url": "https://gyeyak.hsg.go.kr/contract/post/97561"
+    }
+   ]
+  },
+  {
+   "id": "split-sokcho:b4190ea624b2-sokcho:c7847fa4f6e9",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "속초시 - · 2026년 사랑의 김장 나눔 행사 재료 구입",
+   "vendor": "설악산김치수",
+   "agency": "속초시",
+   "department": "-",
+   "amount": 20054000,
+   "count": 3,
+   "summary": "설악산김치수가 7일 안에 3건을 나눠 받음 · 합산 2,005만 원 (건별 최대 724만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 20054000,
+    "건수": 3,
+    "건별금액": [
+     7235000,
+     6968000,
+     5851000
+    ],
+    "기간": "2026-11-18 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "sokcho:b4190ea624b2",
+     "agency": "속초시",
+     "department": "-",
+     "contract_no": "18276",
+     "title": "2026년 사랑의 김장 나눔 행사 재료 구입",
+     "amount": 6968000,
+     "contract_date": "2026-11-18",
+     "vendor": "설악산김치수",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/congoods?ctrtAcctBookMngNo=202600312688"
+    },
+    {
+     "id": "sokcho:c7847fa4f6e9",
+     "agency": "속초시",
+     "department": "-",
+     "contract_no": "18278",
+     "title": "사랑의 김장 나누기 행사 재료(배추, 양념)구입",
+     "amount": 5851000,
+     "contract_date": "2026-11-18",
+     "vendor": "설악산김치수",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/congoods?ctrtAcctBookMngNo=202600312693"
+    },
+    {
+     "id": "sokcho:f9237f50ccbb",
+     "agency": "속초시",
+     "department": "-",
+     "contract_no": "18286",
+     "title": "2026년 사랑의 김장나눔 행사 재료 구입",
+     "amount": 7235000,
+     "contract_date": "2026-11-24",
+     "vendor": "설악산김치수",
+     "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/congoods?ctrtAcctBookMngNo=202600312750"
     }
    ]
   },

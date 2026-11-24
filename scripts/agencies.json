@@ -136,7 +136,8 @@
         "https://www.samcheok.go.kr/contract/continfo",
         "https://www.samcheok.go.kr/gyeyak/contract/lists"
       ],
-      "pages": 2
+      "pages": 2,
+      "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 사유만 남긴다."
     },
     {
       "id": "taebaek",
@@ -145,18 +146,23 @@
       "parser": "gyeyak",
       "list_url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
       "pages": 8,
-      "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 홈페이지의 '계약정보공개' 링크가 이 시스템으로 연결. 웹방화벽이 데이터센터 IP의 자동 요청을 차단하는 경우가 있어 실패 시 meta.json에 사유가 남는다."
+      "tls_relaxed_hosts": ["ehojo.taebaek.go.kr"],
+      "retries": 1,
+      "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 데이터 수집은 불가."
     },
     {
       "id": "sokcho",
       "name": "속초시",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.sokcho.go.kr/contract/continfo",
-        "https://www.sokcho.go.kr/gyeyak/contract/lists"
+      "parser": "table_post_multi",
+      "list_urls": [
+        ["https://confin.sokcho.go.kr/contract/continfo/status/conconst", "공사"],
+        ["https://confin.sokcho.go.kr/contract/continfo/status/conservice", "용역"],
+        ["https://confin.sokcho.go.kr/contract/continfo/status/congoods", "물품"]
       ],
-      "pages": 2
+      "pages": 3,
+      "tls_relaxed_hosts": ["confin.sokcho.go.kr"],
+      "note": "속초시 세입세출 계약정보공개(confin.sokcho.go.kr). 시청 홈페이지 '입찰공고'가 이 시스템으로 연결. 인증서 체인이 불완전해 이 호스트만 검증을 완화. POST pageIndex 페이지네이션·8열 표."
     },
     {
       "id": "hoengseong",
@@ -173,32 +179,40 @@
       "category": "시군",
       "parser": "auto",
       "probe_urls": [
-        "https://www.cw.go.kr/contract/continfo",
-        "https://www.cw.go.kr/gyeyak/contract/lists"
+        "https://www.cwg.go.kr/contract/continfo",
+        "https://www.cwg.go.kr/gyeyak/contract/lists"
       ],
-      "pages": 2
+      "pages": 2,
+      "timeout_sec": 8,
+      "retries": 1,
+      "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 수집 불가."
     },
     {
       "id": "hwacheon",
       "name": "화천군",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.hwacheon.go.kr/contract/continfo",
-        "https://www.hwacheon.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "ihc_api",
+      "list_url": "https://contract.ihc.go.kr/situ/2",
+      "api_url": "https://contract.ihc.go.kr/api/situ",
+      "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/{no}",
+      "referer": "https://contract.ihc.go.kr/situ/2",
+      "row_num": 10,
+      "pages": 8,
+      "note": "화천군 계약정보시스템(contract.ihc.go.kr). 군청 도메인은 www.ihc.go.kr(기존 www.hwacheon.go.kr 는 없는 도메인). 목록은 /api/situ JSON(10건 단위)으로 그려진다."
     },
     {
       "id": "inje",
       "name": "인제군",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.inje.go.kr/contract/continfo",
-        "https://www.inje.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "yanggu_ajax",
+      "list_url": "https://www.inje.go.kr/contract/basis/optionalList.do",
+      "ajax_url": "https://www.inje.go.kr/contract/basis/ajaxOptionalList.do",
+      "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo={no}",
+      "referer": "https://www.inje.go.kr/contract/basis/optionalList.do",
+      "row_num": 40,
+      "pages": 3,
+      "tls_relaxed_hosts": ["www.inje.go.kr"],
+      "note": "인제군 계약정보공개시스템(수의계약현황). 목록이 jqGrid AJAX(ajaxOptionalList.do JSON)로 그려져 정적 HTML에 표가 없다. 인증서 체인이 불완전해 이 호스트만 검증을 완화한다."
     },
     {
       "id": "goseong",

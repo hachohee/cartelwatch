@@ -52,14 +52,32 @@ AGENCY_TOKENS = (
 
 
 # ---------------------------------------------------------------- HTTP
-class Http:
-    """재시도(3회, 지수 백오프) + 요청 간 지연을 지키는 최소 HTTP 클라이언트."""
+class WafBlocked(RuntimeError):
+    """지자체 웹방화벽(WAF)이 자동 요청을 차단한 경우. 재시도해도 결과가 같다."""
 
-    def __init__(self, delay=0.7, timeout=20, retries=3, verbose=True):
+
+class Http:
+    """재시도(3회, 지수 백오프) + 요청 간 지연을 지키는 최소 HTTP 클라이언트.
+
+    tls_relaxed_hosts: 인증서 체인 오류(중간 인증서 누락·구형 DH 등)로만 접속이 막히는
+    기관을 호스트 단위로 지정한다. 여기 없는 호스트는 지금처럼 인증서 검증을 그대로
+    적용하고, 검증 실패는 그대로 실패로 남긴다(다른 기관에 영향 없음).
+    """
+
+    WAF_MARKERS = (
+        "웹방화벽",
+        "Web firewall security policies",
+        "You don't have permission to access",
+    )
+
+    def __init__(self, delay=0.7, timeout=20, retries=3, verbose=True, tls_relaxed_hosts=None):
         self.delay = delay
         self.timeout = timeout
         self.retries = retries
         self.verbose = verbose
+        self.tls_relaxed_hosts = {h.lower() for h in (tls_relaxed_hosts or []) if h}
+        self.tls_relaxed_used = []     # 이번 수집에서 완화 접속을 실제로 쓴 호스트 기록
+        self.last_cert_sha256 = ""
         self._last = 0.0
         self._ctx = self._make_ctx(verify=True)
         self._ctx_noverify = self._make_ctx(verify=False)
@@ -103,6 +121,7 @@ class Http:
                 body = urllib.parse.urlencode(data).encode("utf-8")
                 h.setdefault("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
 
+        host = (urllib.parse.urlsplit(url).hostname or "").lower()
         last_err = None
         for attempt in range(1, self.retries + 1):
             self._sleep()
@@ -110,22 +129,50 @@ class Http:
                 req = urllib.request.Request(url, data=body, headers=h)
                 try:
                     resp = urllib.request.urlopen(req, timeout=self.timeout, context=self._ctx)
-                except ssl.SSLCertVerificationError:
+                except urllib.error.URLError as e:
+                    # urllib 은 인증서 오류를 URLError(reason=SSLError)로 감싼다.
+                    cause = e.reason if isinstance(e.reason, Exception) else e
+                    if not isinstance(cause, ssl.SSLError):
+                        raise
+                    if host not in self.tls_relaxed_hosts:
+                        raise
+                    # 지정된 호스트에 한해서만 검증 없이 재시도(공개 조회 페이지, 읽기 전용)
                     resp = urllib.request.urlopen(req, timeout=self.timeout,
                                                   context=self._ctx_noverify)
+                    self.tls_relaxed_used.append(host)
+                    if self.verbose:
+                        print(f"      · TLS 완화 접속({host}): {cause}")
                 with resp:
+                    self.last_cert_sha256 = self._peer_cert(resp)
                     raw = resp.read()
                     if resp.headers.get("Content-Encoding") == "gzip":
                         raw = gzip.decompress(raw)
                     if encoding:
-                        return raw.decode(encoding, "replace")
-                    for enc in ("utf-8", "euc-kr", "cp949"):
-                        try:
-                            return raw.decode(enc)
-                        except UnicodeDecodeError:
-                            continue
-                    return raw.decode("utf-8", "replace")
+                        text = raw.decode(encoding, "replace")
+                    else:
+                        text = None
+                        for enc in ("utf-8", "euc-kr", "cp949"):
+                            try:
+                                text = raw.decode(enc)
+                                break
+                            except UnicodeDecodeError:
+                                continue
+                        if text is None:
+                            text = raw.decode("utf-8", "replace")
+                return check_waf(text, url)
+            except WafBlocked:
+                raise
             except Exception as e:  # noqa: BLE001 - 어떤 실패든 재시도 후 기록
+                # 403 등 HTTP 오류도 본문이 WAF 차단 페이지이면 그렇게 기록한다
+                if isinstance(e, urllib.error.HTTPError):
+                    try:
+                        body = e.read().decode("utf-8", "replace")
+                        if any(m in body for m in self.WAF_MARKERS):
+                            raise WafBlocked(f"웹방화벽(WAF) 차단(HTTP {e.code}): {url}") from e
+                    except WafBlocked:
+                        raise
+                    except Exception:  # noqa: BLE001
+                        pass
                 last_err = e
                 if self.verbose:
                     print(f"      ! 요청 실패({attempt}/{self.retries}) {e}")
@@ -133,8 +180,27 @@ class Http:
                     time.sleep(min(2 ** attempt * 0.8, 8))
         raise RuntimeError(f"fetch failed: {url} ({last_err})")
 
+    @staticmethod
+    def _peer_cert(resp):
+        """TLS 피어 인증서 지문(SHA-256). 완화 접속을 쓴 기관을 meta 에 남겨 추적한다."""
+        try:
+            sock = resp.fp.raw._sock
+            cert = sock.getpeercert(binary_form=True)
+            if cert:
+                return hashlib.sha256(cert).hexdigest()
+        except Exception:  # noqa: BLE001
+            pass
+        return ""
+
 
 # ---------------------------------------------------------------- helpers
+def check_waf(html, url):
+    """WAF 차단 페이지를 일반 파싱 실패와 구분해 알린다."""
+    if len(html) < 6000 and any(m in html for m in Http.WAF_MARKERS):
+        raise WafBlocked(f"웹방화벽(WAF) 차단: {url}")
+    return html
+
+
 def txt(s):
     if s is None:
         return ""
@@ -405,7 +471,7 @@ def p_table_post_multi(ag, http, pages):
     사이트마다 열 이름이 조금씩 달라도 ALIAS 로 흡수한다.
     """
     ALIAS = {
-        "department": ("계약관서", "관서명", "관서", "발주부서", "부서명", "계약부서"),
+        "department": ("계약관서", "관서명", "관서", "발주부서", "부서명", "계약부서", "감독부서"),
         "title": ("계약명", "사업명", "공고명"),
         "amount": ("계약금액", "금액"),
         "contract_date": ("계약일자", "계약일"),
@@ -582,8 +648,51 @@ def p_goe_keris(ag, http, pages):
     return items
 
 
+def p_ihc_api(ag, http, pages):
+    """화천군 계약정보시스템(contract.ihc.go.kr) JSON API.
+
+    목록이 JS(Handlebars)로 그려져 정적 HTML 에 표가 없고, /api/situ 가 JSON 을 돌려준다.
+    한 쪽에 10건. ctrtAmt 는 "19,323,900 원" 형태 문자열.
+    """
+    items = []
+    per = int(ag.get("row_num", 10))
+    for pg in range(1, pages + 1):
+        q = urllib.parse.urlencode({
+            "fisyear": ag.get("fisyear", ""), "govCd": "", "ctrtNm": "", "custNm": "",
+            "sCtrtYmd": "", "eCtrtYmd": "", "ctrtCate": "", "ctrtKind": "",
+            "getMethod": "srch", "totalCount": "", "currentPage": pg,
+        })
+        raw = http.fetch(f"{ag['api_url']}?{q}", headers={
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "X-Requested-With": "XMLHttpRequest",
+            "Referer": ag.get("referer", ag.get("list_url", ag["api_url"])),
+        })
+        data = json.loads(raw)
+        rows = data.get("list") or []
+        for r in rows:
+            vendor = (r.get("custNm") or "").strip()
+            no = r.get("ctrtNo") or ""
+            items.append(rec(ag["id"], ag["category"], ag["name"],
+                             department=r.get("govNm") or "",
+                             contract_no=no,
+                             title=r.get("ctrtNm") or "",
+                             amount=money(r.get("ctrtAmt")),
+                             contract_date=norm_date(r.get("ctrtYmd")),
+                             vendor="" if is_agency_like(vendor) else vendor,
+                             method=r.get("ctrtType") or "",
+                             detail_url=(ag["detail_url"].replace("{no}", no)
+                                         if ag.get("detail_url") and no else ""),
+                             extra={"계약구분": r.get("ctrtKind") or "",
+                                    "원문_계약상대자": vendor}))
+        print(f"    · {ag['name']} {pg}페이지 {len(rows)}건 / 전체 {data.get('count')}건")
+        if len(rows) < per:
+            break
+    return items
+
+
 PARSERS = {
     "yanggu_ajax": p_yanggu_ajax,
+    "ihc_api": p_ihc_api,
     "chuncheon": p_chuncheon,
     "wonju_table": p_wonju_table,
     "gyeyak": p_gyeyak,
@@ -595,10 +704,14 @@ PARSERS = {
 
 def p_auto(ag, http, pages):
     """URL 후보를 차례로 시험해 표 구조를 자동 판별(사이트 개편 대비)."""
+    reasons = []
     for url in ag.get("probe_urls", []):
         try:
             html = http.fetch(url)
-        except Exception:  # noqa: BLE001
+        except WafBlocked:
+            raise
+        except Exception as e:  # noqa: BLE001
+            reasons.append(f"{url.split('//')[-1].split('/')[0]}: {str(e)[:80]}")
             continue
         if 'ul class="ul-body"' in html:
             ag2 = dict(ag, list_url=url, parser="gyeyak")
@@ -606,7 +719,8 @@ def p_auto(ag, http, pages):
         if re.search(r'rowspan="2"', html) and "계약금액" in html:
             ag2 = dict(ag, list_url=url, parser="confin_post")
             return p_confin_post(ag2, http, pages)
-    raise RuntimeError("자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)")
+        reasons.append(f"{url.split('//')[-1].split('/')[0]}: 알려진 표 구조 없음")
+    raise RuntimeError("자동 판별 실패: " + " / ".join(reasons or ["시도한 URL 없음"]))
 
 
 # ---------------------------------------------------------------- national API (보조)
@@ -704,15 +818,24 @@ def main():
               "error": ""}
         try:
             http = Http(delay=ag.get("delay_sec", base_http.delay),
-                        timeout=defaults.get("timeout_sec", 20),
-                        retries=defaults.get("retries", 3), verbose=args.verbose)
+                        timeout=ag.get("timeout_sec", defaults.get("timeout_sec", 20)),
+                        retries=ag.get("retries", defaults.get("retries", 3)), verbose=args.verbose,
+                        tls_relaxed_hosts=ag.get("tls_relaxed_hosts"))
             parser = ag.get("parser", "auto")
             fn = p_auto if parser == "auto" else PARSERS[parser]
             rows = fn(ag, http, pages)
+            if http.tls_relaxed_used:
+                st["tls"] = {"relaxed_hosts": sorted(set(http.tls_relaxed_used)),
+                             "cert_sha256": http.last_cert_sha256}
+                print(f"    · TLS 인증서 검증 완화 사용: {', '.join(sorted(set(http.tls_relaxed_used)))}"
+                      f" (지문 {http.last_cert_sha256[:16]}…)")
             rows = [r for r in rows if r["title"]]
             all_new.extend(rows)
             st["status"] = "성공" if rows else "수집 0건"
             st["count"] = len(rows)
+        except WafBlocked as e:
+            st["error"] = f"{e} (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)"[:300]
+            print(f"    ✗ {ag['name']} {e}")
         except Exception as e:  # noqa: BLE001 - 기관 하나 실패로 전체 중단 금지
             st["error"] = str(e)[:300]
             print(f"    ✗ {ag['name']} 실패: {e}")
@@ -786,11 +909,18 @@ def main():
     # 이번에 성공한 기관이 없더라도, 직전 수집이 실데이터였으면 상태를 유지한다
     # (한 기관만 재수집하다 실패해 앱이 '샘플 데이터'로 표시되는 것을 막는다)
     source = "live" if ok_count else (meta.get("source") or "sample")
-    # 원자료 연도 오타(2226년 등)는 데이터 기간 계산에서 제외
+    # 원자료 연도 오타(2226년·2029년 등)는 데이터 기간 계산에서 제외
     def _ok_date(v):
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v or ""):
             return False
-        return 2000 <= int(v[:4]) <= 2035
+        if not 2000 <= int(v[:4]) <= 2035:
+            return False
+        # 계약일자는 미래일 수 없다(원본 입력 오류). 오늘+31일을 넘으면 기간 계산에서 뺀다.
+        try:
+            d = datetime.strptime(v, "%Y-%m-%d").date()
+        except ValueError:
+            return False
+        return d <= datetime.now(KST).date() + timedelta(days=31)
     dates = [c.get("contract_date", "") for c in contracts if _ok_date(c.get("contract_date", ""))]
     meta.update({
         "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
