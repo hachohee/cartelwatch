@@ -11,6 +11,12 @@
   const comma = n => (n || 0).toLocaleString("ko-KR");
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const today = () => new Date().toISOString().slice(0, 10);
+  // 원자료에 연도 오타(예: 2226-10-27)가 섞여 있어 통계·정렬에서 걸러낸다.
+  const validDate = d => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d || "")) return false;
+    const y = Number(d.slice(0, 4));
+    return y >= 2000 && y <= 2035;
+  };
   const uid = () => "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
   /* ── 상태 ─────────────────────────────────────────────── */
@@ -167,7 +173,7 @@
     $("#meta-total").innerHTML = `총 <strong>${comma(DATA.contracts.length)}</strong>건`;
     const g = DATA.generatedAt || DATA.meta.generated_at || "";
     $("#meta-collected").textContent = g ? `최근 수집 ${g}` : "수집 시각 없음";
-    const dates = DATA.contracts.map(c => c.contract_date).filter(Boolean).sort();
+    const dates = DATA.contracts.map(c => c.contract_date).filter(validDate).sort();
     const p = DATA.meta.period || {};
     const from = p.from || dates[0] || "–", to = p.to || dates[dates.length - 1] || "–";
     $("#meta-period").textContent = `데이터 기간 ${from} ~ ${to}`;
@@ -209,6 +215,8 @@
     });
     const s = filter.sort;
     rows.sort((a, b) => {
+      const av = validDate(a.contract_date), bv = validDate(b.contract_date);
+      if (av !== bv) return av ? -1 : 1;              // 날짜 이상치는 항상 맨 뒤로
       if (s === "amount-desc") return (b.amount || 0) - (a.amount || 0);
       if (s === "amount-asc") return (a.amount || 0) - (b.amount || 0);
       if (s === "date-asc") return (a.contract_date || "").localeCompare(b.contract_date || "");
@@ -234,7 +242,7 @@
           <td><span class="tag ${esc(c.category)}">${esc(c.category || "-")}</span></td>
           <td>${esc(c.agency || "-")}</td>
           <td class="sub">${esc(c.department || "-")}</td>
-          <td>${esc(c.contract_date || "-")}</td>
+          <td>${esc(c.contract_date || "-")}${validDate(c.contract_date) ? "" : ' <span class="pill" title="원자료 연도 오타로 보입니다">⚠</span>'}</td>
           <td class="title">
             <span class="t" title="${esc(c.title)}">${esc(c.title)}</span>
             ${c.method ? `<span class="sub">${esc(c.method)}</span>` : ""}

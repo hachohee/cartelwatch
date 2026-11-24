@@ -713,7 +713,12 @@ def main():
     prev_status = {s["id"]: s for s in meta.get("agencies", [])}
     for s in status:
         prev_status[s["id"]] = s
-    dates = [c.get("contract_date", "") for c in contracts if c.get("contract_date")]
+    # 원자료 연도 오타(2226년 등)는 데이터 기간 계산에서 제외
+    def _ok_date(v):
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v or ""):
+            return False
+        return 2000 <= int(v[:4]) <= 2035
+    dates = [c.get("contract_date", "") for c in contracts if _ok_date(c.get("contract_date", ""))]
     meta.update({
         "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
         "total": len(contracts),
