@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>카르텔워치 · 강원 공공계약 감시</title>
+<meta name="description" content="강원특별자치도 18개 시군·도청·교육청 공공계약 이상징후 감시 보드">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">CW</div>
+    <div>
+      <h1>카르텔워치</h1>
+      <p>강원 공공계약 감시 보드</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <button class="nav-item active" data-screen="contracts">
+      <span class="ico">📊</span><span>계약 데이터</span><em id="nav-count-contracts">–</em>
+    </button>
+    <button class="nav-item" data-screen="anomalies">
+      <span class="ico">🚨</span><span>이상징후</span><em id="nav-count-anomalies">–</em>
+    </button>
+    <button class="nav-item" data-screen="board">
+      <span class="ico">🗂</span><span>소재 보드</span><em id="nav-count-board">0</em>
+    </button>
+    <button class="nav-item" data-screen="factcheck">
+      <span class="ico">✅</span><span>팩트체크</span><em id="nav-count-fact">0</em>
+    </button>
+  </nav>
+
+  <div class="side-foot">
+    <div class="src-badge" id="source-badge">데이터 확인 중…</div>
+    <p class="side-note">원문 근거(계약번호·금액·계약일·상세 URL)는 항상 표에 남깁니다.<br>수집 스크립트는 <code>scripts/</code>에.</p>
+  </div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <div class="topbar-title" id="screen-title">계약 데이터</div>
+    <div class="topbar-meta">
+      <span id="meta-total">–</span>
+      <span class="dot">·</span>
+      <span id="meta-collected">–</span>
+      <span class="dot">·</span>
+      <span id="meta-period">–</span>
+    </div>
+    <div class="topbar-actions">
+      <span class="badge" id="badge-source">–</span>
+      <button class="btn ghost" id="btn-reload" title="data/*.json 다시 읽기">↻ 새로고침</button>
+    </div>
+  </header>
+
+  <!-- ══════════════════ 1. 계약 데이터 ══════════════════ -->
+  <section class="screen active" id="screen-contracts">
+    <div class="filters card">
+      <div class="frow">
+        <label>구분
+          <select id="f-category"><option value="">전체</option></select>
+        </label>
+        <label>기관
+          <select id="f-agency"><option value="">전체</option></select>
+        </label>
+        <label>부서
+          <input id="f-dept" type="text" placeholder="예: 하수운영과">
+        </label>
+        <label>업체
+          <input id="f-vendor" type="text" placeholder="예: 건설">
+        </label>
+      </div>
+      <div class="frow">
+        <label>계약일
+          <input id="f-from" type="date"> ~ <input id="f-to" type="date">
+        </label>
+        <label>금액(원)
+          <input id="f-amin" type="number" placeholder="최소" step="1000">
+          ~ <input id="f-amax" type="number" placeholder="최대" step="1000">
+        </label>
+        <label class="grow">검색어
+          <input id="f-q" type="search" placeholder="계약명·계약번호·업체명 통합 검색">
+        </label>
+        <button class="btn ghost" id="btn-reset-filter">필터 초기화</button>
+      </div>
+    </div>
+
+    <div class="list-head">
+      <strong id="list-count">0건</strong>
+      <span class="muted" id="list-sum">합계 0원</span>
+      <div class="spacer"></div>
+      <label class="inline">정렬
+        <select id="f-sort">
+          <option value="date-desc">계약일 최신순</option>
+          <option value="amount-desc">금액 높은순</option>
+          <option value="amount-asc">금액 낮은순</option>
+          <option value="date-asc">계약일 오래된순</option>
+        </select>
+      </label>
+      <button class="btn ghost" id="btn-csv">CSV 내려받기</button>
+    </div>
+
+    <div class="table-wrap card">
+      <table class="grid" id="tbl-contracts">
+        <thead>
+          <tr>
+            <th style="width:74px">구분</th>
+            <th style="width:150px">기관</th>
+            <th style="width:120px">부서</th>
+            <th style="width:96px">계약일</th>
+            <th>계약명</th>
+            <th style="width:170px">업체</th>
+            <th style="width:120px" class="num">금액</th>
+            <th style="width:140px">계약번호</th>
+            <th style="width:64px">원문</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="pager" id="pager-contracts"></div>
+    </div>
+
+    <details class="card status-card" id="agency-status" open>
+      <summary>
+        <span class="sum-title">기관별 수집 상태</span>
+        <span class="muted" id="status-summary">–</span>
+        <span class="chev">▾</span>
+      </summary>
+      <div class="table-wrap inner">
+        <table class="grid small" id="tbl-status">
+          <thead>
+            <tr><th style="width:74px">구분</th><th>기관</th><th style="width:100px">상태</th><th style="width:70px" class="num">건수</th><th style="width:150px">마지막 수집</th><th>비고</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">한 기관이 사이트 개편으로 깨져도 나머지는 계속 수집됩니다. <b>실패</b>로 표시된 기관은 <code>python3 scripts/fetch_contracts.py --agency &lt;id&gt;</code>로 따로 돌려 원인을 확인하세요.</p>
+    </details>
+  </section>
+
+  <!-- ══════════════════ 2. 이상징후 ══════════════════ -->
+  <section class="screen" id="screen-anomalies">
+    <div class="anomaly-top card">
+      <div>
+        <h2>4대 탐지 결과</h2>
+        <p class="muted" id="anomaly-headline">–</p>
+      </div>
+      <div class="type-chips" id="type-chips"></div>
+    </div>
+    <div id="anomaly-groups"></div>
+    <p class="hint">탐지 결과는 <b>소재 후보</b>입니다. 위법 여부·고의성은 취재로 확인해야 하며, 카드의 판정 기준(임계치)을 그대로 기사 근거로 쓰지 마세요.</p>
+  </section>
+
+  <!-- ══════════════════ 3. 소재 보드 ══════════════════ -->
+  <section class="screen" id="screen-board">
+    <div class="board-top">
+      <div>
+        <h2>소재 보드</h2>
+        <p class="muted">이상징후 카드에서 ‘소재로 담기’를 누르면 여기로 들어옵니다. 브라우저(localStorage)에 저장됩니다.</p>
+      </div>
+      <div class="board-actions">
+        <button class="btn" id="btn-add-idea">+ 소재 직접 추가</button>
+        <button class="btn ghost" id="btn-export">JSON 내보내기</button>
+        <label class="btn ghost file">JSON 불러오기<input type="file" id="file-import" accept="application/json" hidden></label>
+      </div>
+    </div>
+    <div class="kanban" id="kanban"></div>
+  </section>
+
+  <!-- ══════════════════ 4. 팩트체크 ══════════════════ -->
+  <section class="screen" id="screen-factcheck">
+    <div class="fc-layout">
+      <aside class="fc-list card">
+        <h3>검증할 소재</h3>
+        <p class="muted small">소재 보드 카드를 고르면 체크리스트가 열립니다.</p>
+        <ul id="fc-items"></ul>
+      </aside>
+      <div class="fc-main card" id="fc-main">
+        <div class="empty">
+          <div class="empty-ico">✅</div>
+          <p>왼쪽에서 소재를 고르세요.</p>
+          <p class="muted small">체크 상태는 소재 카드별로 저장되고, JSON 내보내기에 함께 담깁니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 카드 상세 모달 -->
+<div class="modal-backdrop" id="modal-backdrop" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <header>
+      <h3 id="modal-title">소재 카드</h3>
+      <button class="x" id="modal-close" aria-label="닫기">✕</button>
+    </header>
+    <div class="modal-body" id="modal-body"></div>
+    <footer id="modal-foot"></footer>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

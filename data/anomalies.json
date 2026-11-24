@@ -1,0 +1,547 @@
+{
+ "generated_at": "2026-11-24 11:45:54",
+ "base_generated_at": "2026-11-24 11:44:07",
+ "source": "live",
+ "thresholds": {
+  "SPLIT_WINDOW_DAYS": 7,
+  "SPLIT_MIN_COUNT": 2,
+  "SPLIT_MAX_UNIT": 20000000,
+  "SPLIT_MIN_TOTAL": 20000000,
+  "SPLIT_SIMILARITY_MIN": 0.45,
+  "CONCENTRATION_MIN_SHARE": 0.35,
+  "CONCENTRATION_MIN_COUNT": 3,
+  "CONCENTRATION_MIN_AMOUNT": 50000000,
+  "NEWCOMER_MIN_AMOUNT": 100000000,
+  "NEWCOMER_MAX_APPEARANCES": 1,
+  "YEAR_END_START": "12-20",
+  "YEAR_END_MIN_COUNT": 3,
+  "YEAR_END_MIN_SHARE": 0.25
+ },
+ "summary": {
+  "total": 12,
+  "by_type": {
+   "SPLIT": 4,
+   "NEWCOMER": 8
+  },
+  "amount_by_type": {
+   "SPLIT": 107765000,
+   "NEWCOMER": 7835351990
+  }
+ },
+ "contract_stats": {
+  "total": 697,
+  "bad_dates": 1,
+  "with_amount": 696,
+  "with_vendor": 683,
+  "period": [
+   "2026-08-10",
+   "2026-11-25"
+  ]
+ },
+ "anomalies": [
+  {
+   "id": "split-pyeongchang:4aa41c0e72da-pyeongchang:8f8",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "평창군  · 계촌6리(예심이) 둠벙 보수 정비공사",
+   "vendor": "한성토건",
+   "agency": "평창군",
+   "department": "",
+   "amount": 29242000,
+   "count": 2,
+   "summary": "한성토건가 7일 안에 2건을 나눠 받음 · 합산 2,924만 원 (건별 최대 1,695만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 29242000,
+    "건수": 2,
+    "건별금액": [
+     16951000,
+     12291000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "pyeongchang:8f8acc8ee24c",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600113138",
+     "title": "계촌6리(예심이) 둠벙 보수 정비공사",
+     "amount": 16951000,
+     "contract_date": "2026-11-05",
+     "vendor": "한성토건",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113138"
+    },
+    {
+     "id": "pyeongchang:4aa41c0e72da",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600113126",
+     "title": "계촌6리(1880번지 일원) 배수로 정비공사",
+     "amount": 12291000,
+     "contract_date": "2026-11-05",
+     "vendor": "한성토건",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113126"
+    }
+   ]
+  },
+  {
+   "id": "split-pyeongchang:16763ecf93d5-pyeongchang:447",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "평창군  · 입탄리(산52번지 일원) 세천 수해복구공사",
+   "vendor": "정화건설(합)",
+   "agency": "평창군",
+   "department": "",
+   "amount": 28808000,
+   "count": 2,
+   "summary": "정화건설(합)가 7일 안에 2건을 나눠 받음 · 합산 2,881만 원 (건별 최대 1,512만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 28808000,
+    "건수": 2,
+    "건별금액": [
+     15118000,
+     13690000
+    ],
+    "기간": "2026-11-03 ~ 2026-11-03"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "pyeongchang:44760c8c35f1",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600113174",
+     "title": "입탄리(산52번지 일원) 세천 수해복구공사",
+     "amount": 15118000,
+     "contract_date": "2026-11-03",
+     "vendor": "정화건설(합)",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113174"
+    },
+    {
+     "id": "pyeongchang:16763ecf93d5",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600113172",
+     "title": "입탄리(677번지 일원) 사면 수해복구공사",
+     "amount": 13690000,
+     "contract_date": "2026-11-03",
+     "vendor": "정화건설(합)",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113172"
+    }
+   ]
+  },
+  {
+   "id": "split-pyeongchang:2bacd1fb46cf-pyeongchang:3f8",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "평창군  · 수항리(252) 세천 수해복구공사",
+   "vendor": "(주)다우",
+   "agency": "평창군",
+   "department": "",
+   "amount": 26230000,
+   "count": 2,
+   "summary": "(주)다우가 7일 안에 2건을 나눠 받음 · 합산 2,623만 원 (건별 최대 1,462만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 26230000,
+    "건수": 2,
+    "건별금액": [
+     14620000,
+     11610000
+    ],
+    "기간": "2026-10-27 ~ 2026-10-27"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "pyeongchang:2bacd1fb46cf",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600112960",
+     "title": "수항리(252) 세천 수해복구공사",
+     "amount": 14620000,
+     "contract_date": "2026-10-27",
+     "vendor": "(주)다우",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600112960"
+    },
+    {
+     "id": "pyeongchang:3f8dcda2d6d2",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600112959",
+     "title": "아랫쌀면이천(송정리1866-1) 수해복구공사",
+     "amount": 11610000,
+     "contract_date": "2026-10-27",
+     "vendor": "(주)다우",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600112959"
+    }
+   ]
+  },
+  {
+   "id": "split-wonju:848d796b8172-wonju:aeab54746f45",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "원주시 상하수도사업소 하수운영과 · 문막공공하수처리시설 수질원격감시시스템(TMS) 정도검사 대행용역-준공금",
+   "vendor": "주식회사 우석이엔씨",
+   "agency": "원주시 상하수도사업소",
+   "department": "하수운영과",
+   "amount": 23485000,
+   "count": 2,
+   "summary": "주식회사 우석이엔씨가 7일 안에 2건을 나눠 받음 · 합산 2,348만 원 (건별 최대 1,771만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 23485000,
+    "건수": 2,
+    "건별금액": [
+     17710000,
+     5775000
+    ],
+    "기간": "2026-08-18 ~ 2026-08-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "wonju:848d796b8172",
+     "agency": "원주시 상하수도사업소",
+     "department": "하수운영과",
+     "contract_no": "0000006817",
+     "title": "문막공공하수처리시설 수질원격감시시스템(TMS) 정도검사 대행용역-준공금",
+     "amount": 5775000,
+     "contract_date": "2026-08-18",
+     "vendor": "주식회사 우석이엔씨",
+     "detail_url": "https://www.wonju.go.kr/www/viewVTcmSummarylistLf.do?cntrctMngNo=0000006817&pbentCd=932&cpn=5&key=6410"
+    },
+    {
+     "id": "wonju:aeab54746f45",
+     "agency": "원주시 상하수도사업소",
+     "department": "하수운영과",
+     "contract_no": "0000006813",
+     "title": "문막공공하수처리시설 TMS 유지관리 소모품 구입",
+     "amount": 17710000,
+     "contract_date": "2026-08-24",
+     "vendor": "주식회사 우석이엔씨",
+     "detail_url": "https://www.wonju.go.kr/www/viewVTcmSummarylistLf.do?cntrctMngNo=0000006813&pbentCd=932&cpn=4&key=6410"
+    }
+   ]
+  },
+  {
+   "id": "new-주식회사 서화",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강릉시 · 주식회사 서화 첫 등장 22.1억 원",
+   "vendor": "주식회사 서화",
+   "agency": "강릉시",
+   "department": "도로과",
+   "amount": 2206500000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-23 22.1억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-23",
+    "첫 계약금액": 2206500000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "gangneung:b001bed6335d",
+     "agency": "강릉시",
+     "department": "도로과",
+     "contract_no": "144670",
+     "title": "단오문화 해안권 관광도로(구정) 조성사업(2차분)",
+     "amount": 2206500000,
+     "contract_date": "2026-11-23",
+     "vendor": "주식회사 서화",
+     "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144670"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)해인건설",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강릉시 · (주)해인건설 첫 등장 18.9억 원",
+   "vendor": "(주)해인건설",
+   "agency": "강릉시",
+   "department": "체육과",
+   "amount": 1885879000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-23 18.9억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-23",
+    "첫 계약금액": 1885879000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "gangneung:0b971336e1a1",
+     "agency": "강릉시",
+     "department": "체육과",
+     "contract_no": "144669",
+     "title": "강릉시 남부권 수영장 건립공사(건축, 토목)(2차분)",
+     "amount": 1885879000,
+     "contract_date": "2026-11-23",
+     "vendor": "(주)해인건설",
+     "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144669"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)케이지엔지니어링종합건축사사무소",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "원주시 상하수도사업소 · (주)케이지엔지니어링종합건축사사무소 첫 등장 9.2억 원",
+   "vendor": "(주)케이지엔지니어링종합건축사사무소",
+   "agency": "원주시 상하수도사업소",
+   "department": "하수시설과",
+   "amount": 919450000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-08-26 9.2억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-08-26",
+    "첫 계약금액": 919450000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "wonju:e0bb545cb9f3",
+     "agency": "원주시 상하수도사업소",
+     "department": "하수시설과",
+     "contract_no": "0000006828",
+     "title": "흥업처리구역 하수관로 정비사업 기본 및 실시설계용역-선금",
+     "amount": 919450000,
+     "contract_date": "2026-08-26",
+     "vendor": "(주)케이지엔지니어링종합건축사사무소",
+     "detail_url": "https://www.wonju.go.kr/www/viewVTcmSummarylistLf.do?cntrctMngNo=0000006828&pbentCd=932&cpn=3&key=6410"
+    }
+   ]
+  },
+  {
+   "id": "new-주식회사 미진건설",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "평창군 · 주식회사 미진건설 첫 등장 8.2억 원",
+   "vendor": "주식회사 미진건설",
+   "agency": "평창군",
+   "department": "",
+   "amount": 821600950,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-19 8.2억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-19",
+    "첫 계약금액": 821600950,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "pyeongchang:386c7e6c22dd",
+     "agency": "평창군",
+     "department": "",
+     "contract_no": "202600113243",
+     "title": "평창 방림삼베민속 전통문화시설 건립사업(건축)",
+     "amount": 821600950,
+     "contract_date": "2026-11-19",
+     "vendor": "주식회사 미진건설",
+     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113243"
+    }
+   ]
+  },
+  {
+   "id": "new-에스지건설 주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강원특별자치도 · 에스지건설 주식회사 첫 등장 5.8억 원",
+   "vendor": "에스지건설 주식회사",
+   "agency": "강원특별자치도",
+   "department": "",
+   "amount": 580190000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-10-29 5.8억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-10-29",
+    "첫 계약금액": 580190000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "gwd:f63dfbbbf687",
+     "agency": "강원특별자치도",
+     "department": "",
+     "contract_no": "15657",
+     "title": "평창 고길천 상리지구 지방하천 정비사업(2차분)",
+     "amount": 580190000,
+     "contract_date": "2026-10-29",
+     "vendor": "에스지건설 주식회사",
+     "detail_url": "https://confin.gwd.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600116110"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)에스에스전력",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강릉시 · (주)에스에스전력 첫 등장 5.6억 원",
+   "vendor": "(주)에스에스전력",
+   "agency": "강릉시",
+   "department": "주택과",
+   "amount": 561260000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-23 5.6억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-23",
+    "첫 계약금액": 561260000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "gangneung:0c1c840209e1",
+     "agency": "강릉시",
+     "department": "주택과",
+     "contract_no": "144698",
+     "title": "강릉 통합공공임대주택 건립공사(전기)(2차분)",
+     "amount": 561260000,
+     "contract_date": "2026-11-23",
+     "vendor": "(주)에스에스전력",
+     "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144698"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)대한환경산업",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "홍천군 · (주)대한환경산업 첫 등장 4.9억 원",
+   "vendor": "(주)대한환경산업",
+   "agency": "홍천군",
+   "department": "상하수도사업소",
+   "amount": 489227820,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-20 4.9억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-20",
+    "첫 계약금액": 489227820,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "hongcheon:5bb5f5deb226",
+     "agency": "홍천군",
+     "department": "상하수도사업소",
+     "contract_no": "85090",
+     "title": "신대 공공하수처리시설 설치사업 폐기물처리용역",
+     "amount": 489227820,
+     "contract_date": "2026-11-20",
+     "vendor": "(주)대한환경산업",
+     "detail_url": "https://www.hongcheon.go.kr/gyeyak/contract/post/85090"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)와이씨건설",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강원특별자치도 · (주)와이씨건설 첫 등장 3.7억 원",
+   "vendor": "(주)와이씨건설",
+   "agency": "강원특별자치도",
+   "department": "",
+   "amount": 371244220,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-10-26 3.7억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-10-26",
+    "첫 계약금액": 371244220,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "gwd:bad5df17063a",
+     "agency": "강원특별자치도",
+     "department": "",
+     "contract_no": "15648",
+     "title": "2026년 국지도56호선 원암지구 옹벽사면 정비공사",
+     "amount": 371244220,
+     "contract_date": "2026-10-26",
+     "vendor": "(주)와이씨건설",
+     "detail_url": "https://confin.gwd.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600116285"
+    }
+   ]
+  }
+ ]
+}
