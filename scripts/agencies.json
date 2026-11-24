@@ -90,6 +90,7 @@
       "parser": "yanggu_ajax",
       "list_url": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
       "ajax_url": "https://www.yanggu.go.kr/contract/basis/ajaxOptionalList.do",
+      "detail_url": "https://www.yanggu.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo={no}",
       "referer": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
       "row_num": 40,
       "pages": 3,

@@ -492,15 +492,16 @@ def p_yanggu_ajax(ag, http, pages):
             date = (f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:8]}" if re.fullmatch(r"\d{8}", ymd)
                     else norm_date(ymd))
             vendor = (r.get("custNm") or "").strip()
+            no = r.get("ctrtAcctBookMngNo") or ""
             items.append(rec(ag["id"], ag["category"], ag["name"],
                              department=r.get("ctrtGovNm") or "",
-                             contract_no=r.get("ctrtAcctBookMngNo") or "",
+                             contract_no=no,
                              title=r.get("ctrtNm") or "",
                              amount=money(r.get("ctrtAmt")),
                              contract_date=date,
                              vendor="" if is_agency_like(vendor) else vendor,
                              method=r.get("ctrtMeth") or "",
-                             detail_url="",
+                             detail_url=(ag["detail_url"].replace("{no}", no) if ag.get("detail_url") and no else ""),
                              extra={"구분": r.get("ctrtKind") or "",
                                     "사업자등록번호": r.get("bizRegiNo") or "",
                                     "대표자": r.get("repreveHgNm") or "",
