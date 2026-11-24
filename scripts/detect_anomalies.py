@@ -62,8 +62,15 @@ def josa(word, with_batchim, without_batchim):
     w = (word or "").strip()
     if not w:
         return without_batchim
-    ch = w[-1]
-    if not ("가" <= ch <= "힣"):
+    # 끝의 괄호·기호는 건너뛰고 마지막 한글 글자로 판단한다(예: "정화건설(합)")
+    ch = ""
+    for c in reversed(w):
+        if "가" <= c <= "힣":
+            ch = c
+            break
+        if c.isalnum():
+            return without_batchim
+    if not ch:
         return without_batchim
     return with_batchim if (ord(ch) - 0xAC00) % 28 else without_batchim
 
