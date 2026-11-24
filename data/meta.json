@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-24 12:27:52",
+ "generated_at": "2026-11-24 12:29:59",
  "total": 1202,
- "source": "sample",
+ "source": "live",
  "period": {
   "from": "2026-08-10",
   "to": "2026-11-25"
@@ -115,9 +115,9 @@
    "status": "성공",
    "count": 120,
    "pages": 3,
-   "collected_at": "2026-11-24 12:18:59",
+   "collected_at": "2026-11-24 12:29:50",
    "error": "",
-   "elapsed": 4.6
+   "elapsed": 9.2
   },
   {
    "id": "yangyang",

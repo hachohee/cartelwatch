@@ -782,6 +782,9 @@ def main():
     prev_status = {s["id"]: s for s in meta.get("agencies", [])}
     for s in status:
         prev_status[s["id"]] = s
+    # 이번에 성공한 기관이 없더라도, 직전 수집이 실데이터였으면 상태를 유지한다
+    # (한 기관만 재수집하다 실패해 앱이 '샘플 데이터'로 표시되는 것을 막는다)
+    source = "live" if ok_count else (meta.get("source") or "sample")
     # 원자료 연도 오타(2226년 등)는 데이터 기간 계산에서 제외
     def _ok_date(v):
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v or ""):
@@ -791,7 +794,7 @@ def main():
     meta.update({
         "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
         "total": len(contracts),
-        "source": "live" if ok_count else "sample",
+        "source": source,
         "period": {"from": min(dates) if dates else "", "to": max(dates) if dates else ""},
         "agencies": sorted(prev_status.values(), key=lambda s: (s["category"], s["name"])),
     })
