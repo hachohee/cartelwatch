@@ -186,7 +186,7 @@
     // 구분은 고정 분류(수집분에 없어도 필터에 남긴다)
     const catOrder = ["시군", "도청", "교육청", "교육지원청", "학교"];
     const present = new Set(DATA.contracts.map(c => c.category).filter(Boolean));
-    const cats = catOrder.filter(c => present.has(c)).concat([...present].filter(c => !catOrder.includes(c)));
+    const cats = catOrder.concat([...present].filter(c => !catOrder.includes(c)));
     const selCat = $("#f-category");
     selCat.innerHTML = '<option value="">전체</option>' + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
     selCat.value = filter.category;
