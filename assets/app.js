@@ -21,6 +21,7 @@
 
   /* ── 상태 ─────────────────────────────────────────────── */
   const STAGE_LABEL = { review: "검토 전", reporting: "취재 중", factcheck: "팩트체크", published: "발행" };
+  const STAGE_SHORT = { review: "검토", reporting: "취재", factcheck: "팩트", published: "발행" };
   const STAGES = ["review", "reporting", "factcheck", "published"];
   const TYPE_LABEL = { SPLIT: "쪼개기 수수의계약", CONCENTRATION: "일감 몰아주기", NEWCOMER: "신생법인 특혜(의심)", YEAR_END: "연말 예산 밀어내기" };
   const TYPE_DESC = {
@@ -183,7 +184,7 @@
 
   function renderFilters() {
     const cats = [...new Set(DATA.contracts.map(c => c.category).filter(Boolean))];
-    const catOrder = ["시군", "도청", "교육청", "교육지원청"];
+    const catOrder = ["시군", "도청", "교육청", "교육지원청", "학교"];
     cats.sort((a, b) => catOrder.indexOf(a) - catOrder.indexOf(b));
     const selCat = $("#f-category");
     selCat.innerHTML = '<option value="">전체</option>' + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
@@ -438,7 +439,7 @@
                 ${b.contracts && b.contracts.length ? `<span>· 근거 ${b.contracts.length}건</span>` : ""}
               </div>
               <div class="k-move">
-                ${STAGES.map((s, i) => s !== st ? `<button data-move="${b.id}:${s}" title="${STAGE_LABEL[s]}로">${i + 1}</button>` : "").join("")}
+                ${STAGES.filter(x => x !== st).map(s => `<button data-move="${b.id}:${s}" title="${STAGE_LABEL[s]}로 이동">→ ${STAGE_SHORT[s]}</button>`).join("")}
               </div>
             </article>`).join("")
         : `<div class="k-empty">카드를 여기로 끌어다 놓으세요</div>`}

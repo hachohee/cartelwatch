@@ -13,8 +13,8 @@
       "category": "교육청",
       "parser": "goe_keris",
       "list_url": "https://www.gwe.go.kr/open/keris/jaai001f.do?key=bTIzMDUzMTA3NzUwNTg%3D",
-      "pages": 3,
-      "detail_limit": 54,
+      "pages": 7,
+      "detail_limit": 88,
       "note": "교육청 수의계약내역공개. 목록에 금액·업체가 없어 상세페이지를 건별로 열어 보강(교육지원청·각급 학교 포함).",
       "delay_sec": 0.35
     },

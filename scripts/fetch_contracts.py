@@ -477,7 +477,12 @@ def p_goe_keris(ag, http, pages):
             if a:
                 h = a.group(1).replace("&amp;", "&")
                 detail = h if h.startswith("http") else origin + h
-            cat = "교육지원청" if "교육지원청" in inst else "교육청"
+            if "교육지원청" in inst:
+                cat = "교육지원청"
+            elif re.search(r"(학교|유치원|분교|특수교육원|교육연수원|도서관)$", inst):
+                cat = "학교"
+            else:
+                cat = "교육청"
             amount, vendor, method, extra = 0, "", "수의계약", {}
             if detail and detail_done < limit:
                 try:

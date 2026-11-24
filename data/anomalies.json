@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24 11:45:54",
- "base_generated_at": "2026-11-24 11:44:07",
+ "generated_at": "2026-11-24 11:57:20",
+ "base_generated_at": "2026-11-24 11:57:09",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -29,10 +29,10 @@
   }
  },
  "contract_stats": {
-  "total": 697,
+  "total": 739,
   "bad_dates": 1,
-  "with_amount": 696,
-  "with_vendor": 683,
+  "with_amount": 738,
+  "with_vendor": 725,
   "period": [
    "2026-08-10",
    "2026-11-25"

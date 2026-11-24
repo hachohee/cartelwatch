@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-24 11:44:07",
+ "generated_at": "2026-11-24 11:57:09",
  "source": "live",
- "total": 698,
+ "total": 740,
  "contracts": [
   {
    "id": "hongcheon:ecb415e54a02",
@@ -820,7 +820,7 @@
   {
    "id": "goe:f05ed6cd11cb",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "영월중학교",
    "department": "교무부",
    "contract_no": "2026K100001150350019",
@@ -1201,7 +1201,7 @@
   {
    "id": "goe:434bbc3be092",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "치악초등학교",
    "department": "교육행정실",
    "contract_no": "2026K100001392350071",
@@ -1388,7 +1388,7 @@
   {
    "id": "goe:44051aa50070",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "인제고등학교",
    "department": "급식소",
    "contract_no": "2026K100000480250586",
@@ -1463,7 +1463,7 @@
   {
    "id": "goe:9abc8a2bb54b",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "중앙초등학교",
    "department": "교무부",
    "contract_no": "2026K100001382250714",
@@ -1504,7 +1504,7 @@
   {
    "id": "goe:e398033916a2",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "명륜초등학교",
    "department": "늘봄학교부",
    "contract_no": "2026K100001348250833",
@@ -1618,7 +1618,7 @@
   {
    "id": "goe:0963529ccec6",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "상승초등학교",
    "department": "교무실",
    "contract_no": "2026K100002357350045",
@@ -1638,9 +1638,31 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:8e3b92e7784e",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "주봉초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100002254250455",
+   "title": "프린터 토너 구입(교실 및 교무실)",
+   "amount": 1832000,
+   "contract_date": "2026-11-23",
+   "vendor": "대성정보통신(주)",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664776&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "안희순",
+    "주소": "강원 홍천군 홍천읍 큰골길",
+    "계약기간": "2026-11-23 ~ 2026-12-10",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:679c4015160c",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "학성중학교",
    "department": "교무기획부",
    "contract_no": "2026K100001318350049",
@@ -1662,7 +1684,7 @@
   {
    "id": "goe:e538ff4eef5c",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "함태중학교",
    "department": "교무부",
    "contract_no": "2026K100001966250459",
@@ -1702,7 +1724,7 @@
   {
    "id": "goe:85ca94f16daf",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "도창초등학교",
    "department": "교육행정실",
    "contract_no": "2026K100001746350017",
@@ -1724,7 +1746,7 @@
   {
    "id": "goe:7f41e7e4a4ed",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "성림초등학교",
    "department": "늘봄지원실",
    "contract_no": "2026K100003536250508",
@@ -1746,7 +1768,7 @@
   {
    "id": "goe:dddcb719763e",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "인제중학교",
    "department": "교육행정실",
    "contract_no": "2026K100001465250519",
@@ -1768,7 +1790,7 @@
   {
    "id": "goe:4bb83f0319d0",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "평원초등학교",
    "department": "교육행정실",
    "contract_no": "2026K100001395251066",
@@ -1790,7 +1812,7 @@
   {
    "id": "goe:455caeb099be",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "학성초등학교",
    "department": "교무부",
    "contract_no": "2026K100001396250487",
@@ -1812,7 +1834,7 @@
   {
    "id": "goe:e083173488cf",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "대화고등학교",
    "department": "교무부",
    "contract_no": "2026K100000391250500",
@@ -1848,9 +1870,31 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:edd50b7acc76",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "남산초등학교",
+   "department": "늘봄학교",
+   "contract_no": "2026K100002169251070",
+   "title": "늘봄학교 돌봄교실 프로그램 토너 구입",
+   "amount": 1174000,
+   "contract_date": "2026-11-23",
+   "vendor": "(합자)하나오에이정보통신",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664815&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이태규",
+    "주소": "강원 홍천군 홍천읍 석화로3길",
+    "계약기간": "2026-11-23 ~ 2026-12-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "늘봄학교"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:d6dd339e55ea",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "무실빛유치원",
    "department": "교무부",
    "contract_no": "2026K100003959250398",
@@ -1888,7 +1932,7 @@
   {
    "id": "goe:83c26bcbea45",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "하늘빛유치원",
    "department": "교무실(교무)",
    "contract_no": "2026K100003924250812",
@@ -1910,7 +1954,7 @@
   {
    "id": "goe:3c6277b2367e",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "강릉고등학교",
    "department": "교무부",
    "contract_no": "2026K100000354251077",
@@ -1932,7 +1976,7 @@
   {
    "id": "goe:00d9c935c0ba",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "하늘빛유치원",
    "department": "교무실(교무)",
    "contract_no": "2026K100003924250815",
@@ -2005,7 +2049,7 @@
   {
    "id": "goe:c1e64f4efaa9",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "원주중학교",
    "department": "학생안전부",
    "contract_no": "2026K100001311250692",
@@ -2437,6 +2481,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:426fb946a3fd",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "대화고등학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100000391150017",
+   "title": "[s2b] 대화중고등학교 수목 정비 공사",
+   "amount": 9900000,
+   "contract_date": "2026-11-20",
+   "vendor": "주식회사 키움조경",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664241&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이용우",
+    "주소": "강원특별자치도 평창군 평창읍 문화길 66-4",
+    "계약기간": "2026-11-20 ~ 2027-02-04",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "chuncheon:22847b78c970",
    "agency_id": "chuncheon",
    "category": "시군",
@@ -2663,6 +2729,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:77c6a4d2d121",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "평창초등학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100002110251008",
+   "title": "수영장 난방용 유류 구입",
+   "amount": 4433460,
+   "contract_date": "2026-11-20",
+   "vendor": "노성주유소",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664741&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "임철민",
+    "주소": "강원도 평창군 평창읍 평창중앙로 179",
+    "계약기간": "2026-11-20 ~ 2026-12-02",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "hongcheon:d62ffbb62048",
    "agency_id": "hongcheon",
    "category": "시군",
@@ -2695,6 +2783,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:70026e1e3001",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "영서고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000469251727",
+   "title": "(학점제)동물자원과 한우사육 실습재료 구입비 지출",
+   "amount": 3881460,
+   "contract_date": "2026-11-20",
+   "vendor": "원주축산업협동조합",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664633&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "신동훈",
+    "주소": "강원도 원주시 원일로 233",
+    "계약기간": "2026-11-20 ~ 2026-12-17",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:f779e16319bb",
    "agency_id": "donghae",
    "category": "시군",
@@ -2708,6 +2818,28 @@
    "method": "공사",
    "detail_url": "https://www.dh.go.kr/gyeyak/contract/post/84357",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:0f549377b54d",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "교동초등학교",
+   "department": "학생안전부",
+   "contract_no": "2026K100001007251085",
+   "title": "11월 27일 교육공무직 총파업에 따른 대체식품 구입",
+   "amount": 3577820,
+   "contract_date": "2026-11-20",
+   "vendor": "한밭상사",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664101&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "탁순덕",
+    "주소": "강원도 속초시 도리원길 18",
+    "계약기간": "2026-11-20 ~ 2026-11-27",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "학생안전부"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -2726,6 +2858,28 @@
    "extra": {
     "구분": "물품",
     "관서": "본청"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:0c6bc5bccd5a",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "원주청원학교",
+   "department": "교무부",
+   "contract_no": "2026K100002536350116",
+   "title": "2026학년도 가족지원 프로그램 운영 교육 상담비 지급",
+   "amount": 3200000,
+   "contract_date": "2026-11-20",
+   "vendor": "구나심리연구소",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664175&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "김남희",
+    "주소": "강원도 원주시 판부면 매봉길 10-7",
+    "계약기간": "2026-11-20 ~ 2026-11-30",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
    },
    "last_seen": "2026-11-24"
   },
@@ -2765,6 +2919,50 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:64ec1effaad6",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "청봉초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100003741250882",
+   "title": "육성종목 육상선수 훈련용품 구입",
+   "amount": 2614000,
+   "contract_date": "2026-11-20",
+   "vendor": "노스페이스속초점",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664362&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "최점순",
+    "주소": "",
+    "계약기간": "2026-11-20 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:34f2674ef5a2",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "철암고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000505250306",
+   "title": "2026학년도 2학기 학교도서관운영 도서 구입",
+   "amount": 2420900,
+   "contract_date": "2026-11-20",
+   "vendor": "책누리",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664326&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이희재",
+    "주소": "강원 태백시 고원로",
+    "계약기간": "2026-11-20 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:026215001277",
    "agency_id": "donghae",
    "category": "시군",
@@ -2778,6 +2976,28 @@
    "method": "물품",
    "detail_url": "https://www.dh.go.kr/gyeyak/contract/post/84353",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:b4bf1db1c354",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "남부초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100001831350044",
+   "title": "2026년 장애 이해 및 장애인식개선 교육 공연비 지급",
+   "amount": 2400000,
+   "contract_date": "2026-11-20",
+   "vendor": "대구카톨릭대학교",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664603&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "성한기",
+    "주소": "경상북도 경산시 하양읍 하양로 13-13",
+    "계약기간": "2026-11-20 ~ 2026-11-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -2813,6 +3033,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:92b15c9b41cc",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "성북초등학교",
+   "department": "늘봄지원부",
+   "contract_no": "2026K100002459250811",
+   "title": "[카드] 2026학년도 10월 돌봄교실 간식비 지급",
+   "amount": 2280000,
+   "contract_date": "2026-11-20",
+   "vendor": "원주케어푸드",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664552&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "김명래",
+    "주소": "강원특별자치도 원주시 소초면 섬배로 245-1",
+    "계약기간": "2026-11-20 ~ 2026-11-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "늘봄지원부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:12848c0274dd",
    "agency_id": "donghae",
    "category": "시군",
@@ -2826,6 +3068,50 @@
    "method": "공사",
    "detail_url": "https://www.dh.go.kr/gyeyak/contract/post/84345",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:4cad3871f0bb",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "영월중학교",
+   "department": "교무부",
+   "contract_no": "2026K100001150350018",
+   "title": "진로(탐색) 주간 운영(종이비행기 국가대표팀 레쳐 콘서트) 체험비",
+   "amount": 2180000,
+   "contract_date": "2026-11-20",
+   "vendor": "(주)위플레이",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664341&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이정욱",
+    "주소": "서울 마포구 월드컵로12길",
+    "계약기간": "2026-11-20 ~ 2026-12-04",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:fc3ecc0866f5",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "함태중학교",
+   "department": "교무부",
+   "contract_no": "2026K100001966250457",
+   "title": "2026 수학교육 공모사업(수학나눔, 수학탐구) 운영물품 및 간식 구입비 지급",
+   "amount": 2087890,
+   "contract_date": "2026-11-20",
+   "vendor": "이베이코리아 유한책임회사(G마켓,옥션)",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664205&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "변광윤",
+    "주소": "서울특별시 강남구 테헤란로 152",
+    "계약기간": "2026-11-20 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -2848,6 +3134,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:188a99b1c83d",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "현성초등학교",
+   "department": "행정실",
+   "contract_no": "2026K100001047150011",
+   "title": "조리종사원 휴게실 유해 환경 개선 공사",
+   "amount": 2053000,
+   "contract_date": "2026-11-20",
+   "vendor": "주식회사 하나전기",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664802&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "황금순",
+    "주소": "강원 양양군 양양읍 양양로",
+    "계약기간": "2026-11-20 ~ 2026-12-04",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "gangneung:fd4ba65fbccd",
    "agency_id": "gangneung",
    "category": "시군",
@@ -2861,6 +3169,28 @@
    "method": "물품",
    "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144616",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:58fbf852925c",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "사북초등학교",
+   "department": "안전생활부",
+   "contract_no": "2026K100001645250503",
+   "title": "2026학년도 늘봄학교 돌봄교실1,2교실 학습재료 구입",
+   "amount": 1995970,
+   "contract_date": "2026-11-20",
+   "vendor": "주식회사 아이스크림미디어",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664260&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "허주환",
+    "주소": "경기도 성남시 분당구 판교역로 225-20",
+    "계약기간": "2026-11-20 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "안전생활부"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -2896,6 +3226,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:7946e37494fb",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "삼일고등학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100000425250274",
+   "title": "중식 식재료(쌀,친환경찹쌀) 구입비 인출",
+   "amount": 1980000,
+   "contract_date": "2026-11-20",
+   "vendor": "삼척시농축협연합사업단",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664286&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "",
+    "주소": "",
+    "계약기간": "2026-11-20 ~ 2026-12-06",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "chuncheon:4588b8f021ea",
    "agency_id": "chuncheon",
    "category": "시군",
@@ -2915,6 +3267,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:5a32ebb8f50a",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "화천중학교",
+   "department": "교무기획부",
+   "contract_no": "2026K100002329250576",
+   "title": "[카드] 조정부 훈련용품 구입",
+   "amount": 1790000,
+   "contract_date": "2026-11-20",
+   "vendor": "미즈노 춘천점",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664816&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "윤태현",
+    "주소": "",
+    "계약기간": "2026-11-20 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무기획부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:d3404557546e",
    "agency_id": "donghae",
    "category": "시군",
@@ -2928,6 +3302,50 @@
    "method": "물품",
    "detail_url": "https://www.dh.go.kr/gyeyak/contract/post/84355",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:86bb3bf570e5",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "화천초등학교",
+   "department": "식생활관",
+   "contract_no": "2026K100002375250933",
+   "title": "교육공무직 노동조합 파업에 따른 대체식 구입비 지출",
+   "amount": 1749860,
+   "contract_date": "2026-11-20",
+   "vendor": "화천푸드",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664747&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "한도희",
+    "주소": "강원도 화천군 하남면 계파로 74-10",
+    "계약기간": "2026-11-20 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "식생활관"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:dde4cd463831",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "협신초등학교",
+   "department": "행정실",
+   "contract_no": "2026K100002279350018",
+   "title": "[원인] 오수처리시설 에어펌프 교체 작업",
+   "amount": 1705000,
+   "contract_date": "2026-11-20",
+   "vendor": "(자)대한환경건설",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664124&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "장도문",
+    "주소": "강원도 춘천시 동내면 학곡서3길 20-8",
+    "계약기간": "2026-11-20 ~ 2026-12-17",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "행정실"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -2950,6 +3368,50 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:49b7979d81a1",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "원주청원학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100002536150023",
+   "title": "화장실 및 교실 벽체 수리",
+   "amount": 1541000,
+   "contract_date": "2026-11-20",
+   "vendor": "보성E.N.G",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664173&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "송상규",
+    "주소": "강원 원주시 치악로",
+    "계약기간": "2026-11-20 ~ 2026-11-22",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:da56f95edaf9",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "홍천남산유치원",
+   "department": "교육행정실",
+   "contract_no": "2026K100004014250514",
+   "title": "원장실 프린터 토너 구입",
+   "amount": 1518000,
+   "contract_date": "2026-11-20",
+   "vendor": "하나OA정보통신",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664531&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "",
+    "주소": "",
+    "계약기간": "2026-11-20 ~ 2026-12-23",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "hongcheon:612d201f0117",
    "agency_id": "hongcheon",
    "category": "시군",
@@ -2966,9 +3428,53 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:16d62120dfb7",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "사천중학교",
+   "department": "교무부",
+   "contract_no": "2026K100000559250347",
+   "title": "[S2B]복사기 및 프린터 토너구입",
+   "amount": 1408000,
+   "contract_date": "2026-11-20",
+   "vendor": "그린IT",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664568&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이준일",
+    "주소": "강원 강릉시 성덕포남로206번길",
+    "계약기간": "2026-11-20 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:0578536d35bc",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "영서고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000469251717",
+   "title": "(원주시 교육특구 직업계고 재구조화 활성화사업)생활원예과 수업재료 구입비 지출",
+   "amount": 1400000,
+   "contract_date": "2026-11-20",
+   "vendor": "원주꽃집 연수갤러리",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664291&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이금연",
+    "주소": "강원도 원주시 천사로 73",
+    "계약기간": "2026-11-20 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:29f21f7bd840",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "명주초등학교",
    "department": "급식소",
    "contract_no": "2026K100000587250780",
@@ -2988,9 +3494,53 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:792f4f1c2a7d",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "강동초등학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100000566150016",
+   "title": "주차장조성공사 부지 미사용 상수도 폐전공사",
+   "amount": 1342000,
+   "contract_date": "2026-11-20",
+   "vendor": "(주) 도시건설",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664717&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "김정아",
+    "주소": "강원도 강릉시 한밭골길 76-29",
+    "계약기간": "2026-11-20 ~ 2026-11-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:0635a456c75c",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "샘마루초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100004018251266",
+   "title": "2026 병설유치원 장애이해교육 관련 그림책 구입비 지급",
+   "amount": 1335800,
+   "contract_date": "2026-11-20",
+   "vendor": "예스이십사(주)",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664620&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "김석환, 최세라",
+    "주소": "서울특별시 영등포구 은행로 11",
+    "계약기간": "2026-11-20 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:78c55c267c33",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "방림초등학교",
    "department": "교무실",
    "contract_no": "2026K100002077250422",
@@ -3010,9 +3560,31 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:6db1a4d3a56d",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "주문진초등학교",
+   "department": "식생활관",
+   "contract_no": "2026K100000644250978",
+   "title": "2026년 11월 급식용 친환경쌀(찹쌀) 구입",
+   "amount": 1291500,
+   "contract_date": "2026-11-20",
+   "vendor": "강릉농협왕산지점",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664537&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "최장길",
+    "주소": "강원도 강릉시 왕산면 백두대간로 1989",
+    "계약기간": "2026-11-20 ~ 2026-11-30",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "식생활관"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:4b2d2bd47f48",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "하늘빛유치원",
    "department": "교무실(교무)",
    "contract_no": "2026K100003924250806",
@@ -3032,9 +3604,31 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:4eef501bdc73",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "샘마루초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100004018251265",
+   "title": "2026학년도 2학기 장애인식개선교육에 따른 행사 운영 물품 구입비 지급",
+   "amount": 1198000,
+   "contract_date": "2026-11-20",
+   "vendor": "(주)오티스타",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664619&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이소현",
+    "주소": "서울특별시 마포구 잔다리로 44",
+    "계약기간": "2026-11-20 ~ 2026-11-27",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:bb4e4c263f57",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "황지중학교",
    "department": "교육행정실",
    "contract_no": "2026K100001968250668",
@@ -3054,9 +3648,53 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:6674b6081b26",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "원주청원학교",
+   "department": "방과후정보부",
+   "contract_no": "2026K100002536251419",
+   "title": "정보부 전산소모품(토너, 폐토너통) 구입",
+   "amount": 1120000,
+   "contract_date": "2026-11-20",
+   "vendor": "주식회사 원주사무기",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664174&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "민순기",
+    "주소": "강원 원주시 서원대로",
+    "계약기간": "2026-11-20 ~ 2026-12-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "방과후정보부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:47e5329bee99",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "강림중학교",
+   "department": "교무부",
+   "contract_no": "2026K100002400250204",
+   "title": "방송실 운영을 위한 물품 구입",
+   "amount": 1100000,
+   "contract_date": "2026-11-20",
+   "vendor": "SPA LIGHT",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664125&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이후림",
+    "주소": "강원특별자치도 원주시 흥업면 사제로 207",
+    "계약기간": "2026-11-20 ~ 2026-11-27",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:83a9f804fc7b",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "황지중학교",
    "department": "교육행정실",
    "contract_no": "2026K100001968250671",
@@ -3076,9 +3714,31 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:a3cfbb5773da",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "강릉고등학교",
+   "department": "학생안전부",
+   "contract_no": "2026K100000354251064",
+   "title": "보건실 약품 및 처치물품 구매",
+   "amount": 1093700,
+   "contract_date": "2026-11-20",
+   "vendor": "(주)이메딕팜넷",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664323&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이영",
+    "주소": "서울특별시 송파구 삼전로12길 9",
+    "계약기간": "2026-11-20 ~ 2026-12-16",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "학생안전부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:07a6e1a54375",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "임당초등학교",
    "department": "교무부",
    "contract_no": "2026K100001120350037",
@@ -3098,9 +3758,75 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:7c32223d6fb8",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "대룡중학교",
+   "department": "급식소",
+   "contract_no": "2026K100003737251020",
+   "title": "2026년 11월 학교급식용 일반미 구입",
+   "amount": 1065000,
+   "contract_date": "2026-11-20",
+   "vendor": "재단법인 춘천지역먹거리통합지원센터",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664270&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "강민구",
+    "주소": "강원특별자치도 춘천시 마장길 39",
+    "계약기간": "2026-11-20 ~ 2026-12-13",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "급식소"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:108bf2d602e8",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "횡성고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000546250462",
+   "title": "2027학년도 대학수학능력시험 시험장 중식(급식) 식재료 구입",
+   "amount": 1026000,
+   "contract_date": "2026-11-20",
+   "vendor": "횡성유통",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664564&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "",
+    "주소": "",
+    "계약기간": "2026-11-20 ~ 2026-12-13",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:241440587305",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "강릉정보공업고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000362250152",
+   "title": "[NCS]소프트웨어과(캐릭터제작실) 컬러복사기 토너 구입",
+   "amount": 1012000,
+   "contract_date": "2026-11-20",
+   "vendor": "그린IT",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664325&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이준일",
+    "주소": "강원 강릉시 성덕포남로206번길",
+    "계약기간": "2026-11-20 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "goe:5cc16afcbc4f",
    "agency_id": "goe",
-   "category": "교육청",
+   "category": "학교",
    "agency": "평창초등학교",
    "department": "교무부",
    "contract_no": "2026K100002110251014",
@@ -3114,6 +3840,28 @@
     "대표자": "",
     "주소": "",
     "계약기간": "2026-11-20 ~ 2026-12-12",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:76a827ec195d",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "신남고등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000448250331",
+   "title": "[카드] 청솔제 행사 운영용품 구입비 지급",
+   "amount": 1000000,
+   "contract_date": "2026-11-20",
+   "vendor": "스쿨투미",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664137&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "이은영",
+    "주소": "강원 춘천시 후석로326번길",
+    "계약기간": "2026-11-20 ~ 2026-12-16",
     "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
     "사업장소": "교무부"
    },
@@ -4188,6 +4936,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:fb4eb95846ab",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "서부초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100000900250576",
+   "title": "2026 교육감기 학년별 수영대회 출전을 위한 단체복 구입비 지급",
+   "amount": 3927000,
+   "contract_date": "2026-11-19",
+   "vendor": "뉴발란스",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664250&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "최근식",
+    "주소": "",
+    "계약기간": "2026-11-19 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "chuncheon:948ea1315511",
    "agency_id": "chuncheon",
    "category": "시군",
@@ -4325,6 +5095,94 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:a69b95a27491",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "동해상업고등학교",
+   "department": "식생활관",
+   "contract_no": "2026K100000402250617",
+   "title": "11월 친환경 쌀 및 찹쌀 구입",
+   "amount": 2252000,
+   "contract_date": "2026-11-19",
+   "vendor": "묵호농업협동조합",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664211&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "장상억",
+    "주소": "강원도 동해시 발한로 120",
+    "계약기간": "2026-11-19 ~ 2026-12-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "식생활관"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:e8fe2025ca44",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "중앙초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100001884250494",
+   "title": "늘봄학교 11월 맞춤형 프로그램 교재 및 재료",
+   "amount": 2079950,
+   "contract_date": "2026-11-19",
+   "vendor": "영재문구춘천석사점",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664350&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "최문희",
+    "주소": "",
+    "계약기간": "2026-11-19 ~ 2026-11-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:5097d06c26df",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "신철원초등학교",
+   "department": "교무부",
+   "contract_no": "2026K100001754251302",
+   "title": "2026학년도 4학년 진로체험학습 경비 지출",
+   "amount": 2006000,
+   "contract_date": "2026-11-19",
+   "vendor": "주식회사 MBC PlayBe",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664226&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "강제형",
+    "주소": "서울특별시 송파구 올림픽로 240",
+    "계약기간": "2026-11-19 ~ 2026-11-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:dde985fcbdcc",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "부평초등학교",
+   "department": "교육행정실",
+   "contract_no": "2026K100001492250527",
+   "title": "통학차량(72오9751) 프리히터 어셈블리 교환비 지급",
+   "amount": 1947000,
+   "contract_date": "2026-11-19",
+   "vendor": "조양카센터",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664112&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "박정태",
+    "주소": "강원도 춘천시 신동면 김유정로 1205",
+    "계약기간": "2026-11-19 ~ 2026-12-18",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교육행정실"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:d60bc4ebabb8",
    "agency_id": "donghae",
    "category": "시군",
@@ -4354,6 +5212,28 @@
    "method": "용역",
    "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144689",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:e377c8d89bee",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "속초해랑중학교",
+   "department": "교무부",
+   "contract_no": "2026K100000996250877",
+   "title": "[카드]2026학년도 2학년 학습도약시기 운영 물품 구입",
+   "amount": 1392840,
+   "contract_date": "2026-11-19",
+   "vendor": "코리아보드게임즈",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664251&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "김길오",
+    "주소": "경기도 파주시 탄현면 요풍길 10",
+    "계약기간": "2026-11-19 ~ 2026-12-17",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무부"
+   },
    "last_seen": "2026-11-24"
   },
   {
@@ -4389,6 +5269,28 @@
    "last_seen": "2026-11-24"
   },
   {
+   "id": "goe:08ab9433e6cb",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "신철원초등학교",
+   "department": "유치원",
+   "contract_no": "2026K100001754251297",
+   "title": "유치원 11월 찾아오는 체험활동(요리) 체험비 지출",
+   "amount": 1040000,
+   "contract_date": "2026-11-19",
+   "vendor": "쿠킹카페",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=663854&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "엄숙자",
+    "주소": "강원도 철원군 갈말읍 명성로139번길 33-1",
+    "계약기간": "2026-11-19 ~ 2026-11-19",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "유치원"
+   },
+   "last_seen": "2026-11-24"
+  },
+  {
    "id": "donghae:869fae4d3e98",
    "agency_id": "donghae",
    "category": "시군",
@@ -4402,6 +5304,28 @@
    "method": "용역",
    "detail_url": "https://www.dh.go.kr/gyeyak/contract/post/84330",
    "extra": {},
+   "last_seen": "2026-11-24"
+  },
+  {
+   "id": "goe:b9e3baf6f5d8",
+   "agency_id": "goe",
+   "category": "학교",
+   "agency": "손양초등학교",
+   "department": "교무실",
+   "contract_no": "2026K100001020350038",
+   "title": "2026 교직원 더배움공동체 연수(요리공예) 체험비 지급",
+   "amount": 1000000,
+   "contract_date": "2026-11-19",
+   "vendor": "은래쿠킹스튜디오",
+   "method": "수의계약",
+   "detail_url": "https://www.gwe.go.kr/open/keris/jaai001f/view.do?viewSn=664018&key=bTIzMDUzMTA3NzUwNTg=",
+   "extra": {
+    "대표자": "최은래",
+    "주소": "강원특별자치도 양양군 양양읍 양양로 105",
+    "계약기간": "2026-11-19 ~ 2026-11-20",
+    "수의계약사유": "나. 추정가격이 2천만원 이하인 물품의 제조ㆍ구매계약 또는 용역계약 [ 지방계약법 시행령 제25조 제1항 제5호 나목 ]",
+    "사업장소": "교무실"
+   },
    "last_seen": "2026-11-24"
   },
   {
