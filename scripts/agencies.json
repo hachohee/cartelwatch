@@ -87,25 +87,22 @@
       "id": "yanggu",
       "name": "양구군",
       "category": "시군",
-      "parser": "auto",
-      "list_url": "https://www.yanggu.go.kr/contract/continfo",
+      "parser": "yanggu_ajax",
+      "list_url": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
+      "ajax_url": "https://www.yanggu.go.kr/contract/basis/ajaxOptionalList.do",
+      "referer": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
+      "row_num": 40,
       "pages": 3,
-      "note": "양구군 계약정보공개시스템. 목록이 AJAX(jqGrid)로 그려져 정적 HTML 수집 불가 — 수동 확인 필요.",
-      "probe_urls": [
-        "https://www.yanggu.go.kr/contract/continfo"
-      ]
+      "note": "양구군 계약정보공개시스템 중 수의계약현황. 목록이 jqGrid(AJAX)로 그려져 정적 HTML에 표가 없어, 화면 스크립트가 쓰는 ajaxOptionalList.do(JSON)를 직접 호출."
     },
     {
       "id": "yeongwol",
       "name": "영월군",
       "category": "시군",
-      "parser": "auto",
+      "parser": "confin_post",
       "list_url": "https://www.yw.go.kr/confin/contract/continfo",
-      "pages": 3,
-      "note": "영월군 세입세출 계약정보공개. 목록이 AJAX로 그려져 정적 HTML 수집 불가 — 수동 확인 필요.",
-      "probe_urls": [
-        "https://www.yw.go.kr/confin/contract/continfo"
-      ]
+      "pages": 8,
+      "note": "영월군 세입세출 계약정보공개(계약현황 전체). 목록 URL은 /confin/contract/continfo(하위 /contract 는 표 없는 안내 페이지). POST pageIndex 페이지네이션."
     },
     {
       "id": "jeongseon",
@@ -144,12 +141,10 @@
       "id": "taebaek",
       "name": "태백시",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.taebaek.go.kr/contract/continfo",
-        "https://www.taebaek.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "gyeyak",
+      "list_url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
+      "pages": 8,
+      "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 홈페이지의 '계약정보공개' 링크가 이 시스템으로 연결. 웹방화벽이 데이터센터 IP의 자동 요청을 차단하는 경우가 있어 실패 시 meta.json에 사유가 남는다."
     },
     {
       "id": "sokcho",
@@ -166,12 +161,10 @@
       "id": "hoengseong",
       "name": "횡성군",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.hsg.go.kr/contract/continfo",
-        "https://www.hsg.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "gyeyak",
+      "list_url": "https://gyeyak.hsg.go.kr/contract/lists?p={page}",
+      "pages": 8,
+      "note": "횡성군 계약정보공개시스템(gyeyak.hsg.go.kr, 계약현황 전체). 군청 홈페이지 '계약정보공개' 메뉴가 이 시스템으로 연결."
     },
     {
       "id": "cheorwon",
@@ -210,23 +203,19 @@
       "id": "goseong",
       "name": "고성군",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.goseong.go.kr/contract/continfo",
-        "https://www.goseong.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "gyeyak",
+      "list_url": "https://www.gwgs.go.kr/gyeyak/contract/lists?p={page}",
+      "pages": 8,
+      "note": "고성군(강원) 계약정보공개시스템. 군청 주소는 www.gwgs.go.kr이며 www.goseong.go.kr 은 경남 고성군이라 쓰면 안 된다."
     },
     {
       "id": "yangyang",
       "name": "양양군",
       "category": "시군",
-      "parser": "auto",
-      "probe_urls": [
-        "https://www.yangyang.go.kr/contract/continfo",
-        "https://www.yangyang.go.kr/gyeyak/contract/lists"
-      ],
-      "pages": 2
+      "parser": "gyeyak",
+      "list_url": "http://gyeyak.yangyang.go.kr/contract/lists?p={page}",
+      "pages": 8,
+      "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지)."
     }
   ]
 }

@@ -95,8 +95,13 @@ class Http:
             h.update(headers)
         body = None
         if data is not None:
-            body = urllib.parse.urlencode(data).encode("utf-8")
-            h.setdefault("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+            if isinstance(data, (str, bytes)):
+                # JSON 본문처럼 이미 직렬화된 요청 본문(양구군 jqGrid AJAX 등)
+                body = data.encode("utf-8") if isinstance(data, str) else data
+                h.setdefault("Content-Type", "application/json; charset=UTF-8")
+            else:
+                body = urllib.parse.urlencode(data).encode("utf-8")
+                h.setdefault("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
 
         last_err = None
         for attempt in range(1, self.retries + 1):
@@ -276,8 +281,13 @@ def p_wonju_table(ag, http, pages):
 
 
 def p_gyeyak(ag, http, pages):
-    """계약정보공개시스템 공통(강릉·동해·홍천). ul.ul-body 목록 구조."""
+    """계약정보공개시스템(gyeyak) 공통 파서.
+
+    강릉·동해·홍천·횡성·양양·고성·태백이 같은 CMS를 쓴다. ul.ul-body 목록 구조.
+    페이지 이동: GET ?p=N
+    """
     items = []
+    origin = "/".join(ag["list_url"].split("/")[:3])
     for pg in range(1, pages + 1):
         url = ag["list_url"].replace("{page}", str(pg))
         html = http.fetch(url)
@@ -292,6 +302,13 @@ def p_gyeyak(ag, http, pages):
             depts = re.findall(r'<li class="dept[^"]*"[^>]*>(.*?)</li>', b, re.S)
             depts = [txt(d) for d in depts]
             dept = depts[1] if len(depts) > 1 else (depts[0] if depts else "")
+            detail = ""
+            if href:
+                detail = href.group(1)
+                if detail.startswith("/"):
+                    detail = origin + detail
+                elif not detail.startswith("http"):
+                    detail = origin + "/" + detail.lstrip("./")
             items.append(rec(ag["id"], ag["category"], ag["name"],
                              department=dept,
                              contract_no=(mno.group(1) if mno else ""),
@@ -300,7 +317,7 @@ def p_gyeyak(ag, http, pages):
                              contract_date=norm_date(li("date")),
                              vendor=txt(li("cust-nm")),
                              method=txt(li("category")),
-                             detail_url=(href.group(1) if href else ""),
+                             detail_url=detail,
                              extra={}))
             found += 1
         print(f"    · {ag['name']} {pg}페이지 {found}건")
@@ -448,6 +465,52 @@ def p_table_post_multi(ag, http, pages):
     return items
 
 
+def p_yanggu_ajax(ag, http, pages):
+    """양구군 수의계약현황(jqGrid 목록).
+
+    HTML 표가 없고 ajaxOptionalList.do 가 JSON 을 돌려준다. 화면 스크립트
+    (js/basis/optionalList.js)가 쓰는 파라미터를 그대로 보낸다.
+    """
+    items = []
+    row_num = int(ag.get("row_num", 50))
+    for pg in range(1, pages + 1):
+        payload = json.dumps({
+            "page": pg, "rowNum": row_num,
+            "ctrtGovCd": "", "ctrtNm": "", "custNm": "", "ctrtKindCd": "",
+            "ctrtAmtFr": "", "ctrtAmtTo": "", "ctrtYmdFr": "", "ctrtYmdTo": "",
+        }, ensure_ascii=False)
+        raw = http.fetch(ag["ajax_url"], data=payload, headers={
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "X-Requested-With": "XMLHttpRequest",
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "Referer": ag.get("referer", ag["ajax_url"]),
+        })
+        data = json.loads(raw)
+        rows = data.get("dataList") or []
+        for r in rows:
+            ymd = str(r.get("ctrtYmd") or "")
+            date = (f"{ymd[:4]}-{ymd[4:6]}-{ymd[6:8]}" if re.fullmatch(r"\d{8}", ymd)
+                    else norm_date(ymd))
+            vendor = (r.get("custNm") or "").strip()
+            items.append(rec(ag["id"], ag["category"], ag["name"],
+                             department=r.get("ctrtGovNm") or "",
+                             contract_no=r.get("ctrtAcctBookMngNo") or "",
+                             title=r.get("ctrtNm") or "",
+                             amount=money(r.get("ctrtAmt")),
+                             contract_date=date,
+                             vendor="" if is_agency_like(vendor) else vendor,
+                             method=r.get("ctrtMeth") or "",
+                             detail_url="",
+                             extra={"구분": r.get("ctrtKind") or "",
+                                    "사업자등록번호": r.get("bizRegiNo") or "",
+                                    "대표자": r.get("repreveHgNm") or "",
+                                    "주소": r.get("basicAddr") or ""}))
+        print(f"    · {ag['name']} {pg}페이지 {len(rows)}건 / 전체 {data.get('totalCount')}건")
+        if len(rows) < row_num:
+            break
+    return items
+
+
 def p_goe_keris(ag, http, pages):
     """강원특별자치도교육청 수의계약내역공개(교육지원청·각급 학교 포함).
 
@@ -519,6 +582,7 @@ def p_goe_keris(ag, http, pages):
 
 
 PARSERS = {
+    "yanggu_ajax": p_yanggu_ajax,
     "chuncheon": p_chuncheon,
     "wonju_table": p_wonju_table,
     "gyeyak": p_gyeyak,

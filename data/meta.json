@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-11-24 11:57:09",
- "total": 740,
- "source": "live",
+ "generated_at": "2026-11-24 12:27:52",
+ "total": 1202,
+ "source": "sample",
  "period": {
   "from": "2026-08-10",
   "to": "2026-11-25"
@@ -31,9 +31,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 11:43:08",
+   "collected_at": "2026-11-24 12:26:54",
    "error": "",
-   "elapsed": 7.2
+   "elapsed": 6.9
   },
   {
    "id": "gangneung",
@@ -45,23 +45,23 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 11:41:37",
+   "collected_at": "2026-11-24 12:25:14",
    "error": "",
-   "elapsed": 55.7
+   "elapsed": 26.8
   },
   {
    "id": "goseong",
    "name": "고성군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.goseong.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:35:28",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 13.7
+   "parser": "gyeyak",
+   "url": "https://www.gwgs.go.kr/gyeyak/contract/lists?p={page}",
+   "note": "고성군(강원) 계약정보공개시스템. 군청 주소는 www.gwgs.go.kr이며 www.goseong.go.kr 은 경남 고성군이라 쓰면 안 된다.",
+   "status": "성공",
+   "count": 80,
+   "pages": 8,
+   "collected_at": "2026-11-24 12:19:30",
+   "error": "",
+   "elapsed": 13.1
   },
   {
    "id": "donghae",
@@ -73,9 +73,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 11:42:32",
+   "collected_at": "2026-11-24 12:25:41",
    "error": "",
-   "elapsed": 11.2
+   "elapsed": 12.3
   },
   {
    "id": "samcheok",
@@ -109,43 +109,43 @@
    "id": "yanggu",
    "name": "양구군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.yanggu.go.kr/contract/continfo",
-   "note": "양구군 계약정보공개시스템. 목록이 AJAX(jqGrid)로 그려져 정적 HTML 수집 불가 — 수동 확인 필요.",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:01",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 7.6
+   "parser": "yanggu_ajax",
+   "url": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
+   "note": "양구군 계약정보공개시스템 중 수의계약현황. 목록이 jqGrid(AJAX)로 그려져 정적 HTML에 표가 없어, 화면 스크립트가 쓰는 ajaxOptionalList.do(JSON)를 직접 호출.",
+   "status": "성공",
+   "count": 120,
+   "pages": 3,
+   "collected_at": "2026-11-24 12:18:59",
+   "error": "",
+   "elapsed": 4.6
   },
   {
    "id": "yangyang",
    "name": "양양군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.yangyang.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:35:42",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 23.1
+   "parser": "gyeyak",
+   "url": "http://gyeyak.yangyang.go.kr/contract/lists?p={page}",
+   "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지).",
+   "status": "성공",
+   "count": 80,
+   "pages": 8,
+   "collected_at": "2026-11-24 12:19:43",
+   "error": "",
+   "elapsed": 22.4
   },
   {
    "id": "yeongwol",
    "name": "영월군",
    "category": "시군",
-   "parser": "auto",
+   "parser": "confin_post",
    "url": "https://www.yw.go.kr/confin/contract/continfo",
-   "note": "영월군 세입세출 계약정보공개. 목록이 AJAX로 그려져 정적 HTML 수집 불가 — 수동 확인 필요.",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:08",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 1.6
+   "note": "영월군 세입세출 계약정보공개(계약현황 전체). 목록 URL은 /confin/contract/continfo(하위 /contract 는 표 없는 안내 페이지). POST pageIndex 페이지네이션.",
+   "status": "성공",
+   "count": 80,
+   "pages": 8,
+   "collected_at": "2026-11-24 12:19:04",
+   "error": "",
+   "elapsed": 8.1
   },
   {
    "id": "wonju",
@@ -157,9 +157,9 @@
    "status": "성공",
    "count": 60,
    "pages": 6,
-   "collected_at": "2026-11-24 11:41:11",
+   "collected_at": "2026-11-24 12:26:27",
    "error": "",
-   "elapsed": 25.9
+   "elapsed": 26.5
   },
   {
    "id": "inje",
@@ -185,9 +185,9 @@
    "status": "성공",
    "count": 90,
    "pages": 3,
-   "collected_at": "2026-11-24 11:43:22",
+   "collected_at": "2026-11-24 12:27:13",
    "error": "",
-   "elapsed": 44.9
+   "elapsed": 28.4
   },
   {
    "id": "cheorwon",
@@ -213,23 +213,23 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 11:41:02",
+   "collected_at": "2026-11-24 12:26:17",
    "error": "",
-   "elapsed": 8.9
+   "elapsed": 9.9
   },
   {
    "id": "taebaek",
    "name": "태백시",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.taebaek.go.kr/contract/continfo",
-   "note": "",
+   "parser": "gyeyak",
+   "url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
+   "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 홈페이지의 '계약정보공개' 링크가 이 시스템으로 연결. 웹방화벽이 데이터센터 IP의 자동 요청을 차단하는 경우가 있어 실패 시 meta.json에 사유가 남는다.",
    "status": "실패",
    "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:15",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 3.2
+   "pages": 8,
+   "collected_at": "2026-11-24 12:27:43",
+   "error": "fetch failed: https://ehojo.taebaek.go.kr/contract/lists?p=1 (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>)",
+   "elapsed": 8.8
   },
   {
    "id": "pyeongchang",
@@ -241,9 +241,9 @@
    "status": "성공",
    "count": 120,
    "pages": 8,
-   "collected_at": "2026-11-24 11:43:15",
+   "collected_at": "2026-11-24 12:27:01",
    "error": "",
-   "elapsed": 6.5
+   "elapsed": 11.8
   },
   {
    "id": "hongcheon",
@@ -255,9 +255,9 @@
    "status": "성공",
    "count": 80,
    "pages": 8,
-   "collected_at": "2026-11-24 11:42:46",
+   "collected_at": "2026-11-24 12:25:53",
    "error": "",
-   "elapsed": 21.9
+   "elapsed": 20.5
   },
   {
    "id": "hwacheon",
@@ -277,15 +277,15 @@
    "id": "hoengseong",
    "name": "횡성군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.hsg.go.kr/contract/continfo",
-   "note": "",
-   "status": "실패",
-   "count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-24 11:34:37",
-   "error": "자동 판별 실패: 알려진 표 구조를 찾지 못했습니다(사이트 개편 의심)",
-   "elapsed": 13.7
+   "parser": "gyeyak",
+   "url": "https://gyeyak.hsg.go.kr/contract/lists?p={page}",
+   "note": "횡성군 계약정보공개시스템(gyeyak.hsg.go.kr, 계약현황 전체). 군청 홈페이지 '계약정보공개' 메뉴가 이 시스템으로 연결.",
+   "status": "성공",
+   "count": 80,
+   "pages": 8,
+   "collected_at": "2026-11-24 12:19:12",
+   "error": "",
+   "elapsed": 18.5
   }
  ]
 }
