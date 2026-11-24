@@ -57,6 +57,17 @@ def load(path, default):
         return default
 
 
+def josa(word, with_batchim, without_batchim):
+    """받침 유무에 따라 조사를 고른다(예: 한성토건'이' / (주)다우'가')."""
+    w = (word or "").strip()
+    if not w:
+        return without_batchim
+    ch = w[-1]
+    if not ("가" <= ch <= "힣"):
+        return without_batchim
+    return with_batchim if (ord(ch) - 0xAC00) % 28 else without_batchim
+
+
 def won(n):
     if n >= 100_000_000:
         return f"{n/100_000_000:.1f}억 원"
@@ -157,7 +168,7 @@ def main():
                 "department": dept,
                 "amount": total,
                 "count": len(cluster),
-                "summary": (f"{vendor or '업체 미상'}가 {SPLIT_WINDOW_DAYS}일 안에 {len(cluster)}건을 "
+                "summary": (f"{vendor or '업체 미상'}{josa(vendor, '이', '가')} {SPLIT_WINDOW_DAYS}일 안에 {len(cluster)}건을 "
                             f"나눠 받음 · 합산 {won(total)} (건별 최대 {won(max(c['amount'] for c in cluster))})"),
                 "threshold": (f"같은 부서·같은 업체 / {SPLIT_WINDOW_DAYS}일 이내 / 건별 {won(SPLIT_MAX_UNIT)} 미만 & "
                               f"합산 {won(SPLIT_MIN_TOTAL)} 이상 / 계약명 유사도 {SPLIT_SIMILARITY_MIN} 이상"),
@@ -230,7 +241,7 @@ def main():
                 "department": "" if scope == "기관" else dept,
                 "amount": agg["amount"],
                 "count": agg["count"],
-                "summary": (f"{label} 계약 {won(base)} 중 {vendor}가 {won(agg['amount'])} "
+                "summary": (f"{label} 계약 {won(base)} 중 {vendor}{josa(vendor, '이', '가')} {won(agg['amount'])} "
                             f"({share*100:.1f}%, {agg['count']}건 / 모집단 {base_count}건)"),
                 "threshold": (f"{scope} 내 한 업체 점유율 {int(CONCENTRATION_MIN_SHARE*100)}% 초과 & "
                               f"{min_count}건 이상 & {won(CONCENTRATION_MIN_AMOUNT)} 이상"),
