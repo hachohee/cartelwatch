@@ -94,7 +94,9 @@
 
   /* ── 데이터 로드 ──────────────────────────────────────── */
   async function json(url) {
-    const r = await fetch(url, { cache: "no-store" });
+    // GitHub Pages CDN이 같은 파일을 10분간 캐시하므로, 배포 직후에도 최신 JSON을 보도록 쿼리로 구분한다.
+    const sep = url.includes("?") ? "&" : "?";
+    const r = await fetch(url + sep + "t=" + Math.floor(Date.now() / 60000), { cache: "no-store" });
     if (!r.ok) throw new Error(url + " " + r.status);
     return r.json();
   }
