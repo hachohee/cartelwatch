@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-25 10:30:41",
- "total": 10129,
+ "generated_at": "2026-11-26 06:37:43",
+ "total": 10694,
  "source": "live",
  "period": {
   "from": "2026-08-10",
-  "to": "2026-11-25"
+  "to": "2026-12-03"
  },
  "agencies": [
   {
@@ -15,29 +15,29 @@
    "url": "https://www.gwe.go.kr/open/keris/jaai001f.do?key=bTIzMDUzMTA3NzUwNTg%3D",
    "note": "교육청 수의계약내역공개. 목록에 금액·업체가 없어 상세페이지를 건별로 열어 보강(교육지원청·각급 학교 포함).",
    "status": "성공",
-   "count": 922,
+   "count": 365,
    "crawl_count": 70,
-   "api_count": 852,
+   "api_count": 295,
    "pages": 7,
-   "collected_at": "2026-11-25 09:54:32",
+   "collected_at": "2026-11-26 06:20:05",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 79,
-     "공사": 396,
-     "용역": 377
+     "물품": 39,
+     "공사": 136,
+     "용역": 120
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도교육청"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 169.1
+   "elapsed": 155.7
   },
   {
    "id": "gwd",
@@ -47,30 +47,30 @@
    "url": "https://confin.gwd.go.kr/contract/continfo",
    "note": "강원특별자치도 세입세출 계약정보공개 시스템(계약체결 현황·공사). POST pageIndex 페이지네이션.",
    "status": "성공",
-   "count": 597,
+   "count": 242,
    "crawl_count": 80,
-   "api_count": 517,
+   "api_count": 162,
    "pages": 8,
-   "collected_at": "2026-11-25 10:03:15",
+   "collected_at": "2026-11-26 06:23:33",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 151,
-     "공사": 195,
-     "용역": 171
+     "물품": 47,
+     "공사": 66,
+     "용역": 49
     },
-    "calls": 22,
+    "calls": 8,
     "instt_nm": [
      "강원특별자치도"
     ],
-    "skipped_other_agency": 8686
+    "skipped_other_agency": 2861
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 118.1
+   "elapsed": 34.0
   },
   {
    "id": "gangneung",
@@ -80,29 +80,29 @@
    "url": "https://www.gn.go.kr/gyeyak/contract/lists?p={page}",
    "note": "강릉시 계약정보공개시스템(계약현황 전체)",
    "status": "성공",
-   "count": 777,
+   "count": 324,
    "crawl_count": 80,
-   "api_count": 697,
+   "api_count": 244,
    "pages": 8,
-   "collected_at": "2026-11-25 10:06:17",
+   "collected_at": "2026-11-26 06:24:11",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 149,
-     "공사": 342,
-     "용역": 206
+     "물품": 52,
+     "공사": 131,
+     "용역": 61
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 강릉시"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 49.3
+   "elapsed": 34.1
   },
   {
    "id": "goseong",
@@ -112,61 +112,62 @@
    "url": "https://www.gwgs.go.kr/gyeyak/contract/lists?p={page}",
    "note": "고성군(강원) 계약정보공개시스템. 군청 주소는 www.gwgs.go.kr이며 www.goseong.go.kr 은 경남 고성군이라 쓰면 안 된다.",
    "status": "성공",
-   "count": 427,
+   "count": 178,
    "crawl_count": 80,
-   "api_count": 347,
+   "api_count": 98,
    "pages": 8,
-   "collected_at": "2026-11-25 10:16:04",
+   "collected_at": "2026-11-26 06:26:44",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 63,
-     "공사": 206,
-     "용역": 78
+     "물품": 14,
+     "공사": 59,
+     "용역": 25
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 고성군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 47.1
+   "elapsed": 43.6
   },
   {
    "id": "donghae",
    "name": "동해시",
    "category": "시군",
-   "parser": "gyeyak",
+   "parser": "g2b_api(+gyeyak)",
    "url": "https://www.dh.go.kr/gyeyak/contract/lists?p={page}",
-   "note": "동해시 계약정보공개시스템(계약현황 전체)",
+   "note": "나라장터 API 수집(2026-11-17 ~ 2026-11-26) · 물품 10건·공사 37건·용역 9건",
    "status": "성공",
-   "count": 246,
-   "crawl_count": 80,
-   "api_count": 166,
+   "count": 56,
+   "crawl_count": 0,
+   "api_count": 56,
    "pages": 8,
-   "collected_at": "2026-11-25 10:07:08",
+   "collected_at": "2026-11-26 06:24:45",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 24,
-     "공사": 103,
-     "용역": 39
+     "물품": 10,
+     "공사": 37,
+     "용역": 9
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 동해시"
     ]
    },
-   "source": "홈페이지 + 나라장터 API",
-   "elapsed": 34.0
+   "source": "나라장터 API",
+   "crawl_error": "fetch failed: https://www.dh.go.kr/gyeyak/contract/lists?p=3 (POST data should be bytes, an iterable of bytes, or a file object. It cannot be of type str.)",
+   "elapsed": 30.4
   },
   {
    "id": "samcheok",
@@ -174,32 +175,32 @@
    "category": "시군",
    "parser": "g2b_api(+auto)",
    "url": "https://www.samcheok.go.kr/contract/continfo",
-   "note": "나라장터 API 수집(2026-10-29 ~ 2026-11-25) · 물품 158건·공사 387건·용역 150건",
+   "note": "나라장터 API 수집(2026-11-17 ~ 2026-11-26) · 물품 52건·공사 137건·용역 51건",
    "status": "성공",
-   "count": 695,
+   "count": 240,
    "crawl_count": 0,
-   "api_count": 695,
+   "api_count": 240,
    "pages": 2,
-   "collected_at": "2026-11-25 10:11:13",
+   "collected_at": "2026-11-26 06:25:35",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 158,
-     "공사": 387,
-     "용역": 150
+     "물품": 52,
+     "공사": 137,
+     "용역": 51
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 삼척시"
     ]
    },
    "source": "나라장터 API",
    "crawl_error": "웹방화벽(WAF) 차단: https://www.samcheok.go.kr/contract/continfo (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
-   "elapsed": 37.1
+   "elapsed": 13.0
   },
   {
    "id": "sokcho",
@@ -209,11 +210,11 @@
    "url": "",
    "note": "속초시 세입세출 계약정보공개(confin.sokcho.go.kr). 시청 홈페이지 '입찰공고'가 이 시스템으로 연결. 인증서 체인이 불완전해 이 호스트만 검증을 완화. POST pageIndex 페이지네이션·8열 표.",
    "status": "성공",
-   "count": 325,
+   "count": 158,
    "crawl_count": 90,
-   "api_count": 235,
+   "api_count": 68,
    "pages": 3,
-   "collected_at": "2026-11-25 10:12:15",
+   "collected_at": "2026-11-26 06:25:48",
    "error": "",
    "tls": {
     "relaxed_hosts": [
@@ -223,21 +224,21 @@
    },
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 39,
-     "공사": 133,
-     "용역": 63
+     "물품": 13,
+     "공사": 46,
+     "용역": 9
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 속초시"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 56.1
+   "elapsed": 55.8
   },
   {
    "id": "yanggu",
@@ -247,29 +248,29 @@
    "url": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
    "note": "양구군 계약정보공개시스템 중 수의계약현황. 목록이 jqGrid(AJAX)로 그려져 정적 HTML에 표가 없어, 화면 스크립트가 쓰는 ajaxOptionalList.do(JSON)를 직접 호출.",
    "status": "성공",
-   "count": 363,
+   "count": 224,
    "crawl_count": 120,
-   "api_count": 243,
+   "api_count": 104,
    "pages": 3,
-   "collected_at": "2026-11-25 10:09:10",
+   "collected_at": "2026-11-26 06:25:15",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 34,
-     "공사": 161,
-     "용역": 48
+     "물품": 18,
+     "공사": 67,
+     "용역": 19
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 양구군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 32.7
+   "elapsed": 19.9
   },
   {
    "id": "yangyang",
@@ -279,29 +280,29 @@
    "url": "http://gyeyak.yangyang.go.kr/contract/lists?p={page}",
    "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지).",
    "status": "성공",
-   "count": 239,
+   "count": 124,
    "crawl_count": 80,
-   "api_count": 159,
+   "api_count": 44,
    "pages": 8,
-   "collected_at": "2026-11-25 10:29:39",
+   "collected_at": "2026-11-26 06:29:56",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 16,
-     "공사": 96,
-     "용역": 47
+     "물품": 6,
+     "공사": 31,
+     "용역": 7
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 양양군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 61.4
+   "elapsed": 44.6
   },
   {
    "id": "yeongwol",
@@ -311,29 +312,29 @@
    "url": "https://www.yw.go.kr/confin/contract/continfo",
    "note": "영월군 세입세출 계약정보공개(계약현황 전체). 목록 URL은 /confin/contract/continfo(하위 /contract 는 표 없는 안내 페이지). POST pageIndex 페이지네이션.",
    "status": "성공",
-   "count": 401,
+   "count": 201,
    "crawl_count": 80,
-   "api_count": 321,
+   "api_count": 121,
    "pages": 8,
-   "collected_at": "2026-11-25 10:09:43",
+   "collected_at": "2026-11-26 06:27:48",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 43,
-     "공사": 161,
-     "용역": 117
+     "물품": 14,
+     "공사": 51,
+     "용역": 56
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 영월군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 35.9
+   "elapsed": 19.8
   },
   {
    "id": "wonju",
@@ -343,29 +344,29 @@
    "url": "https://www.wonju.go.kr/www/selectVTcmSummarylistLfList.do?key=6410&cpn={page}",
    "note": "원주시 계약현황(상하수도사업소 공개분). 계약상대자 칸에 발주기관명이 들어간 원자료 오류는 파서가 걸러냅니다.",
    "status": "성공",
-   "count": 986,
+   "count": 364,
    "crawl_count": 60,
-   "api_count": 926,
+   "api_count": 304,
    "pages": 6,
-   "collected_at": "2026-11-25 10:05:18",
+   "collected_at": "2026-11-26 06:23:00",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 185,
-     "공사": 416,
-     "용역": 325
+     "물품": 70,
+     "공사": 159,
+     "용역": 75
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 원주시"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 59.2
+   "elapsed": 32.5
   },
   {
    "id": "inje",
@@ -375,11 +376,11 @@
    "url": "https://www.inje.go.kr/contract/basis/optionalList.do",
    "note": "인제군 계약정보공개시스템(수의계약현황). 목록이 jqGrid AJAX(ajaxOptionalList.do JSON)로 그려져 정적 HTML에 표가 없다. 인증서 체인이 불완전해 이 호스트만 검증을 완화한다.",
    "status": "성공",
-   "count": 408,
+   "count": 211,
    "crawl_count": 120,
-   "api_count": 288,
+   "api_count": 91,
    "pages": 3,
-   "collected_at": "2026-11-25 10:15:20",
+   "collected_at": "2026-11-26 06:36:42",
    "error": "",
    "tls": {
     "relaxed_hosts": [
@@ -389,21 +390,21 @@
    },
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 33,
-     "공사": 180,
-     "용역": 75
+     "물품": 8,
+     "공사": 58,
+     "용역": 25
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 인제군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 41.4
+   "elapsed": 61.3
   },
   {
    "id": "jeongseon",
@@ -413,29 +414,29 @@
    "url": "",
    "note": "정선군 수의계약현황(공사·용역·물품). POST pageIndex 페이지네이션.",
    "status": "성공",
-   "count": 648,
+   "count": 303,
    "crawl_count": 90,
-   "api_count": 558,
+   "api_count": 213,
    "pages": 3,
-   "collected_at": "2026-11-25 10:10:21",
+   "collected_at": "2026-11-26 06:28:08",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 119,
-     "공사": 298,
-     "용역": 141
+     "물품": 42,
+     "공사": 107,
+     "용역": 64
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 정선군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 51.5
+   "elapsed": 39.5
   },
   {
    "id": "cheorwon",
@@ -443,32 +444,32 @@
    "category": "시군",
    "parser": "g2b_api(+auto)",
    "url": "https://www.cwg.go.kr/contract/continfo",
-   "note": "나라장터 API 수집(2026-10-29 ~ 2026-11-25) · 물품 35건·공사 145건·용역 84건",
+   "note": "나라장터 API 수집(2026-11-17 ~ 2026-11-26) · 물품 7건·공사 40건·용역 23건",
    "status": "성공",
-   "count": 264,
+   "count": 70,
    "crawl_count": 0,
-   "api_count": 264,
+   "api_count": 70,
    "pages": 2,
-   "collected_at": "2026-11-25 10:14:02",
+   "collected_at": "2026-11-26 06:28:48",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 35,
-     "공사": 145,
-     "용역": 84
+     "물품": 7,
+     "공사": 40,
+     "용역": 23
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 철원군"
     ]
    },
    "source": "나라장터 API",
-   "crawl_error": "자동 판별 실패: www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/contract/continfo (<urlopen error timed out> / www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/gyeyak/contract/lists (<urlopen error timed ",
-   "elapsed": 37.9
+   "crawl_error": "자동 판별 실패: www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/contract/continfo (<urlopen error [SSL: CERT / www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/gyeyak/contract/lists (<urlopen error [SSL: ",
+   "elapsed": 20.8
   },
   {
    "id": "chuncheon",
@@ -478,29 +479,29 @@
    "url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/",
    "note": "춘천시청 계약정보공개 1인 견적 수의계약 목록",
    "status": "성공",
-   "count": 1078,
+   "count": 422,
    "crawl_count": 80,
-   "api_count": 998,
+   "api_count": 342,
    "pages": 8,
-   "collected_at": "2026-11-25 10:02:32",
+   "collected_at": "2026-11-26 06:22:43",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 141,
-     "공사": 556,
-     "용역": 301
+     "물품": 38,
+     "공사": 223,
+     "용역": 81
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 춘천시"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 42.8
+   "elapsed": 17.5
   },
   {
    "id": "taebaek",
@@ -508,32 +509,32 @@
    "category": "시군",
    "parser": "g2b_api(+gyeyak)",
    "url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
-   "note": "나라장터 API 수집(2026-10-29 ~ 2026-11-25) · 물품 17건·공사 49건·용역 41건",
+   "note": "나라장터 API 수집(2026-11-17 ~ 2026-11-26) · 물품 4건·공사 14건·용역 17건",
    "status": "성공",
-   "count": 107,
+   "count": 35,
    "crawl_count": 0,
-   "api_count": 107,
+   "api_count": 35,
    "pages": 8,
-   "collected_at": "2026-11-25 10:11:50",
+   "collected_at": "2026-11-26 06:36:11",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 17,
-     "공사": 49,
-     "용역": 41
+     "물품": 4,
+     "공사": 14,
+     "용역": 17
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 태백시"
     ]
    },
    "source": "나라장터 API",
    "crawl_error": "웹방화벽(WAF) 차단(HTTP 403): https://ehojo.taebaek.go.kr/contract/lists?p=1 (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
-   "elapsed": 22.8
+   "elapsed": 7.8
   },
   {
    "id": "pyeongchang",
@@ -543,29 +544,29 @@
    "url": "https://www.pc.go.kr/contract/continfo",
    "note": "평창군 세입세출 계약정보공개 시스템",
    "status": "성공",
-   "count": 438,
+   "count": 230,
    "crawl_count": 120,
-   "api_count": 318,
+   "api_count": 110,
    "pages": 8,
-   "collected_at": "2026-11-25 10:08:34",
+   "collected_at": "2026-11-26 06:27:31",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 68,
-     "공사": 168,
-     "용역": 82
+     "물품": 29,
+     "공사": 68,
+     "용역": 13
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 평창군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 35.9
+   "elapsed": 17.6
   },
   {
    "id": "hongcheon",
@@ -575,29 +576,29 @@
    "url": "https://www.hongcheon.go.kr/gyeyak/contract/lists?p={page}",
    "note": "홍천군 계약정보공개시스템(계약현황 전체)",
    "status": "성공",
-   "count": 629,
+   "count": 257,
    "crawl_count": 80,
-   "api_count": 549,
+   "api_count": 177,
    "pages": 8,
-   "collected_at": "2026-11-25 10:07:42",
+   "collected_at": "2026-11-26 06:30:43",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 65,
-     "공사": 323,
-     "용역": 161
+     "물품": 25,
+     "공사": 94,
+     "용역": 58
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 홍천군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 50.0
+   "elapsed": 29.8
   },
   {
    "id": "hwacheon",
@@ -607,29 +608,29 @@
    "url": "https://contract.ihc.go.kr/situ/2",
    "note": "화천군 계약정보시스템(contract.ihc.go.kr). 군청 도메인은 www.ihc.go.kr(기존 www.hwacheon.go.kr 는 없는 도메인). 목록은 /api/situ JSON(10건 단위)으로 그려진다.",
    "status": "성공",
-   "count": 498,
+   "count": 204,
    "crawl_count": 80,
-   "api_count": 418,
+   "api_count": 124,
    "pages": 8,
-   "collected_at": "2026-11-25 10:14:42",
+   "collected_at": "2026-11-26 06:36:18",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 54,
-     "공사": 241,
-     "용역": 123
+     "물품": 23,
+     "공사": 64,
+     "용역": 37
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 화천군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 37.9
+   "elapsed": 23.2
   },
   {
    "id": "hoengseong",
@@ -639,52 +640,52 @@
    "url": "https://gyeyak.hsg.go.kr/contract/lists?p={page}",
    "note": "횡성군 계약정보공개시스템(gyeyak.hsg.go.kr, 계약현황 전체). 군청 홈페이지 '계약정보공개' 메뉴가 이 시스템으로 연결.",
    "status": "성공",
-   "count": 630,
+   "count": 205,
    "crawl_count": 80,
-   "api_count": 550,
+   "api_count": 125,
    "pages": 8,
-   "collected_at": "2026-11-25 10:13:11",
+   "collected_at": "2026-11-26 06:32:08",
    "error": "",
    "g2b": {
     "period": [
-     "2026-10-29",
-     "2026-11-25"
+     "2026-11-17",
+     "2026-11-26"
     ],
     "by_category": {
-     "물품": 41,
-     "공사": 393,
-     "용역": 116
+     "물품": 14,
+     "공사": 83,
+     "용역": 28
     },
-    "calls": 12,
+    "calls": 6,
     "instt_nm": [
      "강원특별자치도 횡성군"
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 51.1
+   "elapsed": 30.4
   },
   {
    "id": "narajangter",
-   "name": "나라장터 API(1곳 합산)",
+   "name": "나라장터 API(3곳 합산)",
    "category": "전체",
    "parser": "g2b_api",
    "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
    "status": "성공",
-   "count": 9197,
+   "count": 9660,
    "pages": 1,
-   "collected_at": "2026-11-25 10:30:41",
-   "note": "조회 1곳 · 최근 28일 · 양양군 159건",
+   "collected_at": "2026-11-26 06:37:43",
+   "note": "조회 3곳 · 최근 10일 · 태백시 35건, 화천군 124건, 인제군 91건",
    "error": "",
    "elapsed": 0
   }
  ],
- "amount_total": 778702378890,
+ "amount_total": 839584582089,
  "by_source": {
-  "crawl": 932,
-  "g2b_api": 7400,
-  "both": 1797
+  "crawl": 1034,
+  "g2b_api": 7748,
+  "both": 1912
  },
- "api_window_days": 28,
+ "api_window_days": 10,
  "registry": [
   {
    "id": "goe",

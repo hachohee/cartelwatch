@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25 10:30:42",
- "base_generated_at": "2026-11-25 10:30:41",
+ "generated_at": "2026-11-26 06:37:47",
+ "base_generated_at": "2026-11-26 06:37:43",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -18,31 +18,31 @@
   "YEAR_END_MIN_SHARE": 0.25
  },
  "summary": {
-  "total": 260,
+  "total": 274,
   "by_type": {
    "CONCENTRATION": 3,
-   "SPLIT": 232,
+   "SPLIT": 246,
    "NEWCOMER": 25
   },
   "amount_by_type": {
    "CONCENTRATION": 13093800300,
-   "SPLIT": 8064127350,
-   "NEWCOMER": 90152977210
+   "SPLIT": 8509784650,
+   "NEWCOMER": 104930559240
   },
-  "contracts": 10128,
-  "contract_amount": 778700918890,
+  "contracts": 10693,
+  "contract_amount": 839583122089,
   "agencies": 20,
   "by_agency": [
    {
     "id": "goe",
     "name": "강원특별자치도교육청",
     "category": "교육청",
-    "contracts": 976,
-    "amount": 92170505120,
-    "anomalies": 17,
+    "contracts": 1064,
+    "amount": 101889408690,
+    "anomalies": 19,
     "by_type": {
-     "SPLIT": 16,
-     "NEWCOMER": 1
+     "SPLIT": 17,
+     "NEWCOMER": 2
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -51,12 +51,12 @@
     "id": "chuncheon",
     "name": "춘천시",
     "category": "시군",
-    "contracts": 1031,
-    "amount": 65820349120,
-    "anomalies": 24,
+    "contracts": 1084,
+    "amount": 80750231380,
+    "anomalies": 26,
     "by_type": {
      "CONCENTRATION": 1,
-     "SPLIT": 21,
+     "SPLIT": 23,
      "NEWCOMER": 2
     },
     "status": "성공",
@@ -66,8 +66,8 @@
     "id": "wonju",
     "name": "원주시",
     "category": "시군",
-    "contracts": 986,
-    "amount": 40135515380,
+    "contracts": 1033,
+    "amount": 41187231020,
     "anomalies": 19,
     "by_type": {
      "SPLIT": 16,
@@ -80,12 +80,12 @@
     "id": "gangneung",
     "name": "강릉시",
     "category": "시군",
-    "contracts": 732,
-    "amount": 55593301120,
+    "contracts": 781,
+    "amount": 56744103420,
     "anomalies": 11,
     "by_type": {
-     "SPLIT": 8,
-     "NEWCOMER": 3
+     "SPLIT": 9,
+     "NEWCOMER": 2
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -94,22 +94,22 @@
     "id": "donghae",
     "name": "동해시",
     "category": "시군",
-    "contracts": 270,
-    "amount": 17646922680,
+    "contracts": 279,
+    "amount": 17768224680,
     "anomalies": 5,
     "by_type": {
      "SPLIT": 4,
      "NEWCOMER": 1
     },
     "status": "성공",
-    "source": "홈페이지 + 나라장터 API"
+    "source": "나라장터 API"
    },
    {
     "id": "hongcheon",
     "name": "홍천군",
     "category": "시군",
-    "contracts": 604,
-    "amount": 62111447980,
+    "contracts": 625,
+    "amount": 63054762530,
     "anomalies": 16,
     "by_type": {
      "SPLIT": 15,
@@ -122,12 +122,12 @@
     "id": "gwd",
     "name": "강원특별자치도",
     "category": "도청",
-    "contracts": 551,
-    "amount": 60994147356,
-    "anomalies": 9,
+    "contracts": 580,
+    "amount": 63789104066,
+    "anomalies": 11,
     "by_type": {
      "CONCENTRATION": 1,
-     "SPLIT": 6,
+     "SPLIT": 8,
      "NEWCOMER": 2
     },
     "status": "성공",
@@ -137,8 +137,8 @@
     "id": "pyeongchang",
     "name": "평창군",
     "category": "시군",
-    "contracts": 363,
-    "amount": 19776289080,
+    "contracts": 383,
+    "amount": 20911077300,
     "anomalies": 15,
     "by_type": {
      "SPLIT": 15
@@ -150,11 +150,12 @@
     "id": "yanggu",
     "name": "양구군",
     "category": "시군",
-    "contracts": 308,
-    "amount": 21447581700,
-    "anomalies": 5,
+    "contracts": 339,
+    "amount": 28449166180,
+    "anomalies": 7,
     "by_type": {
-     "SPLIT": 5
+     "SPLIT": 6,
+     "NEWCOMER": 1
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -163,11 +164,11 @@
     "id": "yeongwol",
     "name": "영월군",
     "category": "시군",
-    "contracts": 341,
-    "amount": 42607661155,
-    "anomalies": 16,
+    "contracts": 351,
+    "amount": 42780585155,
+    "anomalies": 17,
     "by_type": {
-     "SPLIT": 14,
+     "SPLIT": 15,
      "NEWCOMER": 2
     },
     "status": "성공",
@@ -177,12 +178,12 @@
     "id": "jeongseon",
     "name": "정선군",
     "category": "시군",
-    "contracts": 604,
-    "amount": 34042383760,
-    "anomalies": 8,
+    "contracts": 628,
+    "amount": 34700336110,
+    "anomalies": 7,
     "by_type": {
      "SPLIT": 6,
-     "NEWCOMER": 2
+     "NEWCOMER": 1
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -191,11 +192,11 @@
     "id": "samcheok",
     "name": "삼척시",
     "category": "시군",
-    "contracts": 691,
-    "amount": 56079600530,
-    "anomalies": 14,
+    "contracts": 724,
+    "amount": 66796686930,
+    "anomalies": 16,
     "by_type": {
-     "SPLIT": 10,
+     "SPLIT": 12,
      "NEWCOMER": 4
     },
     "status": "성공",
@@ -205,8 +206,8 @@
     "id": "taebaek",
     "name": "태백시",
     "category": "시군",
-    "contracts": 107,
-    "amount": 11625490140,
+    "contracts": 113,
+    "amount": 11844555120,
     "anomalies": 0,
     "by_type": {},
     "status": "성공",
@@ -216,8 +217,8 @@
     "id": "sokcho",
     "name": "속초시",
     "category": "시군",
-    "contracts": 280,
-    "amount": 14224550090,
+    "contracts": 300,
+    "amount": 14386250470,
     "anomalies": 8,
     "by_type": {
      "SPLIT": 7,
@@ -230,11 +231,11 @@
     "id": "hoengseong",
     "name": "횡성군",
     "category": "시군",
-    "contracts": 606,
-    "amount": 31409416630,
-    "anomalies": 45,
+    "contracts": 627,
+    "amount": 32485310410,
+    "anomalies": 46,
     "by_type": {
-     "SPLIT": 44,
+     "SPLIT": 45,
      "NEWCOMER": 1
     },
     "status": "성공",
@@ -244,8 +245,8 @@
     "id": "cheorwon",
     "name": "철원군",
     "category": "시군",
-    "contracts": 257,
-    "amount": 33981628340,
+    "contracts": 275,
+    "amount": 37067958990,
     "anomalies": 6,
     "by_type": {
      "SPLIT": 5,
@@ -258,11 +259,11 @@
     "id": "hwacheon",
     "name": "화천군",
     "category": "시군",
-    "contracts": 457,
-    "amount": 37975525801,
-    "anomalies": 15,
+    "contracts": 501,
+    "amount": 39256688210,
+    "anomalies": 17,
     "by_type": {
-     "SPLIT": 14,
+     "SPLIT": 16,
      "NEWCOMER": 1
     },
     "status": "성공",
@@ -272,8 +273,8 @@
     "id": "inje",
     "name": "인제군",
     "category": "시군",
-    "contracts": 396,
-    "amount": 33138082160,
+    "contracts": 409,
+    "amount": 33301896180,
     "anomalies": 14,
     "by_type": {
      "SPLIT": 14
@@ -285,12 +286,12 @@
     "id": "goseong",
     "name": "고성군",
     "category": "시군",
-    "contracts": 378,
-    "amount": 27381807320,
-    "anomalies": 10,
+    "contracts": 405,
+    "amount": 31825116620,
+    "anomalies": 11,
     "by_type": {
      "CONCENTRATION": 1,
-     "SPLIT": 9
+     "SPLIT": 10
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -299,8 +300,8 @@
     "id": "yangyang",
     "name": "양양군",
     "category": "시군",
-    "contracts": 190,
-    "amount": 20538713428,
+    "contracts": 192,
+    "amount": 20594428628,
     "anomalies": 3,
     "by_type": {
      "SPLIT": 3
@@ -311,10 +312,10 @@
   ]
  },
  "contract_stats": {
-  "total": 10128,
+  "total": 10693,
   "bad_dates": 1,
-  "with_amount": 10124,
-  "with_vendor": 10087,
+  "with_amount": 10689,
+  "with_vendor": 10646,
   "period": [
    "2026-08-10",
    "2029-01-29"
@@ -326,19 +327,19 @@
    "type": "CONCENTRATION",
    "type_label": "일감 몰아주기",
    "severity": "상",
-   "title": "상하수도사업소 · 주식회사 넥스트워터 점유율 70.9%",
+   "title": "상하수도사업소 · 주식회사 넥스트워터 점유율 67.5%",
    "vendor": "주식회사 넥스트워터",
    "agency": "고성군",
    "department": "상하수도사업소",
    "amount": 9167888960,
    "count": 3,
-   "summary": "상하수도사업소 계약 129.3억 원 중 주식회사 넥스트워터가 91.7억 원 (70.9%, 3건 / 모집단 39건)",
+   "summary": "상하수도사업소 계약 135.7억 원 중 주식회사 넥스트워터가 91.7억 원 (67.5%, 3건 / 모집단 47건)",
    "threshold": "부서 내 한 업체 점유율 35% 초과 & 3건 이상 & 5,000만 원 이상",
    "facts": {
-    "모집단 금액": 12931728150,
-    "모집단 건수": 39,
+    "모집단 금액": 13573118150,
+    "모집단 건수": 47,
     "업체 금액": 9167888960,
-    "점유율": "70.9%",
+    "점유율": "67.5%",
     "건수": 3
    },
    "checks": [
@@ -394,19 +395,19 @@
    "type": "CONCENTRATION",
    "type_label": "일감 몰아주기",
    "severity": "상",
-   "title": "농업정책과 농정기획 · 춘천시산림조합 점유율 70.2%",
+   "title": "농업정책과 농정기획 · 춘천시산림조합 점유율 69.7%",
    "vendor": "춘천시산림조합",
    "agency": "춘천시",
    "department": "농업정책과 농정기획",
    "amount": 3235199340,
    "count": 13,
-   "summary": "농업정책과 농정기획 계약 46.1억 원 중 춘천시산림조합이 32.4억 원 (70.2%, 13건 / 모집단 66건)",
+   "summary": "농업정책과 농정기획 계약 46.4억 원 중 춘천시산림조합이 32.4억 원 (69.7%, 13건 / 모집단 70건)",
    "threshold": "부서 내 한 업체 점유율 35% 초과 & 3건 이상 & 5,000만 원 이상",
    "facts": {
-    "모집단 금액": 4605356710,
-    "모집단 건수": 66,
+    "모집단 금액": 4640489710,
+    "모집단 건수": 70,
     "업체 금액": 3235199340,
-    "점유율": "70.2%",
+    "점유율": "69.7%",
     "건수": 13
    },
    "checks": [
@@ -2271,6 +2272,91 @@
    "agency_id": "yeongwol"
   },
   {
+   "id": "split-samcheok:52a41003ad7e-samcheok:8e10ac181",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 원덕읍 총무팀 · 원덕읍 산양리 808-1번지 외 2개소 응급복구공사",
+   "vendor": "주식회사 찬민건설",
+   "agency": "삼척시",
+   "department": "원덕읍 총무팀",
+   "amount": 56500000,
+   "count": 4,
+   "summary": "주식회사 찬민건설이 7일 안에 4건을 나눠 받음 · 합산 5,650만 원 (건별 최대 1,420만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 56500000,
+    "건수": 4,
+    "건별금액": [
+     14200000,
+     14100000,
+     14100000,
+     14100000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:52a41003ad7e",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20205425",
+     "title": "원덕읍 산양리 808-1번지 외 2개소 응급복구공사",
+     "amount": 14200000,
+     "contract_date": "2026-11-24",
+     "vendor": "주식회사 찬민건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02465894&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "samcheok:9bcaffab64f0",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20205298",
+     "title": "원덕읍 옥원노곡길25 외 5개소 응급복구공사",
+     "amount": 14100000,
+     "contract_date": "2026-11-24",
+     "vendor": "주식회사 찬민건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466038&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "samcheok:d78f79945235",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20205360",
+     "title": "원덕읍 임원리 889-1번지 외 11개소 응급복구공사",
+     "amount": 14100000,
+     "contract_date": "2026-11-24",
+     "vendor": "주식회사 찬민건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466084&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "samcheok:8e10ac18154d",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20205111",
+     "title": "원덕읍 삼척로 453번지 외 3개소 응급복구공사",
+     "amount": 14100000,
+     "contract_date": "2026-11-24",
+     "vendor": "주식회사 찬민건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02465995&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "samcheok"
+  },
+  {
    "id": "split-hoengseong:2d544e85b456-hoengseong:3f3a7",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -4030,6 +4116,63 @@
    "agency_id": "pyeongchang"
   },
   {
+   "id": "split-gangneung:3dc65c4b6f66-gangneung:fcd9e03",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "강릉시 총무 · 옥계면 도직리 성황당 정비공사",
+   "vendor": "도원건설주식회사",
+   "agency": "강릉시",
+   "department": "총무",
+   "amount": 39504000,
+   "count": 2,
+   "summary": "도원건설주식회사가 7일 안에 2건을 나눠 받음 · 합산 3,950만 원 (건별 최대 1,975만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 39504000,
+    "건수": 2,
+    "건별금액": [
+     19752000,
+     19752000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "gangneung:fcd9e03be9c3",
+     "agency_id": "gangneung",
+     "agency": "강릉시",
+     "department": "총무",
+     "contract_no": "R26TE20147117",
+     "title": "옥계면 도직리 성황당 정비공사",
+     "amount": 19752000,
+     "contract_date": "2026-11-24",
+     "vendor": "도원건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02460423&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "gangneung:3dc65c4b6f66",
+     "agency_id": "gangneung",
+     "agency": "강릉시",
+     "department": "총무",
+     "contract_no": "R26TE20196708",
+     "title": "옥계면 도직리 성황당 정비공사",
+     "amount": 19752000,
+     "contract_date": "2026-11-24",
+     "vendor": "도원건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02460423&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "gangneung"
+  },
+  {
    "id": "split-sokcho:b2ff1815dd78-sokcho:ee5f525aa4f8",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -4256,6 +4399,63 @@
     }
    ],
    "agency_id": "inje"
+  },
+  {
+   "id": "split-goseong:ce953e2b0e2f-goseong:e8b6e7951c3",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "고성군 상하수도사업소 · 어천리 지방상수도 확충사업(2차) GIS DB 구축용역",
+   "vendor": "(주)금강지리정보",
+   "agency": "고성군",
+   "department": "상하수도사업소",
+   "amount": 39233000,
+   "count": 2,
+   "summary": "(주)금강지리정보가 7일 안에 2건을 나눠 받음 · 합산 3,923만 원 (건별 최대 1,976만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 39233000,
+    "건수": 2,
+    "건별금액": [
+     19759000,
+     19474000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "goseong:ce953e2b0e2f",
+     "agency_id": "goseong",
+     "agency": "고성군",
+     "department": "상하수도사업소",
+     "contract_no": "R26TE20140303",
+     "title": "어천리 지방상수도 확충사업(2차) GIS DB 구축용역",
+     "amount": 19759000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)금강지리정보",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01631152&ctrtChgOrd=03&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "goseong:e8b6e7951c3a",
+     "agency_id": "goseong",
+     "agency": "고성군",
+     "department": "상하수도사업소",
+     "contract_no": "R26TE20202598",
+     "title": "소규모 수도시설 개량사업(어천1리) GIS DB 구축용역",
+     "amount": 19474000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)금강지리정보",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01643114&ctrtChgOrd=02&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "goseong"
   },
   {
    "id": "split-inje:2909d7c5281d-inje:ff20160b6ff6",
@@ -4939,6 +5139,63 @@
     }
    ],
    "agency_id": "cheorwon"
+  },
+  {
+   "id": "split-hwacheon:3899cc0e3e1a-hwacheon:8a636d266",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 세무경영과 · 2026년 산타공원 조성공사(전기) 실시설계 용역",
+   "vendor": "주식회사 에스에이치",
+   "agency": "화천군",
+   "department": "세무경영과",
+   "amount": 38690000,
+   "count": 2,
+   "summary": "주식회사 에스에이치가 7일 안에 2건을 나눠 받음 · 합산 3,869만 원 (건별 최대 1,934만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 38690000,
+    "건수": 2,
+    "건별금액": [
+     19345000,
+     19345000
+    ],
+    "기간": "2026-11-17 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:3899cc0e3e1a",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "세무경영과",
+     "contract_no": "R26TE20019238",
+     "title": "2026년 산타공원 조성공사(전기) 실시설계 용역",
+     "amount": 19345000,
+     "contract_date": "2026-11-17",
+     "vendor": "주식회사 에스에이치",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02429322&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "both"
+    },
+    {
+     "id": "hwacheon:8a636d266a72",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "세무경영과",
+     "contract_no": "R26TE20018805",
+     "title": "2026년 산타공원 조성공사(전기) 실시설계 용역",
+     "amount": 19345000,
+     "contract_date": "2026-11-19",
+     "vendor": "주식회사 에스에이치",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02429322&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "hwacheon"
   },
   {
    "id": "split-inje:2ed421a9b7e1-inje:99d621e73f4a",
@@ -5995,6 +6252,91 @@
    "agency_id": "hoengseong"
   },
   {
+   "id": "split-goe:2ebb27b712d5-goe:3696dd99cfae",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "강원특별자치도교육청 행정과 · 근화초 교실증축 및 역도부훈련장 개축 전기,통신공사 재해예방 기술지도 용",
+   "vendor": "무한건설안전기술",
+   "agency": "강원특별자치도교육청",
+   "department": "행정과",
+   "amount": 36486000,
+   "count": 4,
+   "summary": "무한건설안전기술이 7일 안에 4건을 나눠 받음 · 합산 3,649만 원 (건별 최대 1,306만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 36486000,
+    "건수": 4,
+    "건별금액": [
+     13056000,
+     8640000,
+     7590000,
+     7200000
+    ],
+    "기간": "2026-11-19 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "goe:2ebb27b712d5",
+     "agency_id": "goe",
+     "agency": "춘천교육지원청",
+     "department": "행정과",
+     "contract_no": "R26TE20017618",
+     "title": "근화초 교실증축 및 역도부훈련장 개축 전기,통신공사 재해예방 기술지도 용역",
+     "amount": 13056000,
+     "contract_date": "2026-11-19",
+     "vendor": "무한건설안전기술",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02432457&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "goe:3696dd99cfae",
+     "agency_id": "goe",
+     "agency": "강원특별자치도교육청",
+     "department": "행정과",
+     "contract_no": "R26TE20195310",
+     "title": "(가칭)유아교육원 유아놀이체험장 원주 신축 전기공사 재해예방 기술지도 용역",
+     "amount": 8640000,
+     "contract_date": "2026-11-25",
+     "vendor": "무한건설안전기술",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00866587&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "goe:607e014038ea",
+     "agency_id": "goe",
+     "agency": "강원특별자치도교육청",
+     "department": "행정과",
+     "contract_no": "R26TE20196741",
+     "title": "(가칭)유아교육원 유아놀이체험장 원주 신축 소방공사 재해예방 기술지도 용역",
+     "amount": 7590000,
+     "contract_date": "2026-11-25",
+     "vendor": "무한건설안전기술",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00866596&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "goe:d8ba946414f6",
+     "agency_id": "goe",
+     "agency": "강원특별자치도교육청",
+     "department": "행정과",
+     "contract_no": "R26TE20195786",
+     "title": "(가칭)유아교육원 유아놀이체험장 원주 신축 통신공사 재해예방 기술지도 용역",
+     "amount": 7200000,
+     "contract_date": "2026-11-25",
+     "vendor": "무한건설안전기술",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00866604&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "goe"
+  },
+  {
    "id": "split-goe:56674de5a409-goe:ddf53cd066da",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -6109,6 +6451,91 @@
    "agency_id": "inje"
   },
   {
+   "id": "split-hoengseong:0432745a77a4-hoengseong:06a75",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "횡성군  · 2026년 국가하천(섬강) 자전거도로(북천리) 유지보수공사 실시설계용역",
+   "vendor": "(주)기술법인오현",
+   "agency": "횡성군",
+   "department": "",
+   "amount": 36174000,
+   "count": 4,
+   "summary": "(주)기술법인오현이 7일 안에 4건을 나눠 받음 · 합산 3,617만 원 (건별 최대 1,124만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 36174000,
+    "건수": 4,
+    "건별금액": [
+     11238000,
+     8312000,
+     8312000,
+     8312000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hoengseong:2e7977b7785d",
+     "agency_id": "hoengseong",
+     "agency": "횡성군",
+     "department": "",
+     "contract_no": "R26TE20205653",
+     "title": "2026년 국가하천(섬강) 자전거도로(북천리) 유지보수공사 실시설계용역",
+     "amount": 11238000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)기술법인오현",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01832798&ctrtChgOrd=02&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "hoengseong:06a750c9cfc4",
+     "agency_id": "hoengseong",
+     "agency": "횡성군",
+     "department": "",
+     "contract_no": "R26TE20201836",
+     "title": "2026년 국가하천(섬강) 자전거도로(북천리) 유지보수공사 실시설계용역",
+     "amount": 8312000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)기술법인오현",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01832798&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "hoengseong:ad248cd98beb",
+     "agency_id": "hoengseong",
+     "agency": "횡성군",
+     "department": "",
+     "contract_no": "R26TE20201791",
+     "title": "2026년 국가하천(섬강) 자전거도로(북천리) 유지보수공사 실시설계용역",
+     "amount": 8312000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)기술법인오현",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01832798&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "hoengseong:0432745a77a4",
+     "agency_id": "hoengseong",
+     "agency": "횡성군",
+     "department": "",
+     "contract_no": "R26TE20205038",
+     "title": "2026년 국가하천(섬강) 자전거도로(북천리) 유지보수공사 실시설계용역",
+     "amount": 8312000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)기술법인오현",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01832798&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "hoengseong"
+  },
+  {
    "id": "split-goe:a09d7c67fc2e-goe:e3516c223c14",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -6166,7 +6593,7 @@
    "agency_id": "goe"
   },
   {
-   "id": "split-gwd:084608edc1f5-gwd:5e009dd14f72",
+   "id": "split-gwd:5e009dd14f72-gwd:95d7a7db6e13",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
    "severity": "중",
@@ -6207,11 +6634,11 @@
      "source_type": "g2b_api"
     },
     {
-     "id": "gwd:084608edc1f5",
+     "id": "gwd:95d7a7db6e13",
      "agency_id": "gwd",
      "agency": "강원특별자치도",
      "department": "",
-     "contract_no": "15719",
+     "contract_no": "15720",
      "title": "2026년 도유림 큰나무가꾸기(영월지구) 사업",
      "amount": 17944000,
      "contract_date": "2026-11-23",
@@ -6465,6 +6892,63 @@
    "agency_id": "yanggu"
   },
   {
+   "id": "split-gwd:7b02c9411fbd-gwd:b2300a8f3126",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "강원특별자치도 회계과 · 청사 사무실 및 휴게실 환경 개선공사",
+   "vendor": "(주)단지건설",
+   "agency": "강원특별자치도",
+   "department": "회계과",
+   "amount": 35694000,
+   "count": 2,
+   "summary": "(주)단지건설이 7일 안에 2건을 나눠 받음 · 합산 3,569만 원 (건별 최대 1,785만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 35694000,
+    "건수": 2,
+    "건별금액": [
+     17847000,
+     17847000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "gwd:b2300a8f3126",
+     "agency_id": "gwd",
+     "agency": "강원특별자치도",
+     "department": "회계과",
+     "contract_no": "R26TE20200352",
+     "title": "청사 사무실 및 휴게실 환경 개선공사",
+     "amount": 17847000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)단지건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02307281&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "gwd:7b02c9411fbd",
+     "agency_id": "gwd",
+     "agency": "강원특별자치도",
+     "department": "회계과",
+     "contract_no": "R26TE20204343",
+     "title": "청사 사무실 및 휴게실 환경 개선공사",
+     "amount": 17847000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주)단지건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02307281&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "gwd"
+  },
+  {
    "id": "split-hoengseong:13be2dc49f43-hoengseong:24d44",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -6591,6 +7075,63 @@
     }
    ],
    "agency_id": "jeongseon"
+  },
+  {
+   "id": "split-gwd:01744ac693b9-gwd:a91ed83ec859",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "강원특별자치도 회계과 · 2026년 청사 수목 전정공사",
+   "vendor": "(주)예원조경건설",
+   "agency": "강원특별자치도",
+   "department": "회계과",
+   "amount": 34832000,
+   "count": 2,
+   "summary": "(주)예원조경건설이 7일 안에 2건을 나눠 받음 · 합산 3,483만 원 (건별 최대 1,742만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 34832000,
+    "건수": 2,
+    "건별금액": [
+     17416000,
+     17416000
+    ],
+    "기간": "2026-11-20 ~ 2026-11-20"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "gwd:01744ac693b9",
+     "agency_id": "gwd",
+     "agency": "강원특별자치도",
+     "department": "회계과",
+     "contract_no": "R26TE20204359",
+     "title": "2026년 청사 수목 전정공사",
+     "amount": 17416000,
+     "contract_date": "2026-11-20",
+     "vendor": "(주)예원조경건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02376716&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "gwd:a91ed83ec859",
+     "agency_id": "gwd",
+     "agency": "강원특별자치도",
+     "department": "회계과",
+     "contract_no": "R26TE20082998",
+     "title": "2026년 청사 수목 전정공사",
+     "amount": 17416000,
+     "contract_date": "2026-11-20",
+     "vendor": "(주)예원조경건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02376716&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "gwd"
   },
   {
    "id": "split-gangneung:341c79c50073-gangneung:bf94741",
@@ -7018,63 +7559,6 @@
     }
    ],
    "agency_id": "jeongseon"
-  },
-  {
-   "id": "split-hwacheon:7bc0e1e20862-hwacheon:a99fd3203",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "화천군 본청 · 2026년 산타공원 조성공사(전기) 실시설계 용역",
-   "vendor": "주식회사 에스에이치",
-   "agency": "화천군",
-   "department": "본청",
-   "amount": 34414000,
-   "count": 2,
-   "summary": "주식회사 에스에이치가 7일 안에 2건을 나눠 받음 · 합산 3,441만 원 (건별 최대 1,934만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 34414000,
-    "건수": 2,
-    "건별금액": [
-     19345000,
-     15069000
-    ],
-    "기간": "2026-11-17 ~ 2026-11-19"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "hwacheon:7bc0e1e20862",
-     "agency_id": "hwacheon",
-     "agency": "화천군",
-     "department": "본청",
-     "contract_no": "202600214167",
-     "title": "2026년 산타공원 조성공사(전기) 실시설계 용역",
-     "amount": 19345000,
-     "contract_date": "2026-11-17",
-     "vendor": "주식회사 에스에이치",
-     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600214167",
-     "source_type": "both"
-    },
-    {
-     "id": "hwacheon:a99fd32037e4",
-     "agency_id": "hwacheon",
-     "agency": "화천군",
-     "department": "본청",
-     "contract_no": "202600214217",
-     "title": "화천군 도시재생 경관개선사업(루돌프거리) 전기공사 실시설계 용역",
-     "amount": 15069000,
-     "contract_date": "2026-11-19",
-     "vendor": "주식회사 에스에이치",
-     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600214217",
-     "source_type": "both"
-    }
-   ],
-   "agency_id": "hwacheon"
   },
   {
    "id": "split-hoengseong:5ad0e9fa4d59-hoengseong:cc32c",
@@ -9782,6 +10266,63 @@
    "agency_id": "goe"
   },
   {
+   "id": "split-hwacheon:5a7c57c40fbf-hwacheon:eaff06b29",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 상수도정책 · 산양공공하수처리시설(대수선) 수중교반기 교체",
+   "vendor": "주식회사 정한이텍",
+   "agency": "화천군",
+   "department": "상수도정책",
+   "amount": 28710000,
+   "count": 2,
+   "summary": "주식회사 정한이텍이 7일 안에 2건을 나눠 받음 · 합산 2,871만 원 (건별 최대 1,584만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 28710000,
+    "건수": 2,
+    "건별금액": [
+     15840000,
+     12870000
+    ],
+    "기간": "2026-11-23 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:5a7c57c40fbf",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "상수도정책",
+     "contract_no": "R26TE20200893",
+     "title": "산양공공하수처리시설(대수선) 수중교반기 교체",
+     "amount": 15840000,
+     "contract_date": "2026-11-23",
+     "vendor": "주식회사 정한이텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02460311&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "hwacheon:eaff06b292c5",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "상수도정책",
+     "contract_no": "R26TE20201047",
+     "title": "다목공공하수처리시설(대수선) 유량조정조 수중교반기 등 교체",
+     "amount": 12870000,
+     "contract_date": "2026-11-25",
+     "vendor": "주식회사 정한이텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02468113&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "hwacheon"
+  },
+  {
    "id": "split-hongcheon:81b4e630c61c-hongcheon:b876038",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -10478,6 +11019,63 @@
     }
    ],
    "agency_id": "goseong"
+  },
+  {
+   "id": "split-hwacheon:3fad99a63205-hwacheon:9b7a93fbe",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 본청 · 2026년 목재문화체험장 간판 제작 설치",
+   "vendor": "사내광고",
+   "agency": "화천군",
+   "department": "본청",
+   "amount": 27541400,
+   "count": 2,
+   "summary": "사내광고가 7일 안에 2건을 나눠 받음 · 합산 2,754만 원 (건별 최대 1,577만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 27541400,
+    "건수": 2,
+    "건별금액": [
+     15773000,
+     11768400
+    ],
+    "기간": "2026-11-20 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:3fad99a63205",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314259",
+     "title": "2026년 목재문화체험장 간판 제작 설치",
+     "amount": 11768400,
+     "contract_date": "2026-11-20",
+     "vendor": "사내광고",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314259",
+     "source_type": "crawl"
+    },
+    {
+     "id": "hwacheon:9b7a93fbebba",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "본청",
+     "contract_no": "202600314282",
+     "title": "현수막 지정 게시대 신규 제작 및 설치 공사 시행",
+     "amount": 15773000,
+     "contract_date": "2026-11-25",
+     "vendor": "사내광고",
+     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314282",
+     "source_type": "crawl"
+    }
+   ],
+   "agency_id": "hwacheon"
   },
   {
    "id": "split-sokcho:5c5dbf044940-sokcho:bd121520c866",
@@ -12644,63 +13242,6 @@
    "agency_id": "wonju"
   },
   {
-   "id": "split-hwacheon:3fad99a63205-hwacheon:6c0a5c8a3",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "화천군 본청 · 장미 파크골프장 입구 안내 간판 제작 설치공사 시행",
-   "vendor": "사내광고",
-   "agency": "화천군",
-   "department": "본청",
-   "amount": 23447400,
-   "count": 2,
-   "summary": "사내광고가 7일 안에 2건을 나눠 받음 · 합산 2,345만 원 (건별 최대 1,177만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 23447400,
-    "건수": 2,
-    "건별금액": [
-     11768400,
-     11679000
-    ],
-    "기간": "2026-11-17 ~ 2026-11-20"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "hwacheon:6c0a5c8a3680",
-     "agency_id": "hwacheon",
-     "agency": "화천군",
-     "department": "본청",
-     "contract_no": "202600114181",
-     "title": "장미 파크골프장 입구 안내 간판 제작 설치공사 시행",
-     "amount": 11679000,
-     "contract_date": "2026-11-17",
-     "vendor": "사내광고",
-     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600114181",
-     "source_type": "both"
-    },
-    {
-     "id": "hwacheon:3fad99a63205",
-     "agency_id": "hwacheon",
-     "agency": "화천군",
-     "department": "본청",
-     "contract_no": "202600314259",
-     "title": "2026년 목재문화체험장 간판 제작 설치",
-     "amount": 11768400,
-     "contract_date": "2026-11-20",
-     "vendor": "사내광고",
-     "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314259",
-     "source_type": "crawl"
-    }
-   ],
-   "agency_id": "hwacheon"
-  },
-  {
    "id": "split-goseong:68c7a866f64b-goseong:c07dd3acead",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -13484,6 +14025,63 @@
    "agency_id": "gangneung"
   },
   {
+   "id": "split-chuncheon:a0717624b8f1-chuncheon:a99d925",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "춘천시 농업정책과 · 2026년 소나무재선충병 방제사업(오월리 가구뱅이골, 뒷골, 성지골지구)",
+   "vendor": "세일산림기술사사무소",
+   "agency": "춘천시",
+   "department": "농업정책과",
+   "amount": 22420000,
+   "count": 2,
+   "summary": "세일산림기술사사무소가 7일 안에 2건을 나눠 받음 · 합산 2,242만 원 (건별 최대 1,359만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 22420000,
+    "건수": 2,
+    "건별금액": [
+     13588000,
+     8832000
+    ],
+    "기간": "2026-11-25 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "chuncheon:a0717624b8f1",
+     "agency_id": "chuncheon",
+     "agency": "춘천시",
+     "department": "농업정책과",
+     "contract_no": "202600218180",
+     "title": "2026년 소나무재선충병 방제사업(오월리 가구뱅이골, 뒷골, 성지골지구) 감리용역 시행 결의",
+     "amount": 13588000,
+     "contract_date": "2026-11-25",
+     "vendor": "세일산림기술사사무소",
+     "detail_url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/detail?ctrtAcctBookMngNo=202600218180",
+     "source_type": "both"
+    },
+    {
+     "id": "chuncheon:a99d92522b65",
+     "agency_id": "chuncheon",
+     "agency": "춘천시",
+     "department": "농업정책과",
+     "contract_no": "202600218183",
+     "title": "2026년 소나무재선충병 방제사업(지암리 심방골, 미야골지구) 감리용역 시행 결의",
+     "amount": 8832000,
+     "contract_date": "2026-11-25",
+     "vendor": "세일산림기술사사무소",
+     "detail_url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/detail?ctrtAcctBookMngNo=202600218183",
+     "source_type": "both"
+    }
+   ],
+   "agency_id": "chuncheon"
+  },
+  {
    "id": "split-hoengseong:9a07449b555a-hoengseong:a9810",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -13710,6 +14308,63 @@
     }
    ],
    "agency_id": "yanggu"
+  },
+  {
+   "id": "split-samcheok:57736f5e13f2-samcheok:988d39e23",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 원덕읍 총무팀 · 신남리 마을안길 옹벽 설치공사",
+   "vendor": "대호건설주식회사",
+   "agency": "삼척시",
+   "department": "원덕읍 총무팀",
+   "amount": 22200000,
+   "count": 2,
+   "summary": "대호건설주식회사가 7일 안에 2건을 나눠 받음 · 합산 2,220만 원 (건별 최대 1,400만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 22200000,
+    "건수": 2,
+    "건별금액": [
+     14000000,
+     8200000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:988d39e23c40",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20199018",
+     "title": "신남리 마을안길 옹벽 설치공사",
+     "amount": 14000000,
+     "contract_date": "2026-11-24",
+     "vendor": "대호건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466352&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "samcheok:57736f5e13f2",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "원덕읍 총무팀",
+     "contract_no": "R26TE20199064",
+     "title": "신남리 마을안길 아스콘 덧씌우기 응급복구공사",
+     "amount": 8200000,
+     "contract_date": "2026-11-24",
+     "vendor": "대호건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466308&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "samcheok"
   },
   {
    "id": "split-pyeongchang:5c8f74ff0810-pyeongchang:80f",
@@ -14225,6 +14880,63 @@
    "agency_id": "hoengseong"
   },
   {
+   "id": "split-chuncheon:6fceedc36b2c-chuncheon:7d81130",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "춘천시 농업정책과 · 2026년 소나무재선충병 방제사업(지내리 골안골, 사태골지구) 감리용역 ",
+   "vendor": "(주)수이엔지",
+   "agency": "춘천시",
+   "department": "농업정책과",
+   "amount": 21752000,
+   "count": 2,
+   "summary": "(주)수이엔지가 7일 안에 2건을 나눠 받음 · 합산 2,175만 원 (건별 최대 1,370만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 21752000,
+    "건수": 2,
+    "건별금액": [
+     13703000,
+     8049000
+    ],
+    "기간": "2026-11-25 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "chuncheon:6fceedc36b2c",
+     "agency_id": "chuncheon",
+     "agency": "춘천시",
+     "department": "농업정책과",
+     "contract_no": "202600218184",
+     "title": "2026년 소나무재선충병 방제사업(지내리 골안골, 사태골지구) 감리용역 시행 결의",
+     "amount": 13703000,
+     "contract_date": "2026-11-25",
+     "vendor": "(주)수이엔지",
+     "detail_url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/detail?ctrtAcctBookMngNo=202600218184",
+     "source_type": "both"
+    },
+    {
+     "id": "chuncheon:7d81130f3a9c",
+     "agency_id": "chuncheon",
+     "agency": "춘천시",
+     "department": "농업정책과",
+     "contract_no": "202600218186",
+     "title": "2026년 소나무재선충병 방제사업(지촌리 큰알미산, 오탄리 소말미산지구) 감리용역 시행 결의",
+     "amount": 8049000,
+     "contract_date": "2026-11-25",
+     "vendor": "(주)수이엔지",
+     "detail_url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/detail?ctrtAcctBookMngNo=202600218186",
+     "source_type": "both"
+    }
+   ],
+   "agency_id": "chuncheon"
+  },
+  {
    "id": "split-hongcheon:47545fed8b9f-hongcheon:acd07c8",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -14451,6 +15163,120 @@
     }
    ],
    "agency_id": "goseong"
+  },
+  {
+   "id": "split-yeongwol:80230f209824-yeongwol:cb9096caa",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "영월군 총무 · 2026년~2027년 겨울철 제설장비 임차용역(1톤트럭, 3호차)",
+   "vendor": "(주) 중 동 건 설",
+   "agency": "영월군",
+   "department": "총무",
+   "amount": 21504000,
+   "count": 2,
+   "summary": "(주) 중 동 건 설이 7일 안에 2건을 나눠 받음 · 합산 2,150만 원 (건별 최대 1,075만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 21504000,
+    "건수": 2,
+    "건별금액": [
+     10752000,
+     10752000
+    ],
+    "기간": "2026-11-24 ~ 2026-11-24"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "yeongwol:cb9096caae3a",
+     "agency_id": "yeongwol",
+     "agency": "영월군",
+     "department": "총무",
+     "contract_no": "R26TE20201710",
+     "title": "2026년~2027년 겨울철 제설장비 임차용역(1톤트럭, 3호차)",
+     "amount": 10752000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주) 중 동 건 설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466469&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    },
+    {
+     "id": "yeongwol:80230f209824",
+     "agency_id": "yeongwol",
+     "agency": "영월군",
+     "department": "총무",
+     "contract_no": "R26TE20201762",
+     "title": "2026년~2027년 겨울철 제설장비 임차용역(1톤트럭, 2호차)",
+     "amount": 10752000,
+     "contract_date": "2026-11-24",
+     "vendor": "(주) 중 동 건 설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02466428&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "yeongwol"
+  },
+  {
+   "id": "split-yanggu:60cfd5dfe4aa-yanggu:702eb01e2467",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "양구군 본청 · 두타연 배수로정비",
+   "vendor": "원앤원건설 주식회사",
+   "agency": "양구군",
+   "department": "본청",
+   "amount": 21450000,
+   "count": 2,
+   "summary": "원앤원건설 주식회사가 7일 안에 2건을 나눠 받음 · 합산 2,145만 원 (건별 최대 1,748만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 21450000,
+    "건수": 2,
+    "건별금액": [
+     17483000,
+     3967000
+    ],
+    "기간": "2026-11-23 ~ 2026-11-25"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "yanggu:702eb01e2467",
+     "agency_id": "yanggu",
+     "agency": "양구군",
+     "department": "본청",
+     "contract_no": "202600113271",
+     "title": "두타연 배수로정비",
+     "amount": 3967000,
+     "contract_date": "2026-11-23",
+     "vendor": "원앤원건설(주)",
+     "detail_url": "https://www.yanggu.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202600113271",
+     "source_type": "crawl"
+    },
+    {
+     "id": "yanggu:60cfd5dfe4aa",
+     "agency_id": "yanggu",
+     "agency": "양구군",
+     "department": "본청",
+     "contract_no": "202600113317",
+     "title": "두타연 안보관광지 유실 사면 복구공사",
+     "amount": 17483000,
+     "contract_date": "2026-11-25",
+     "vendor": "원앤원건설 주식회사",
+     "detail_url": "https://www.yanggu.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202600113317",
+     "source_type": "crawl"
+    }
+   ],
+   "agency_id": "yanggu"
   },
   {
    "id": "split-goe:799bbd4b0150-goe:9f5285266992",
@@ -14793,6 +15619,63 @@
     }
    ],
    "agency_id": "pyeongchang"
+  },
+  {
+   "id": "split-hwacheon:12378335ea89-hwacheon:582f97917",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "화천군 세무경영과 · 2026년 화천커뮤니티센터 외벽 청소 용역",
+   "vendor": "클린상사",
+   "agency": "화천군",
+   "department": "세무경영과",
+   "amount": 20828300,
+   "count": 2,
+   "summary": "클린상사가 7일 안에 2건을 나눠 받음 · 합산 2,083만 원 (건별 최대 1,275만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 20828300,
+    "건수": 2,
+    "건별금액": [
+     12750300,
+     8078000
+    ],
+    "기간": "2026-11-17 ~ 2026-11-19"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "hwacheon:582f979174ea",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "세무경영과",
+     "contract_no": "R26TE19973609",
+     "title": "2026년 화천커뮤니티센터 외벽 청소 용역",
+     "amount": 12750300,
+     "contract_date": "2026-11-17",
+     "vendor": "클린상사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02437132&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "both"
+    },
+    {
+     "id": "hwacheon:12378335ea89",
+     "agency_id": "hwacheon",
+     "agency": "화천군",
+     "department": "세무경영과",
+     "contract_no": "R26TE20023957",
+     "title": "2026년 화천시가지 및 도시계획도로 환경정비 용역",
+     "amount": 8078000,
+     "contract_date": "2026-11-19",
+     "vendor": "클린상사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02444539&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "hwacheon"
   },
   {
    "id": "split-chuncheon:a718930ca6a5-chuncheon:ca85a8c",
@@ -15407,7 +16290,7 @@
    "agency_id": "jeongseon"
   },
   {
-   "id": "split-sokcho:b4190ea624b2-sokcho:c7847fa4f6e9",
+   "id": "split-sokcho:4447f178b491-sokcho:cf9ed8c6b3f2",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
    "severity": "중",
@@ -15436,11 +16319,11 @@
    ],
    "contracts": [
     {
-     "id": "sokcho:b4190ea624b2",
+     "id": "sokcho:cf9ed8c6b3f2",
      "agency_id": "sokcho",
      "agency": "속초시",
      "department": "-",
-     "contract_no": "18276",
+     "contract_no": "18281",
      "title": "2026년 사랑의 김장 나눔 행사 재료 구입",
      "amount": 6968000,
      "contract_date": "2026-11-18",
@@ -15449,11 +16332,11 @@
      "source_type": "crawl"
     },
     {
-     "id": "sokcho:c7847fa4f6e9",
+     "id": "sokcho:fdb3d79747d9",
      "agency_id": "sokcho",
      "agency": "속초시",
      "department": "-",
-     "contract_no": "18278",
+     "contract_no": "18283",
      "title": "사랑의 김장 나누기 행사 재료(배추, 양념)구입",
      "amount": 5851000,
      "contract_date": "2026-11-18",
@@ -15462,11 +16345,11 @@
      "source_type": "crawl"
     },
     {
-     "id": "sokcho:f9237f50ccbb",
+     "id": "sokcho:4447f178b491",
      "agency_id": "sokcho",
      "agency": "속초시",
      "department": "-",
-     "contract_no": "18286",
+     "contract_no": "18293",
      "title": "2026년 사랑의 김장나눔 행사 재료 구입",
      "amount": 7235000,
      "contract_date": "2026-11-24",
@@ -15476,6 +16359,46 @@
     }
    ],
    "agency_id": "sokcho"
+  },
+  {
+   "id": "new-대화건설 주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "삼척시 · 대화건설 주식회사 첫 등장 99.0억 원",
+   "vendor": "대화건설 주식회사",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 9895530000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-25 99.0억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-25",
+    "첫 계약금액": 9895530000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:e78f720b5c83",
+     "agency_id": "samcheok",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE20196964",
+     "title": "교곡천 하천재해예방사업(전체분/1차분)",
+     "amount": 9895530000,
+     "contract_date": "2026-11-25",
+     "vendor": "대화건설 주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=20221101CBA_3&ctrtChgOrd=11&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "samcheok"
   },
   {
    "id": "new-산림조합중앙회",
@@ -15558,6 +16481,46 @@
    "agency_id": "yeongwol"
   },
   {
+   "id": "new-주식회사 기룡",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "강원특별자치도교육청 · 주식회사 기룡 첫 등장 60.5억 원",
+   "vendor": "주식회사 기룡",
+   "agency": "강원특별자치도교육청",
+   "department": "행정과",
+   "amount": 6045070000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-25 60.5억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-25",
+    "첫 계약금액": 6045070000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "goe:ff7ac5f6558c",
+     "agency_id": "goe",
+     "agency": "강원특별자치도교육청",
+     "department": "행정과",
+     "contract_no": "R26TE20211437",
+     "title": "가칭)강원특별자치도교육청유아교육원 유아놀이체험장 원주 신축공사(계속비총괄)",
+     "amount": 6045070000,
+     "contract_date": "2026-11-25",
+     "vendor": "주식회사 기룡",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00874423&ctrtChgOrd=02&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "goe"
+  },
+  {
    "id": "new-다오건설 주식회사",
    "type": "NEWCOMER",
    "type_label": "신생법인 특혜(의심)",
@@ -15596,6 +16559,46 @@
     }
    ],
    "agency_id": "donghae"
+  },
+  {
+   "id": "new-우영건설 주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "춘천시 · 우영건설 주식회사 첫 등장 49.1억 원",
+   "vendor": "우영건설 주식회사",
+   "agency": "춘천시",
+   "department": "회계과",
+   "amount": 4905779000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-25 49.1억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-25",
+    "첫 계약금액": 4905779000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "chuncheon:70c99c764dd2",
+     "agency_id": "chuncheon",
+     "agency": "춘천시",
+     "department": "회계과",
+     "contract_no": "R26TE20210576",
+     "title": "임대형공장(리팩토리 춘천) 신축 공사(건축, 토목, 조경)",
+     "amount": 4905779000,
+     "contract_date": "2026-11-25",
+     "vendor": "우영건설 주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02468209&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "chuncheon"
   },
   {
    "id": "new-더좋은생활 주식회사",
@@ -16118,6 +17121,46 @@
    "agency_id": "gwd"
   },
   {
+   "id": "new-영승종합건설주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "양구군 · 영승종합건설주식회사 첫 등장 25.0억 원",
+   "vendor": "영승종합건설주식회사",
+   "agency": "양구군",
+   "department": "세무회계과",
+   "amount": 2504054950,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-25 25.0억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-25",
+    "첫 계약금액": 2504054950,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "yanggu:0b7c54c3947a",
+     "agency_id": "yanggu",
+     "agency": "양구군",
+     "department": "세무회계과",
+     "contract_no": "R26TE20206907",
+     "title": "양구 제2농공단지 조성사업(토목)",
+     "amount": 2504054950,
+     "contract_date": "2026-11-25",
+     "vendor": "영승종합건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02470297&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
+     "source_type": "g2b_api"
+    }
+   ],
+   "agency_id": "yanggu"
+  },
+  {
    "id": "new-주식회사 일우",
    "type": "NEWCOMER",
    "type_label": "신생법인 특혜(의심)",
@@ -16316,166 +17359,6 @@
     }
    ],
    "agency_id": "goe"
-  },
-  {
-   "id": "new-주식회사 서화",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "강릉시 · 주식회사 서화 첫 등장 22.1억 원",
-   "vendor": "주식회사 서화",
-   "agency": "강릉시",
-   "department": "도로과",
-   "amount": 2206500000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-23 22.1억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-23",
-    "첫 계약금액": 2206500000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "gangneung:b001bed6335d",
-     "agency_id": "gangneung",
-     "agency": "강릉시",
-     "department": "도로과",
-     "contract_no": "144670",
-     "title": "단오문화 해안권 관광도로(구정) 조성사업(2차분)",
-     "amount": 2206500000,
-     "contract_date": "2026-11-23",
-     "vendor": "주식회사 서화",
-     "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144670",
-     "source_type": "both"
-    }
-   ],
-   "agency_id": "gangneung"
-  },
-  {
-   "id": "new-경춘종합건설(주)",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "춘천시 · 경춘종합건설(주) 첫 등장 22.0억 원",
-   "vendor": "경춘종합건설(주)",
-   "agency": "춘천시",
-   "department": "회계과",
-   "amount": 2203996000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-16 22.0억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-16",
-    "첫 계약금액": 2203996000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "chuncheon:73185c470fae",
-     "agency_id": "chuncheon",
-     "agency": "춘천시",
-     "department": "회계과",
-     "contract_no": "R26TE19911827",
-     "title": "후평지역 도심 비점오염저감사업(토목, 기계)(4차)",
-     "amount": 2203996000,
-     "contract_date": "2026-11-16",
-     "vendor": "경춘종합건설(주)",
-     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01773220&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
-     "source_type": "g2b_api"
-    }
-   ],
-   "agency_id": "chuncheon"
-  },
-  {
-   "id": "new-우주종합건설주식회사",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "정선군 · 우주종합건설주식회사 첫 등장 21.2억 원",
-   "vendor": "우주종합건설주식회사",
-   "agency": "정선군",
-   "department": "정선군 회계과",
-   "amount": 2119149000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-12 21.2억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-12",
-    "첫 계약금액": 2119149000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "jeongseon:a90a7bcdcae3",
-     "agency_id": "jeongseon",
-     "agency": "정선군",
-     "department": "정선군 회계과",
-     "contract_no": "R26TE19826770",
-     "title": "백두대간 문화철도역 연계협력사업(아우라지 스카이워크 조성)",
-     "amount": 2119149000,
-     "contract_date": "2026-11-12",
-     "vendor": "우주종합건설주식회사",
-     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=2024100A442_3&ctrtChgOrd=05&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
-     "source_type": "g2b_api"
-    }
-   ],
-   "agency_id": "jeongseon"
-  },
-  {
-   "id": "new-우길건설주식회사",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "삼척시 · 우길건설주식회사 첫 등장 20.4억 원",
-   "vendor": "우길건설주식회사",
-   "agency": "삼척시",
-   "department": "회계과",
-   "amount": 2043206920,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-03 20.4억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-03",
-    "첫 계약금액": 2043206920,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "samcheok:b4a2dbd1aa30",
-     "agency_id": "samcheok",
-     "agency": "삼척시",
-     "department": "회계과",
-     "contract_no": "R26TE19482935",
-     "title": "폐산업시설 문화재생사업 지붕 및 구조보강공사(제1전시관)",
-     "amount": 2043206920,
-     "contract_date": "2026-11-03",
-     "vendor": "우길건설주식회사",
-     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00563646&ctrtChgOrd=06&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y",
-     "source_type": "both"
-    }
-   ],
-   "agency_id": "samcheok"
   }
  ]
 }
