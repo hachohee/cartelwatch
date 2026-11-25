@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25 08:59:27",
- "total": 1674,
+ "generated_at": "2026-11-25 09:44:40",
+ "total": 2735,
  "source": "live",
  "period": {
   "from": "2026-08-10",
@@ -81,15 +81,33 @@
    "id": "samcheok",
    "name": "삼척시",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.samcheok.go.kr/contract/continfo",
-   "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 사유만 남긴다.",
-   "status": "실패",
-   "count": 0,
+   "parser": "g2b_api",
+   "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
+   "note": "나라장터 API 보완(2026-10-29 ~ 2026-11-25) · 물품 158건·공사 385건·용역 149건",
+   "status": "성공",
+   "count": 692,
    "pages": 2,
-   "collected_at": "2026-11-25 08:55:33",
-   "error": "웹방화벽(WAF) 차단: https://www.samcheok.go.kr/contract/continfo (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
-   "elapsed": 1.4
+   "collected_at": "2026-11-25 09:43:21",
+   "error": "",
+   "g2b": {
+    "period": [
+     "2026-10-29",
+     "2026-11-25"
+    ],
+    "by_category": {
+     "물품": 158,
+     "공사": 385,
+     "용역": 149
+    },
+    "calls": 12,
+    "instt_nm": [
+     "강원특별자치도 삼척시"
+    ]
+   },
+   "crawl_error": "웹방화벽(WAF) 차단: https://www.samcheok.go.kr/contract/continfo (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
+   "source": "나라장터 API 보완",
+   "site_note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 나라장터 API로만 보완 수집한다.",
+   "elapsed": 24.5
   },
   {
    "id": "sokcho",
@@ -205,15 +223,33 @@
    "id": "cheorwon",
    "name": "철원군",
    "category": "시군",
-   "parser": "auto",
-   "url": "https://www.cwg.go.kr/contract/continfo",
-   "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 수집 불가.",
-   "status": "실패",
-   "count": 0,
+   "parser": "g2b_api",
+   "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
+   "note": "나라장터 API 보완(2026-10-29 ~ 2026-11-25) · 물품 35건·공사 143건·용역 84건",
+   "status": "성공",
+   "count": 262,
    "pages": 2,
-   "collected_at": "2026-11-25 08:58:25",
-   "error": "자동 판별 실패: www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/contract/continfo (<urlopen error [SSL: CERT / www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/gyeyak/contract/lists (<urlopen error [SSL: ",
-   "elapsed": 10.0
+   "collected_at": "2026-11-25 09:44:06",
+   "error": "",
+   "g2b": {
+    "period": [
+     "2026-10-29",
+     "2026-11-25"
+    ],
+    "by_category": {
+     "물품": 35,
+     "공사": 143,
+     "용역": 84
+    },
+    "calls": 12,
+    "instt_nm": [
+     "강원특별자치도 철원군"
+    ]
+   },
+   "crawl_error": "자동 판별 실패: www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/contract/continfo (<urlopen error timed out> / www.cwg.go.kr: fetch failed: https://www.cwg.go.kr/gyeyak/contract/lists (<urlopen error [SSL: ",
+   "source": "나라장터 API 보완",
+   "site_note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 홈페이지 수집 불가 — 나라장터 API로 보완한다.",
+   "elapsed": 33.4
   },
   {
    "id": "chuncheon",
@@ -233,15 +269,33 @@
    "id": "taebaek",
    "name": "태백시",
    "category": "시군",
-   "parser": "gyeyak",
-   "url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
-   "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 데이터 수집은 불가.",
-   "status": "실패",
-   "count": 0,
+   "parser": "g2b_api",
+   "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
+   "note": "나라장터 API 보완(2026-10-29 ~ 2026-11-25) · 물품 17건·공사 49건·용역 41건",
+   "status": "성공",
+   "count": 107,
    "pages": 8,
-   "collected_at": "2026-11-25 08:57:53",
-   "error": "웹방화벽(WAF) 차단(HTTP 403): https://ehojo.taebaek.go.kr/contract/lists?p=1 (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
-   "elapsed": 2.6
+   "collected_at": "2026-11-25 09:43:46",
+   "error": "",
+   "g2b": {
+    "period": [
+     "2026-10-29",
+     "2026-11-25"
+    ],
+    "by_category": {
+     "물품": 17,
+     "공사": 49,
+     "용역": 41
+    },
+    "calls": 12,
+    "instt_nm": [
+     "강원특별자치도 태백시"
+    ]
+   },
+   "crawl_error": "웹방화벽(WAF) 차단(HTTP 403): https://ehojo.taebaek.go.kr/contract/lists?p=1 (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)",
+   "source": "나라장터 API 보완",
+   "site_note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 홈페이지 수집은 불가 — 나라장터 API로 보완한다.",
+   "elapsed": 20.4
   },
   {
    "id": "pyeongchang",
@@ -298,6 +352,20 @@
    "collected_at": "2026-11-25 08:57:56",
    "error": "",
    "elapsed": 29.3
+  },
+  {
+   "id": "narajangter",
+   "name": "나라장터 API(시군 보완)",
+   "category": "전체",
+   "parser": "g2b_api",
+   "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
+   "status": "성공",
+   "count": 1061,
+   "pages": 1,
+   "collected_at": "2026-11-25 09:44:40",
+   "note": "삼척시 692건, 태백시 107건, 철원군 262건",
+   "error": "",
+   "elapsed": 0
   }
  ]
 }

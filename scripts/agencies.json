@@ -137,7 +137,8 @@
         "https://www.samcheok.go.kr/gyeyak/contract/lists"
       ],
       "pages": 2,
-      "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 사유만 남긴다."
+      "narajangter": {"instt_nm": ["강원특별자치도 삼척시"], "agency_label": "삼척시"},
+      "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 나라장터 API로만 보완 수집한다."
     },
     {
       "id": "taebaek",
@@ -148,7 +149,8 @@
       "pages": 8,
       "tls_relaxed_hosts": ["ehojo.taebaek.go.kr"],
       "retries": 1,
-      "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 데이터 수집은 불가."
+      "narajangter": {"instt_nm": ["강원특별자치도 태백시"], "agency_label": "태백시"},
+      "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 홈페이지 수집은 불가 — 나라장터 API로 보완한다."
     },
     {
       "id": "sokcho",
@@ -185,7 +187,8 @@
       "pages": 2,
       "timeout_sec": 8,
       "retries": 1,
-      "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 수집 불가."
+      "narajangter": {"instt_nm": ["강원특별자치도 철원군"], "agency_label": "철원군"},
+      "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 홈페이지 수집 불가 — 나라장터 API로 보완한다."
     },
     {
       "id": "hwacheon",

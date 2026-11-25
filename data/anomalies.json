@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25 08:59:29",
- "base_generated_at": "2026-11-25 08:59:27",
+ "generated_at": "2026-11-25 09:44:42",
+ "base_generated_at": "2026-11-25 09:44:40",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -18,27 +18,307 @@
   "YEAR_END_MIN_SHARE": 0.25
  },
  "summary": {
-  "total": 22,
+  "total": 48,
   "by_type": {
-   "SPLIT": 14,
+   "SPLIT": 40,
    "NEWCOMER": 8
   },
   "amount_by_type": {
-   "SPLIT": 406562220,
-   "NEWCOMER": 9675859010
+   "SPLIT": 1244678420,
+   "NEWCOMER": 23518481710
   }
  },
  "contract_stats": {
-  "total": 1673,
+  "total": 2734,
   "bad_dates": 1,
-  "with_amount": 1672,
-  "with_vendor": 1632,
+  "with_amount": 2732,
+  "with_vendor": 2693,
   "period": [
    "2026-08-10",
    "2029-01-29"
   ]
  },
  "anomalies": [
+  {
+   "id": "split-samcheok:1441a90ee382-samcheok:2711282b3",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "상",
+   "title": "삼척시 하수도사업소 삼척시하수도사업소 · 2026년 공공하수처리시설(도계,근덕) TMS 시약 구입",
+   "vendor": "정은엔텍",
+   "agency": "삼척시 하수도사업소",
+   "department": "삼척시하수도사업소",
+   "amount": 60027000,
+   "count": 4,
+   "summary": "정은엔텍이 7일 안에 4건을 나눠 받음 · 합산 6,003만 원 (건별 최대 1,626만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 60027000,
+    "건수": 4,
+    "건별금액": [
+     16263000,
+     14588000,
+     14588000,
+     14588000
+    ],
+    "기간": "2026-11-04 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:2711282b3567",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556943",
+     "title": "2026년 공공하수처리시설(도계,근덕) TMS 시약 구입",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392277&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:1441a90ee382",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556966",
+     "title": "2026년 공공하수처리시설(호산,근덕2) TMS 시약 구입",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392310&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:5bf149285ef8",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556981",
+     "title": "2026년 공공하수처리시설(삼척,임원) TMS 시약",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392490&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:eba0ff402f72",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19557008",
+     "title": "2026년 삼척공공하수처리시설 TMS 측정기기 소모품 구입교체",
+     "amount": 16263000,
+     "contract_date": "2026-11-05",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02395137&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:174a81746331-samcheok:38570c58e",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업집수리공사(흥전길42-6)",
+   "vendor": "합자회사 영일건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 46000000,
+   "count": 4,
+   "summary": "합자회사 영일건설이 7일 안에 4건을 나눠 받음 · 합산 4,600만 원 (건별 최대 1,200만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 46000000,
+    "건수": 4,
+    "건별금액": [
+     12000000,
+     12000000,
+     11000000,
+     11000000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:4e3c4575e744",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566800",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(흥전길42-6)",
+     "amount": 12000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398112&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:38570c58e3af",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566573",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(흥전길42-12)",
+     "amount": 12000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398068&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a33b3f0bcc43",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19565742",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-6)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397841&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:174a81746331",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566873",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-12)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398135&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:1441a90ee382-samcheok:5bf149285",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 하수도사업소 삼척시하수도사업소 · 2026년 공공하수처리시설(호산,근덕2) TMS 시약 구입",
+   "vendor": "정은엔텍",
+   "agency": "삼척시 하수도사업소",
+   "department": "삼척시하수도사업소",
+   "amount": 45439000,
+   "count": 3,
+   "summary": "정은엔텍이 7일 안에 3건을 나눠 받음 · 합산 4,544만 원 (건별 최대 1,626만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 45439000,
+    "건수": 3,
+    "건별금액": [
+     16263000,
+     14588000,
+     14588000
+    ],
+    "기간": "2026-11-04 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:1441a90ee382",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556966",
+     "title": "2026년 공공하수처리시설(호산,근덕2) TMS 시약 구입",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392310&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:5bf149285ef8",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556981",
+     "title": "2026년 공공하수처리시설(삼척,임원) TMS 시약",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392490&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:eba0ff402f72",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19557008",
+     "title": "2026년 삼척공공하수처리시설 TMS 측정기기 소모품 구입교체",
+     "amount": 16263000,
+     "contract_date": "2026-11-05",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02395137&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:9b2fdf04855b-samcheok:a9b7aa8c9",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 상수도사업소 수도행정 · 상수도 응급복구공사[정상로 4번지 외 1개소]",
+   "vendor": "(주)영우건설",
+   "agency": "삼척시 상수도사업소",
+   "department": "수도행정",
+   "amount": 41712000,
+   "count": 3,
+   "summary": "(주)영우건설이 7일 안에 3건을 나눠 받음 · 합산 4,171만 원 (건별 최대 1,394만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 41712000,
+    "건수": 3,
+    "건별금액": [
+     13943000,
+     13933000,
+     13836000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:9b2fdf04855b",
+     "agency": "삼척시 상수도사업소",
+     "department": "수도행정",
+     "contract_no": "R26TE19613303",
+     "title": "상수도 응급복구공사[정상로 4번지 외 1개소]",
+     "amount": 13943000,
+     "contract_date": "2026-11-05",
+     "vendor": "(주)영우건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398250&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:abaf041e913a",
+     "agency": "삼척시 상수도사업소",
+     "department": "수도행정",
+     "contract_no": "R26TE19613355",
+     "title": "상수도 응급복구공사[수로부인길 390번지 외 6개소]",
+     "amount": 13933000,
+     "contract_date": "2026-11-05",
+     "vendor": "(주)영우건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398191&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a9b7aa8c9f0d",
+     "agency": "삼척시 상수도사업소",
+     "department": "수도행정",
+     "contract_no": "R26TE19613228",
+     "title": "상수도 응급복구공사[남양길 25번지 외 5개소]",
+     "amount": 13836000,
+     "contract_date": "2026-11-05",
+     "vendor": "(주)영우건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398058&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
   {
    "id": "split-sokcho:b2ff1815dd78-sokcho:ee5f525aa4f8",
    "type": "SPLIT",
@@ -88,6 +368,122 @@
      "contract_date": "2026-11-12",
      "vendor": "풀이음이엔지",
      "detail_url": "https://confin.sokcho.go.kr/contract/continfo/status/conservice?ctrtAcctBookMngNo=202600212662"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:a3f4c6d319e2-samcheok:bc2e814c7",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 삼척동굴자연생태관건립사업(통신)관급자재[영상감시장치]",
+   "vendor": "주식회사엔클라우드",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 39176250,
+   "count": 3,
+   "summary": "주식회사엔클라우드가 7일 안에 3건을 나눠 받음 · 합산 3,918만 원 (건별 최대 1,871만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 39176250,
+    "건수": 3,
+    "건별금액": [
+     18711000,
+     15315300,
+     5149950
+    ],
+    "기간": "2026-10-29 ~ 2026-10-30"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:bc2e814c7bea",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19383362",
+     "title": "삼척동굴자연생태관건립사업(통신)관급자재[영상감시장치]",
+     "amount": 15315300,
+     "contract_date": "2026-10-29",
+     "vendor": "주식회사엔클라우드",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02106867&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a3f4c6d319e2",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19383528",
+     "title": "삼척동굴자연생태관건립사업(통신)관급자재[방송설비]",
+     "amount": 5149950,
+     "contract_date": "2026-10-29",
+     "vendor": "주식회사엔클라우드",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02107194&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:c6d11301ef02",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19473690",
+     "title": "삼척웹툰워케이션센터리모델링공사(통신)관급자재[영상감시장치]",
+     "amount": 18711000,
+     "contract_date": "2026-10-30",
+     "vendor": "주식회사엔클라우드",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02181585&ctrtChgOrd=02&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:05a4ac83b225-cheorwon:d965fb394",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 2026년 문혜리 송수관로연결공사 외 1개소 실시설계용역",
+   "vendor": "(주)지원엔지니어링",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 39150000,
+   "count": 2,
+   "summary": "(주)지원엔지니어링이 7일 안에 2건을 나눠 받음 · 합산 3,915만 원 (건별 최대 1,971만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 39150000,
+    "건수": 2,
+    "건별금액": [
+     19710000,
+     19440000
+    ],
+    "기간": "2026-10-29 ~ 2026-11-04"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:d965fb394ed1",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19380591",
+     "title": "2026년 문혜리 송수관로연결공사 외 1개소 실시설계용역",
+     "amount": 19710000,
+     "contract_date": "2026-10-29",
+     "vendor": "(주)지원엔지니어링",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02368954&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:05a4ac83b225",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19508686",
+     "title": "2026년 상노1리 마을안길 확포장사업 실시설계용역",
+     "amount": 19440000,
+     "contract_date": "2026-11-04",
+     "vendor": "(주)지원엔지니어링",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02387130&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
     }
    ]
   },
@@ -180,6 +576,110 @@
    ]
   },
   {
+   "id": "split-cheorwon:1aed33255098-cheorwon:624f7a1ee",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 철원 군관리계획(시설공원) 결정(변경) 및 공원조성계획(변경) 수립용역",
+   "vendor": "주식회사 화신엔지니어링",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 38698000,
+   "count": 2,
+   "summary": "주식회사 화신엔지니어링이 7일 안에 2건을 나눠 받음 · 합산 3,870만 원 (건별 최대 1,967만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 38698000,
+    "건수": 2,
+    "건별금액": [
+     19672000,
+     19026000
+    ],
+    "기간": "2026-11-09 ~ 2026-11-12"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:624f7a1eef97",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19645652",
+     "title": "철원 군관리계획(시설공원) 결정(변경) 및 공원조성계획(변경) 수립용역",
+     "amount": 19026000,
+     "contract_date": "2026-11-09",
+     "vendor": "주식회사 화신엔지니어링",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02402088&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:1aed33255098",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19827194",
+     "title": "철원 군관리계획(시설공원)결정(변경) 및 공원조성계획 수립용역",
+     "amount": 19672000,
+     "contract_date": "2026-11-12",
+     "vendor": "주식회사 화신엔지니어링",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00471311&ctrtChgOrd=01&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:a6ccaa1af3c0-samcheok:c6769ea24",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 하수도사업소 삼척시하수도사업소 · 동지역 노후하수관로 정비공사-혼합골재",
+   "vendor": "주식회사 경일건설산업",
+   "agency": "삼척시 하수도사업소",
+   "department": "삼척시하수도사업소",
+   "amount": 38248000,
+   "count": 2,
+   "summary": "주식회사 경일건설산업이 7일 안에 2건을 나눠 받음 · 합산 3,825만 원 (건별 최대 1,924만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 38248000,
+    "건수": 2,
+    "건별금액": [
+     19239000,
+     19009000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:c6769ea241e8",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19644601",
+     "title": "동지역 노후하수관로 정비공사-혼합골재",
+     "amount": 19239000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 경일건설산업",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02399148&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a6ccaa1af3c0",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19644628",
+     "title": "동지역 노후하수관로 정비공사-보조기층재(1차분7회)",
+     "amount": 19009000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 경일건설산업",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02399240&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "split-yangyang:5a69ee4e7beb-yangyang:63b75b02e",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -232,6 +732,110 @@
    ]
   },
   {
+   "id": "split-cheorwon:64dcb3d6019a-cheorwon:8061b04cd",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 동서지질공원 네트워크 체험존 기반공사_디자인휀스",
+   "vendor": "지이인주식회사",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 36720000,
+   "count": 2,
+   "summary": "지이인주식회사가 7일 안에 2건을 나눠 받음 · 합산 3,672만 원 (건별 최대 1,836만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 36720000,
+    "건수": 2,
+    "건별금액": [
+     18360000,
+     18360000
+    ],
+    "기간": "2026-11-13 ~ 2026-11-13"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:64dcb3d6019a",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19876152",
+     "title": "동서지질공원 네트워크 체험존 기반공사_디자인휀스",
+     "amount": 18360000,
+     "contract_date": "2026-11-13",
+     "vendor": "지이인주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02428526&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:8061b04cdabf",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19934977",
+     "title": "동서지질공원 네트워크 체험존 기반공사_디자인휀스",
+     "amount": 18360000,
+     "contract_date": "2026-11-13",
+     "vendor": "지이인주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02428526&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:00700dd9adf7-cheorwon:e254c0f3a",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 소각시설 화격자 및 교반푸셔 교체공사",
+   "vendor": "주식회사 대경에스코",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 34732000,
+   "count": 2,
+   "summary": "주식회사 대경에스코가 7일 안에 2건을 나눠 받음 · 합산 3,473만 원 (건별 최대 1,737만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 34732000,
+    "건수": 2,
+    "건별금액": [
+     17366000,
+     17366000
+    ],
+    "기간": "2026-11-06 ~ 2026-11-09"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:00700dd9adf7",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19872263",
+     "title": "소각시설 화격자 및 교반푸셔 교체공사",
+     "amount": 17366000,
+     "contract_date": "2026-11-06",
+     "vendor": "주식회사 대경에스코",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02401399&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:e254c0f3aa58",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19703866",
+     "title": "소각시설 화격자 및 교반푸셔 교체공사",
+     "amount": 17366000,
+     "contract_date": "2026-11-09",
+     "vendor": "주식회사 대경에스코",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02401399&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "split-hwacheon:7bc0e1e20862-hwacheon:a99fd3203",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -280,6 +884,186 @@
      "contract_date": "2026-11-19",
      "vendor": "주식회사 에스에이치",
      "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600214217"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:174a81746331-samcheok:38570c58e",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업집수리공사(흥전길42-12)",
+   "vendor": "합자회사 영일건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 34000000,
+   "count": 3,
+   "summary": "합자회사 영일건설이 7일 안에 3건을 나눠 받음 · 합산 3,400만 원 (건별 최대 1,200만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 34000000,
+    "건수": 3,
+    "건별금액": [
+     12000000,
+     11000000,
+     11000000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:38570c58e3af",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566573",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(흥전길42-12)",
+     "amount": 12000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398068&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a33b3f0bcc43",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19565742",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-6)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397841&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:174a81746331",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566873",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-12)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398135&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:174a81746331-samcheok:a33b3f0bc",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업지붕개량공사(도계로1길7-7)",
+   "vendor": "합자회사 영일건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 33000000,
+   "count": 3,
+   "summary": "합자회사 영일건설이 7일 안에 3건을 나눠 받음 · 합산 3,300만 원 (건별 최대 1,100만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 33000000,
+    "건수": 3,
+    "건별금액": [
+     11000000,
+     11000000,
+     11000000
+    ],
+    "기간": "2026-10-29 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:d9ded09a9869",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19385005",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(도계로1길7-7)",
+     "amount": 11000000,
+     "contract_date": "2026-10-29",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02371414&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a33b3f0bcc43",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19565742",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-6)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397841&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:174a81746331",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566873",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-12)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398135&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:5bf149285ef8-samcheok:eba0ff402",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 하수도사업소 삼척시하수도사업소 · 2026년 공공하수처리시설(삼척,임원) TMS 시약",
+   "vendor": "정은엔텍",
+   "agency": "삼척시 하수도사업소",
+   "department": "삼척시하수도사업소",
+   "amount": 30851000,
+   "count": 2,
+   "summary": "정은엔텍이 7일 안에 2건을 나눠 받음 · 합산 3,085만 원 (건별 최대 1,626만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 30851000,
+    "건수": 2,
+    "건별금액": [
+     16263000,
+     14588000
+    ],
+    "기간": "2026-11-04 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:5bf149285ef8",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19556981",
+     "title": "2026년 공공하수처리시설(삼척,임원) TMS 시약",
+     "amount": 14588000,
+     "contract_date": "2026-11-04",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02392490&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:eba0ff402f72",
+     "agency": "삼척시 하수도사업소",
+     "department": "삼척시하수도사업소",
+     "contract_no": "R26TE19557008",
+     "title": "2026년 삼척공공하수처리시설 TMS 측정기기 소모품 구입교체",
+     "amount": 16263000,
+     "contract_date": "2026-11-05",
+     "vendor": "정은엔텍",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02395137&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
     }
    ]
   },
@@ -356,6 +1140,122 @@
      "contract_date": "2026-11-19",
      "vendor": "",
      "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314192"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:7dd934793748-samcheok:8ca4a23c6",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업집수리공사(도계로1길7-7)",
+   "vendor": "보선건설 주식회사 (寶饍建設 株式會社)",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 29767000,
+   "count": 3,
+   "summary": "보선건설 주식회사 (寶饍建設 株式會社)가 7일 안에 3건을 나눠 받음 · 합산 2,977만 원 (건별 최대 1,199만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 29767000,
+    "건수": 3,
+    "건별금액": [
+     11991000,
+     9882000,
+     7894000
+    ],
+    "기간": "2026-10-29 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:7dd934793748",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19384904",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(도계로1길7-7)",
+     "amount": 11991000,
+     "contract_date": "2026-10-29",
+     "vendor": "보선건설 주식회사 (寶饍建設 株式會社)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02371391&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:8ca4a23c663f",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566433",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(흥전길19)",
+     "amount": 9882000,
+     "contract_date": "2026-11-05",
+     "vendor": "보선건설 주식회사 (寶饍建設 株式會社)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398023&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:edc5ebd87c46",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566941",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(도계로1길30)",
+     "amount": 7894000,
+     "contract_date": "2026-11-05",
+     "vendor": "보선건설 주식회사 (寶饍建設 株式會社)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398162&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:7f3e7d3ac49d-cheorwon:f1a6ce679",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 2026년 통합돌봄 건강꾸러미 지원 물품 구입",
+   "vendor": "스포런",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 29440800,
+   "count": 2,
+   "summary": "스포런이 7일 안에 2건을 나눠 받음 · 합산 2,944만 원 (건별 최대 1,472만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 29440800,
+    "건수": 2,
+    "건별금액": [
+     14720400,
+     14720400
+    ],
+    "기간": "2026-11-09 ~ 2026-11-09"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:7f3e7d3ac49d",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE20086196",
+     "title": "2026년 통합돌봄 건강꾸러미 지원 물품 구입",
+     "amount": 14720400,
+     "contract_date": "2026-11-09",
+     "vendor": "스포런",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02404430&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:f1a6ce679b33",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19877142",
+     "title": "2026년 통합돌봄 건강꾸러미 지원 물품 구입",
+     "amount": 14720400,
+     "contract_date": "2026-11-09",
+     "vendor": "스포런",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02404430&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
     }
    ]
   },
@@ -464,6 +1364,58 @@
    ]
   },
   {
+   "id": "split-samcheok:a9b7aa8c9f0d-samcheok:abaf041e9",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 상수도사업소 수도행정 · 상수도 응급복구공사[수로부인길 390번지 외 6개소]",
+   "vendor": "(주)영우건설",
+   "agency": "삼척시 상수도사업소",
+   "department": "수도행정",
+   "amount": 27769000,
+   "count": 2,
+   "summary": "(주)영우건설이 7일 안에 2건을 나눠 받음 · 합산 2,777만 원 (건별 최대 1,393만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 27769000,
+    "건수": 2,
+    "건별금액": [
+     13933000,
+     13836000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:abaf041e913a",
+     "agency": "삼척시 상수도사업소",
+     "department": "수도행정",
+     "contract_no": "R26TE19613355",
+     "title": "상수도 응급복구공사[수로부인길 390번지 외 6개소]",
+     "amount": 13933000,
+     "contract_date": "2026-11-05",
+     "vendor": "(주)영우건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398191&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a9b7aa8c9f0d",
+     "agency": "삼척시 상수도사업소",
+     "department": "수도행정",
+     "contract_no": "R26TE19613228",
+     "title": "상수도 응급복구공사[남양길 25번지 외 5개소]",
+     "amount": 13836000,
+     "contract_date": "2026-11-05",
+     "vendor": "(주)영우건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398058&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "split-sokcho:5c5dbf044940-sokcho:bd121520c866",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -568,6 +1520,58 @@
    ]
   },
   {
+   "id": "split-samcheok:4c8c70c9f32f-samcheok:a4cd25d10",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 삼척동굴자연생태관건립사업(소방)관급자재[소방펌프]",
+   "vendor": "영진산업주식회사",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 25202200,
+   "count": 2,
+   "summary": "영진산업주식회사가 7일 안에 2건을 나눠 받음 · 합산 2,520만 원 (건별 최대 1,613만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 25202200,
+    "건수": 2,
+    "건별금액": [
+     16131600,
+     9070600
+    ],
+    "기간": "2026-10-29 ~ 2026-10-29"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:4c8c70c9f32f",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19383225",
+     "title": "삼척동굴자연생태관건립사업(소방)관급자재[소방펌프]",
+     "amount": 16131600,
+     "contract_date": "2026-10-29",
+     "vendor": "영진산업주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01782321&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:a4cd25d10e0d",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19382569",
+     "title": "삼척동굴자연생태관건립사업(건축)관급자재[급수펌프]",
+     "amount": 9070600,
+     "contract_date": "2026-10-29",
+     "vendor": "영진산업주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01782160&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "split-hwacheon:5fd927b25dd8-hwacheon:6aee7e9bb",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -628,6 +1632,226 @@
      "contract_date": "2026-11-19",
      "vendor": "",
      "detail_url": "https://contract.ihc.go.kr/situDetail/suwi/202600314192"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:67a267f5945d-cheorwon:d2c56cd41",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 2026년 철원군 농업용수 수질검사 용역",
+   "vendor": "주식회사 키위수질시험센터 (KIWI)",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 24804000,
+   "count": 2,
+   "summary": "주식회사 키위수질시험센터 (KIWI)가 7일 안에 2건을 나눠 받음 · 합산 2,480만 원 (건별 최대 1,240만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 24804000,
+    "건수": 2,
+    "건별금액": [
+     12402000,
+     12402000
+    ],
+    "기간": "2026-11-06 ~ 2026-11-06"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:d2c56cd41aaf",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE20093302",
+     "title": "2026년 철원군 농업용수 수질검사 용역",
+     "amount": 12402000,
+     "contract_date": "2026-11-06",
+     "vendor": "주식회사 키위수질시험센터 (KIWI)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01534183&ctrtChgOrd=02&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:67a267f5945d",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19606856",
+     "title": "2026년 철원군 농업용수 수질검사 용역",
+     "amount": 12402000,
+     "contract_date": "2026-11-06",
+     "vendor": "주식회사 키위수질시험센터 (KIWI)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01534183&ctrtChgOrd=02&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:25546b46bf52-cheorwon:b0e4fc1c2",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 2026년 상사리 상수관로 연결공사 폐기물처리용역",
+   "vendor": "동송산업(주)",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 24113000,
+   "count": 3,
+   "summary": "동송산업(주)가 7일 안에 3건을 나눠 받음 · 합산 2,411만 원 (건별 최대 864만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 24113000,
+    "건수": 3,
+    "건별금액": [
+     8640000,
+     8640000,
+     6833000
+    ],
+    "기간": "2026-11-09 ~ 2026-11-16"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:b0e4fc1c2a1e",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE20024210",
+     "title": "2026년 상사리 상수관로 연결공사 폐기물처리용역",
+     "amount": 8640000,
+     "contract_date": "2026-11-09",
+     "vendor": "동송산업(주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02386686&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:dcda6ce01efe",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19652700",
+     "title": "2026년 상사리 상수관로 연결공사 폐기물처리용역",
+     "amount": 8640000,
+     "contract_date": "2026-11-09",
+     "vendor": "동송산업(주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02386686&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:25546b46bf52",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19901171",
+     "title": "2026년 오수관로 정비공사 포장보수공사 폐기물처리용역",
+     "amount": 6833000,
+     "contract_date": "2026-11-16",
+     "vendor": "동송산업(주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02428792&ctrtChgOrd=00&prcmBsneSeCd=조070003&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:4459db8f46c9-cheorwon:d0a43013d",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 철원읍 철원읍 · 2026년 철원읍 중세리 49번지 수리시설 정비사업",
+   "vendor": "늘푸른건설(주)",
+   "agency": "철원군 철원읍",
+   "department": "철원읍",
+   "amount": 23907000,
+   "count": 2,
+   "summary": "늘푸른건설(주)가 7일 안에 2건을 나눠 받음 · 합산 2,391만 원 (건별 최대 1,330만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 23907000,
+    "건수": 2,
+    "건별금액": [
+     13305000,
+     10602000
+    ],
+    "기간": "2026-10-30 ~ 2026-11-03"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:4459db8f46c9",
+     "agency": "철원군 철원읍",
+     "department": "철원읍",
+     "contract_no": "R26TE19412963",
+     "title": "2026년 철원읍 중세리 49번지 수리시설 정비사업",
+     "amount": 10602000,
+     "contract_date": "2026-10-30",
+     "vendor": "늘푸른건설(주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01732084&ctrtChgOrd=02&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:d0a43013df3f",
+     "agency": "철원군 철원읍",
+     "department": "철원읍",
+     "contract_no": "R26TE19467252",
+     "title": "2026년 철원읍 중세리 49번지 수리시설 정비사업",
+     "amount": 13305000,
+     "contract_date": "2026-11-03",
+     "vendor": "늘푸른건설(주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA01732084&ctrtChgOrd=03&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:a3f4c6d319e2-samcheok:c6d11301e",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 삼척동굴자연생태관건립사업(통신)관급자재[방송설비]",
+   "vendor": "주식회사엔클라우드",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 23860950,
+   "count": 2,
+   "summary": "주식회사엔클라우드가 7일 안에 2건을 나눠 받음 · 합산 2,386만 원 (건별 최대 1,871만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 23860950,
+    "건수": 2,
+    "건별금액": [
+     18711000,
+     5149950
+    ],
+    "기간": "2026-10-29 ~ 2026-10-30"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:a3f4c6d319e2",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19383528",
+     "title": "삼척동굴자연생태관건립사업(통신)관급자재[방송설비]",
+     "amount": 5149950,
+     "contract_date": "2026-10-29",
+     "vendor": "주식회사엔클라우드",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02107194&ctrtChgOrd=01&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:c6d11301ef02",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19473690",
+     "title": "삼척웹툰워케이션센터리모델링공사(통신)관급자재[영상감시장치]",
+     "amount": 18711000,
+     "contract_date": "2026-10-30",
+     "vendor": "주식회사엔클라우드",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02181585&ctrtChgOrd=02&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
     }
    ]
   },
@@ -736,6 +1960,110 @@
    ]
   },
   {
+   "id": "split-cheorwon:4cc822d5b399-cheorwon:607eda581",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 근남면 총무 · 2026년 근남면 주민숙원사업(육단1리 273-21번지 일원 배수로 정비",
+   "vendor": "공영건설 (주)",
+   "agency": "철원군 근남면",
+   "department": "총무",
+   "amount": 23166000,
+   "count": 2,
+   "summary": "공영건설 (주)가 7일 안에 2건을 나눠 받음 · 합산 2,317만 원 (건별 최대 1,158만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 23166000,
+    "건수": 2,
+    "건별금액": [
+     11583000,
+     11583000
+    ],
+    "기간": "2026-11-04 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:4cc822d5b399",
+     "agency": "철원군 근남면",
+     "department": "총무",
+     "contract_no": "R26TE19553241",
+     "title": "2026년 근남면 주민숙원사업(육단1리 273-21번지 일원 배수로 정비)",
+     "amount": 11583000,
+     "contract_date": "2026-11-04",
+     "vendor": "공영건설 (주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02386987&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:607eda58151e",
+     "agency": "철원군 근남면",
+     "department": "총무",
+     "contract_no": "R26TE19558376",
+     "title": "2026년 근남면 주민숙원사업(육단1리 273-21번지 일원 배수로 정비)",
+     "amount": 11583000,
+     "contract_date": "2026-11-05",
+     "vendor": "공영건설 (주)",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02386987&ctrtChgOrd=01&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:4fd1a269f483-samcheok:719a6576b",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길54-8)",
+   "vendor": "주식회사 바름",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 22986000,
+   "count": 2,
+   "summary": "주식회사 바름이 7일 안에 2건을 나눠 받음 · 합산 2,299만 원 (건별 최대 1,200만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 22986000,
+    "건수": 2,
+    "건별금액": [
+     11998000,
+     10988000
+    ],
+    "기간": "2026-10-29 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:719a6576bfd8",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19384714",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길54-8)",
+     "amount": 10988000,
+     "contract_date": "2026-10-29",
+     "vendor": "주식회사 바름",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02371334&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:4fd1a269f483",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19565947",
+     "title": "흥전4리삭도마을새뜰마을사업집수리공사(흥전길54-8)",
+     "amount": 11998000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 바름",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397885&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "split-hoengseong:1a6d3c962742-hoengseong:ce3a8",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -784,6 +2112,162 @@
      "contract_date": "2026-11-24",
      "vendor": "남산건설(주)",
      "detail_url": "https://gyeyak.hsg.go.kr/contract/post/97561"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:174a81746331-samcheok:a33b3f0bc",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-6)",
+   "vendor": "합자회사 영일건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 22000000,
+   "count": 2,
+   "summary": "합자회사 영일건설이 7일 안에 2건을 나눠 받음 · 합산 2,200만 원 (건별 최대 1,100만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 22000000,
+    "건수": 2,
+    "건별금액": [
+     11000000,
+     11000000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:a33b3f0bcc43",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19565742",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-6)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397841&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:174a81746331",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566873",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길42-12)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "합자회사 영일건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398135&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-samcheok:412dc9a3818b-samcheok:83614d7b6",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "삼척시 회계과 · 흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길120-20)",
+   "vendor": "주식회사 케이준건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 21846000,
+   "count": 2,
+   "summary": "주식회사 케이준건설이 7일 안에 2건을 나눠 받음 · 합산 2,185만 원 (건별 최대 1,100만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 21846000,
+    "건수": 2,
+    "건별금액": [
+     11000000,
+     10846000
+    ],
+    "기간": "2026-11-05 ~ 2026-11-05"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:412dc9a3818b",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566049",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길120-20)",
+     "amount": 11000000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 케이준건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02397908&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "samcheok:83614d7b6fc7",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19566359",
+     "title": "흥전4리삭도마을새뜰마을사업지붕개량공사(흥전길120-16)",
+     "amount": 10846000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 케이준건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02398007&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "split-cheorwon:9a9a6329a713-cheorwon:d896791d3",
+   "type": "SPLIT",
+   "type_label": "쪼개기 수의계약",
+   "severity": "중",
+   "title": "철원군 회계지적과 · 철원군 장난감도서관 2호점 관리프로그램 구입",
+   "vendor": "재우솔루션",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 21501000,
+   "count": 2,
+   "summary": "재우솔루션이 7일 안에 2건을 나눠 받음 · 합산 2,150만 원 (건별 최대 1,075만 원)",
+   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
+   "facts": {
+    "합산금액": 21501000,
+    "건수": 2,
+    "건별금액": [
+     10750500,
+     10750500
+    ],
+    "기간": "2026-11-04 ~ 2026-11-04"
+   },
+   "checks": [
+    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
+    "각 건의 계약 사유·견적 수(1인 견적 여부)",
+    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:9a9a6329a713",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19642473",
+     "title": "철원군 장난감도서관 2호점 관리프로그램 구입",
+     "amount": 10750500,
+     "contract_date": "2026-11-04",
+     "vendor": "재우솔루션",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02352590&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
+    },
+    {
+     "id": "cheorwon:d896791d3102",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19654193",
+     "title": "철원군 장난감도서관 2호점 관리프로그램 구입",
+     "amount": 10750500,
+     "contract_date": "2026-11-04",
+     "vendor": "재우솔루션",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02352590&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y"
     }
    ]
   },
@@ -852,6 +2336,191 @@
    ]
   },
   {
+   "id": "new-주식회사 우리문화",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "삼척시 · 주식회사 우리문화 첫 등장 41.6억 원",
+   "vendor": "주식회사 우리문화",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 4164145000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-24 41.6억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-24",
+    "첫 계약금액": 4164145000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:40e97807d208",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE20145423",
+     "title": "삼척도호부 관아(동헌) 복원사업(총괄분/1차분)",
+     "amount": 4164145000,
+     "contract_date": "2026-11-24",
+     "vendor": "주식회사 우리문화",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=2024060E896_3&ctrtChgOrd=06&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "new-세기건설 주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "삼척시 · 세기건설 주식회사 첫 등장 37.6억 원",
+   "vendor": "세기건설 주식회사",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 3762672000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-12 37.6억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-12",
+    "첫 계약금액": 3762672000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:138de0668b9f",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19824903",
+     "title": "삼척 임원출장소 신축공사(건축,토목)(전체분/1차분)",
+     "amount": 3762672000,
+     "contract_date": "2026-11-12",
+     "vendor": "세기건설 주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA01028301&ctrtChgOrd=05&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)백만종합건설",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "철원군 · (주)백만종합건설 첫 등장 37.4억 원",
+   "vendor": "(주)백만종합건설",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 3740970000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-03 37.4억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-03",
+    "첫 계약금액": 3740970000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:2ab2da4e72c2",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19563770",
+     "title": "두루웰 숲콕아지트 조성사업(건축)",
+     "amount": 3740970000,
+     "contract_date": "2026-11-03",
+     "vendor": "(주)백만종합건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00485111&ctrtChgOrd=05&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "new-(주)대명종합건설",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "삼척시 · (주)대명종합건설 첫 등장 32.2억 원",
+   "vendor": "(주)대명종합건설",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 3217908790,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-02 32.2억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-02",
+    "첫 계약금액": 3217908790,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:2db46d7afbff",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19429656",
+     "title": "정라지구 도시재생뉴딜사업 건축물 증개축공사(2차)",
+     "amount": 3217908790,
+     "contract_date": "2026-11-02",
+     "vendor": "(주)대명종합건설",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02367175&ctrtChgOrd=00&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
+   "id": "new-주식회사 일우",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "철원군 · 주식회사 일우 첫 등장 25.0억 원",
+   "vendor": "주식회사 일우",
+   "agency": "철원군",
+   "department": "회계지적과",
+   "amount": 2497200000,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-05 25.0억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-05",
+    "첫 계약금액": 2497200000,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "cheorwon:0a000f893a14",
+     "agency": "철원군",
+     "department": "회계지적과",
+     "contract_no": "R26TE19563734",
+     "title": "DMZ 산림항공관리소 주변마을 생활환경개선사업",
+     "amount": 2497200000,
+     "contract_date": "2026-11-05",
+     "vendor": "주식회사 일우",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=20240101DC7_3&ctrtChgOrd=15&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "new-주식회사 서화",
    "type": "NEWCOMER",
    "type_label": "신생법인 특혜(의심)",
@@ -889,6 +2558,43 @@
    ]
   },
   {
+   "id": "new-우길건설주식회사",
+   "type": "NEWCOMER",
+   "type_label": "신생법인 특혜(의심)",
+   "severity": "하",
+   "title": "삼척시 · 우길건설주식회사 첫 등장 20.4억 원",
+   "vendor": "우길건설주식회사",
+   "agency": "삼척시",
+   "department": "회계과",
+   "amount": 2043206920,
+   "count": 1,
+   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-03 20.4억 원 · 전체 등장 1건",
+   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
+   "facts": {
+    "첫 계약일": "2026-11-03",
+    "첫 계약금액": 2043206920,
+    "등장 건수": 1
+   },
+   "checks": [
+    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
+    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
+    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
+   ],
+   "contracts": [
+    {
+     "id": "samcheok:b4a2dbd1aa30",
+     "agency": "삼척시",
+     "department": "회계과",
+     "contract_no": "R26TE19482935",
+     "title": "폐산업시설 문화재생사업 지붕 및 구조보강공사(제1전시관)",
+     "amount": 2043206920,
+     "contract_date": "2026-11-03",
+     "vendor": "우길건설주식회사",
+     "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R25TA00563646&ctrtChgOrd=06&prcmBsneSeCd=조070004&srchName=ctrtCrst&openUrl=Y"
+    }
+   ]
+  },
+  {
    "id": "new-(주)해인건설",
    "type": "NEWCOMER",
    "type_label": "신생법인 특혜(의심)",
@@ -922,228 +2628,6 @@
      "contract_date": "2026-11-23",
      "vendor": "(주)해인건설",
      "detail_url": "https://www.gn.go.kr/gyeyak/contract/post/144669"
-    }
-   ]
-  },
-  {
-   "id": "new-정상종합건설(주)",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "양양군 · 정상종합건설(주) 첫 등장 17.2억 원",
-   "vendor": "정상종합건설(주)",
-   "agency": "양양군",
-   "department": "본청",
-   "amount": 1718088480,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-20 17.2억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-20",
-    "첫 계약금액": 1718088480,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "yangyang:14204275f98f",
-     "agency": "양양군",
-     "department": "본청",
-     "contract_no": "41195",
-     "title": "클린 국가어항(남애항) 조성사업(수협.어촌계 판매장) 건축,기계공사",
-     "amount": 1718088480,
-     "contract_date": "2026-11-20",
-     "vendor": "정상종합건설(주)",
-     "detail_url": "http://gyeyak.yangyang.go.kr/contract/post/41195"
-    }
-   ]
-  },
-  {
-   "id": "new-고구려건설 주식회사",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "영월군 · 고구려건설 주식회사 첫 등장 9.5억 원",
-   "vendor": "고구려건설 주식회사",
-   "agency": "영월군",
-   "department": "",
-   "amount": 945894580,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-18 9.5억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-18",
-    "첫 계약금액": 945894580,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "yeongwol:0af7e96f6737",
-     "agency": "영월군",
-     "department": "",
-     "contract_no": "202600114072",
-     "title": "주천면 파크골프장(18홀) 조성 공사",
-     "amount": 945894580,
-     "contract_date": "2026-11-18",
-     "vendor": "고구려건설 주식회사",
-     "detail_url": "https://www.yw.go.kr/confin/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600114072"
-    }
-   ]
-  },
-  {
-   "id": "new-(주)케이지엔지니어링종합건축사사무소",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "원주시 상하수도사업소 · (주)케이지엔지니어링종합건축사사무소 첫 등장 9.2억 원",
-   "vendor": "(주)케이지엔지니어링종합건축사사무소",
-   "agency": "원주시 상하수도사업소",
-   "department": "하수시설과",
-   "amount": 919450000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-08-26 9.2억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-08-26",
-    "첫 계약금액": 919450000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "wonju:e0bb545cb9f3",
-     "agency": "원주시 상하수도사업소",
-     "department": "하수시설과",
-     "contract_no": "0000006828",
-     "title": "흥업처리구역 하수관로 정비사업 기본 및 실시설계용역-선금",
-     "amount": 919450000,
-     "contract_date": "2026-08-26",
-     "vendor": "(주)케이지엔지니어링종합건축사사무소",
-     "detail_url": "https://www.wonju.go.kr/www/viewVTcmSummarylistLf.do?cntrctMngNo=0000006828&pbentCd=932&cpn=3&key=6410"
-    }
-   ]
-  },
-  {
-   "id": "new-주식회사 미진건설",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "평창군 · 주식회사 미진건설 첫 등장 8.2억 원",
-   "vendor": "주식회사 미진건설",
-   "agency": "평창군",
-   "department": "",
-   "amount": 821600950,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-19 8.2억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-19",
-    "첫 계약금액": 821600950,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "pyeongchang:386c7e6c22dd",
-     "agency": "평창군",
-     "department": "",
-     "contract_no": "202600113243",
-     "title": "평창 방림삼베민속 전통문화시설 건립사업(건축)",
-     "amount": 821600950,
-     "contract_date": "2026-11-19",
-     "vendor": "주식회사 미진건설",
-     "detail_url": "https://www.pc.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113243"
-    }
-   ]
-  },
-  {
-   "id": "new-(주)미르",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "영월군 · (주)미르 첫 등장 6.0억 원",
-   "vendor": "(주)미르",
-   "agency": "영월군",
-   "department": "",
-   "amount": 598256000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-11-11 6.0억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-11-11",
-    "첫 계약금액": 598256000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "yeongwol:d7fde5c23554",
-     "agency": "영월군",
-     "department": "",
-     "contract_no": "202600113978",
-     "title": "청령포 둘레길(동서강수월래) 조성사업(2차분)",
-     "amount": 598256000,
-     "contract_date": "2026-11-11",
-     "vendor": "(주)미르",
-     "detail_url": "https://www.yw.go.kr/confin/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600113978"
-    }
-   ]
-  },
-  {
-   "id": "new-에스지건설 주식회사",
-   "type": "NEWCOMER",
-   "type_label": "신생법인 특혜(의심)",
-   "severity": "하",
-   "title": "강원특별자치도 · 에스지건설 주식회사 첫 등장 5.8억 원",
-   "vendor": "에스지건설 주식회사",
-   "agency": "강원특별자치도",
-   "department": "",
-   "amount": 580190000,
-   "count": 1,
-   "summary": "수집된 계약 중 이 업체의 첫 계약이 2026-10-29 5.8억 원 · 전체 등장 1건",
-   "threshold": "수집 데이터 내 등장 1건 이하 & 첫 계약 1.0억 원 이상 (설립일 데이터 없음 → '데이터 첫 등장' 기준)",
-   "facts": {
-    "첫 계약일": "2026-10-29",
-    "첫 계약금액": 580190000,
-    "등장 건수": 1
-   },
-   "checks": [
-    "법인등기부·사업자등록증으로 설립일 확인(국세청 사업자 상태 조회)",
-    "설립 후 첫 수주까지 걸린 기간과 입찰 참여 자격",
-    "대표자·주소가 기존 수주 업체와 겹치는지(페이퍼컴퍼니 의심)"
-   ],
-   "contracts": [
-    {
-     "id": "gwd:f63dfbbbf687",
-     "agency": "강원특별자치도",
-     "department": "",
-     "contract_no": "15657",
-     "title": "평창 고길천 상리지구 지방하천 정비사업(2차분)",
-     "amount": 580190000,
-     "contract_date": "2026-10-29",
-     "vendor": "에스지건설 주식회사",
-     "detail_url": "https://confin.gwd.go.kr/contract/continfo/status/conconst?ctrtAcctBookMngNo=202600116110"
     }
    ]
   }

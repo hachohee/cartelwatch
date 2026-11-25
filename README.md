@@ -92,6 +92,7 @@ python3 scripts/detect_anomalies.py
 | `yanggu_ajax` | 양구·인제 (jqGrid 수의계약현황) | `ajaxOptionalList.do` JSON 직접 호출 |
 | `ihc_api` | 화천 (contract.ihc.go.kr) | `/api/situ` JSON, 10건 단위 |
 | `goe_keris` | 강원특별자치도교육청 수의계약내역공개 | 목록+상세(금액·업체·대표자·사유) |
+| `g2b_api` | 홈페이지가 막힌 시군(태백·삼척·철원) | 조달청_나라장터 계약정보서비스로 보완 수집 |
 | `auto` | 그 외 | 알려진 표 구조를 찾아 자동 판별 |
 
 ### TLS 인증서 체인 오류 기관 (허용목록)
@@ -108,21 +109,32 @@ python3 scripts/detect_anomalies.py
 인증서 지문(SHA-256)이 남습니다. 지문이 바뀌면 서버 인증서가 교체된 것이니 확인하세요.
 웹방화벽(WAF)이 자동 요청을 막는 기관은 우회하지 않고 `웹방화벽(WAF) 차단`으로만 기록합니다.
 
-### 나라장터 API 키 (선택 · 보조 경로)
+### 나라장터 API 키 (선택 · 보완 경로)
 
 1. [공공데이터포털](https://www.data.go.kr) 로그인
-2. **“나라장터 계약정보조회서비스”** 검색 → **활용신청** (자동 승인)
+2. **“조달청_나라장터 계약정보서비스”** 검색 → **활용신청** (자동 승인)
 3. 마이페이지 → 개발계정 → **일반 인증키(Decoding)** 복사
 4. 환경변수로만 사용:
 
 ```bash
 export DATA_GO_KR_KEY="발급받은_인증키"
-python3 scripts/fetch_contracts.py        # API 결과까지 합쳐 중복 제거
+python3 scripts/fetch_contracts.py        # 막힌 기관을 API로 보완 수집해 합친다
 ```
 
 > 키는 절대 파일에 저장하거나 커밋하지 마세요. `.env`도 커밋 금지입니다.
-> 나라장터 API는 일 1만 회·호출당 1,000행 제약이 있어, 홈페이지 크롤링을 1순위로 두고
-> API는 커버리지를 넓히는 보조 수단으로만 씁니다.
+
+동작 방식(2026-11-25 구현):
+
+- 홈페이지 수집이 **실패한 기관** 중 레지스트리에 `narajangter.instt_nm`(계약기관 정식명)이
+  적힌 곳만 API로 보완합니다. 지금은 태백시·삼척시·철원군 3곳입니다.
+- 오퍼레이션: `https://apis.data.go.kr/1230000/ao/CntrctInfoService/` 아래
+  `getCntrctInfoListThngPPSSrch`(물품)·`getCntrctInfoListCnstwkPPSSrch`(공사)·`getCntrctInfoListServcPPSSrch`(용역).
+  `insttNm`은 **앞부분 일치**라 `"강원특별자치도 삼척시"` 한 번으로 삼척시 본청·상수도사업소·읍면이 함께 잡힙니다.
+- 조회기간 상한이 **7일**(2026-11-10 공지로 1개월→7일)이라, 최근 `G2B_DAYS`(기본 28일)를 7일 창으로
+  잘라 거슬러 호출합니다. 창을 늘리려면 `G2B_DAYS=56 python3 scripts/fetch_contracts.py`.
+- 날짜는 계약체결일자(`inqryDiv=1`), 금액은 **금차계약금액**(없으면 총계약금액), 업체는 `corpList`의
+  주계약업체, 상세 링크는 `cntrctDtlInfoUrl`(나라장터 계약 상세)을 씁니다. 출처는 `extra.출처`에 남습니다.
+- 키가 없으면 예전처럼 홈페이지 결과(차단 사유)만 유지하고, 그 기관은 `실패`로 표시됩니다.
 
 ---
 

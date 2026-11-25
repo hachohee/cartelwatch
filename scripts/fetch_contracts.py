@@ -7,7 +7,8 @@
 계약 공개 홈페이지를 직접 긁어 data/contracts.json 을 만듭니다.
 
 원칙
-- 나라장터 API는 "보조" 경로입니다. DATA_GO_KR_KEY 환경변수가 있을 때만 추가로 호출하고,
+- 나라장터 API는 "보완" 경로입니다. 홈페이지가 WAF·접속차단으로 막힌 기관(태백·삼척·철원 등)만
+  DATA_GO_KR_KEY 환경변수가 있을 때 조달청_나라장터 계약정보서비스로 채우고,
   키가 없어도 홈페이지 크롤링만으로 앱이 실데이터로 돌아갑니다.
 - 인증키는 코드·저장소에 절대 넣지 않습니다(환경변수만).
 - 기관별 파서는 agencies.json 레지스트리로 분리. 한 기관이 깨져도 나머지는 계속 수집하고,
@@ -723,47 +724,131 @@ def p_auto(ag, http, pages):
     raise RuntimeError("자동 판별 실패: " + " / ".join(reasons or ["시도한 URL 없음"]))
 
 
-# ---------------------------------------------------------------- national API (보조)
-def fetch_narajangter(key, pages=1):
-    """나라장터 계약정보 API(보조 경로). DATA_GO_KR_KEY 있을 때만 호출."""
-    items = []
-    endpoint = ("http://apis.data.go.kr/1230000/CntrctInfoService/getCntrctInfoListThng"
-                "?ServiceKey={key}&numOfRows=100&pageNo={page}&type=json&inqryDiv=1"
-                "&inqryBgnDt={bgn}&inqryEndDt={endd}")
-    today = datetime.now(KST)
-    bgn = (today - timedelta(days=30)).strftime("%Y%m%d") + "0000"
-    endd = today.strftime("%Y%m%d") + "2359"
-    http = Http(delay=0.5)
-    for pg in range(1, pages + 1):
-        url = endpoint.format(key=urllib.parse.quote(key), page=pg, bgn=bgn, endd=endd)
-        try:
-            raw = http.fetch(url)
-            data = json.loads(raw)
-        except Exception as e:  # noqa: BLE001
-            print(f"    ! 나라장터 API 실패: {e}")
-            break
-        body = (data.get("response", {}) or {}).get("body", {}) or {}
-        rows = ((body.get("items") or {}).get("item")) or []
+# ---------------------------------------------------------------- national API (보완 경로)
+# 조달청_나라장터 계약정보서비스 (2026-11-10 스펙)
+#  - 주소: https://apis.data.go.kr/1230000/ao/CntrctInfoService/<오퍼레이션>
+#  - 나라장터검색조건 오퍼레이션(…PPSSrch)은 inqryBgnDate/inqryEndDate(YYYYMMDD)와
+#    insttNm(계약기관명, 앞부분 일치)로 서버에서 걸러 준다. 그래서 시군 본청과 그 산하
+#    사업소·읍면이 한 번에 잡힌다(예: "강원특별자치도 삼척시" → 삼척시·상수도사업소·근덕면).
+#  - 같은 공지로 조회기간 상한이 1개월 → 7일로 줄어, 요청은 7일 창으로 잘라 여러 번 한다.
+#  - 응답 JSON: response.body.items (목록), totalCount. 수요기관은 dminsttList 문자열.
+G2B_BASE = "https://apis.data.go.kr/1230000/ao/CntrctInfoService"
+G2B_OPS = (("물품", "getCntrctInfoListThngPPSSrch"),
+           ("공사", "getCntrctInfoListCnstwkPPSSrch"),
+           ("용역", "getCntrctInfoListServcPPSSrch"))
+G2B_WINDOW_DAYS = 7        # 조회기간 상한(2026-11-10 공지)
+G2B_DEFAULT_DAYS = 28      # 기본 수집 창(최근 4주). 환경변수 G2B_DAYS 로 조정
+G2B_PAGE_ROWS = 500        # 페이지당 결과 수(최대 999)
+G2B_MAX_PAGES = 40         # 한 창·한 기관명당 페이지 상한(안전장치)
+
+
+class G2bError(RuntimeError):
+    """나라장터 API가 오류 헤더(resultCode≠00)를 돌려준 경우."""
+
+
+def g2b_call(key, op, params, http):
+    """오퍼레이션 한 번 호출 → (rows, totalCount). 인증키는 환경변수에서만 온다."""
+    qs = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
+    url = f"{G2B_BASE}/{op}?ServiceKey={urllib.parse.quote(key, safe='')}&{qs}"
+    raw = http.fetch(url, headers={"Accept": "application/json"}, encoding="utf-8")
+    data = json.loads(raw)
+    if "response" not in data:
+        hdr = {}
+        for k in ("nkoneps.com.response.ResponseError", "OpenAPI_ServiceResponse"):
+            blob = data.get(k) or {}
+            hdr = blob.get("header") or blob.get("cmmMsgHeader") or {}
+            if hdr:
+                break
+        msg = hdr.get("resultMsg") or hdr.get("returnAuthMsg") or "알 수 없는 응답"
+        raise G2bError(f"{hdr.get('resultCode', '?')} {msg}")
+    body = data["response"].get("body") or {}
+    rows = body.get("items") or []
+    if isinstance(rows, dict):
+        rows = rows.get("item") or []
         if isinstance(rows, dict):
             rows = [rows]
-        for r in rows:
-            inst = r.get("cntrctInsttNm") or r.get("dminsttNm") or ""
-            if "강원" not in inst:
-                continue
-            cat = "교육청" if "교육" in inst else ("도청" if inst.startswith("강원") else "시군")
-            items.append(rec("narajangter", cat, inst,
-                             department=r.get("cntrctDeptNm", ""),
-                             contract_no=r.get("cntrctNo", ""),
-                             title=r.get("cntrctNm", ""),
-                             amount=money(r.get("cntrctAmt", 0)),
-                             contract_date=norm_date(r.get("cntrctDate", "")),
-                             vendor=r.get("cntrctEntrpsNm", ""),
-                             method=r.get("cntrctMthdNm", ""),
-                             detail_url="https://www.g2b.go.kr/",
-                             extra={"공고번호": r.get("bidNtceNo", "")}))
-        if len(rows) < 100:
-            break
-    return items
+    return rows, int(body.get("totalCount") or 0)
+
+
+def g2b_vendor(corp_list):
+    """corpList 문자열에서 주계약업체 상호. 없으면 첫 업체명."""
+    first = ""
+    for blob in re.findall(r"\[([^\]]*)\]", corp_list or ""):
+        f = blob.split("^")
+        if len(f) < 4:
+            continue
+        role, name = f[1].strip(), f[3].strip()
+        if not name:
+            continue
+        if role == "주계약업체":
+            return name
+        first = first or name
+    return first
+
+
+def g2b_record(ag_id, cat, r):
+    """API 응답 1건 → 앱 표준 레코드. 금액은 금차계약금액(없으면 총계약금액)."""
+    amount = money(r.get("thtmCntrctAmt")) or money(r.get("totCntrctAmt"))
+    instt = txt(r.get("cntrctInsttNm") or "").replace("강원특별자치도 ", "").strip()
+    return rec(ag_id, "시군", instt,
+               department=txt(r.get("cntrctInsttChrgDeptNm") or ""),
+               contract_no=r.get("untyCntrctNo") or "",
+               title=txt(r.get("cntrctNm") or r.get("cnstwkNm") or ""),
+               amount=amount,
+               contract_date=norm_date(r.get("cntrctCnclsDate") or r.get("cntrctDate") or ""),
+               vendor=g2b_vendor(r.get("corpList")),
+               method=r.get("cntrctCnclsMthdNm") or "",
+               detail_url=r.get("cntrctDtlInfoUrl") or "",
+               extra={"출처": "나라장터 API",
+                      "계약구분": r.get("bsnsDivNm") or cat,
+                      "공고번호": r.get("ntceNo") or "",
+                      "총계약금액": money(r.get("totCntrctAmt")),
+                      "장기계속": r.get("lngtrmCtnuDivNm") or ""})
+
+
+def fetch_narajangter_missing(key, ag, days=None, verbose=False):
+    """홈페이지가 WAF·접속차단으로 막힌 기관의 계약을 나라장터 API로 보완 수집.
+
+    레지스트리의 narajangter.instt_nm(계약기관 정식명)으로 7일 창을 거슬러 호출한다.
+    반환: (레코드 목록, 수집 정보 dict)
+    """
+    names = [n for n in (ag.get("narajangter") or {}).get("instt_nm", []) if n]
+    if not names:
+        raise G2bError("레지스트리에 narajangter.instt_nm 이 없습니다")
+    days = max(int(days or os.environ.get("G2B_DAYS") or G2B_DEFAULT_DAYS), 1)
+    http = Http(delay=0.25, timeout=40, retries=3, verbose=verbose)
+    today = datetime.now(KST).date()
+    start = today - timedelta(days=days - 1)
+    items, by_cat, seen, calls = [], {}, set(), 0
+    window_end = today
+    while window_end >= start:
+        window_bgn = max(start, window_end - timedelta(days=G2B_WINDOW_DAYS - 1))
+        for cat, op in G2B_OPS:
+            for instt_nm in names:
+                for page in range(1, G2B_MAX_PAGES + 1):
+                    rows, total = g2b_call(key, op, {
+                        "numOfRows": G2B_PAGE_ROWS, "pageNo": page, "type": "json",
+                        "inqryDiv": 1,                      # 1 = 계약체결일자
+                        "inqryBgnDate": window_bgn.strftime("%Y%m%d"),
+                        "inqryEndDate": window_end.strftime("%Y%m%d"),
+                        "insttNm": instt_nm,
+                    }, http)
+                    calls += 1
+                    for r in rows:
+                        item = g2b_record(ag["id"], cat, r)
+                        if not item["title"] or item["id"] in seen:
+                            continue
+                        seen.add(item["id"])
+                        items.append(item)
+                        by_cat[cat] = by_cat.get(cat, 0) + 1
+                    if not rows or page * G2B_PAGE_ROWS >= total:
+                        break
+                print(f"    · API {cat} {instt_nm} {window_bgn}~{window_end}: "
+                      f"누적 {by_cat.get(cat, 0)}건")
+        window_end = window_bgn - timedelta(days=1)
+    info = {"period": [start.isoformat(), today.isoformat()],
+            "by_category": by_cat, "calls": calls, "instt_nm": names}
+    return items, info
 
 
 # ---------------------------------------------------------------- main
@@ -804,7 +889,8 @@ def main():
     base_http = Http(delay=defaults.get("delay_sec", 0.7), timeout=defaults.get("timeout_sec", 20),
                      retries=defaults.get("retries", 3), verbose=args.verbose)
 
-    all_new, status = [], []
+    api_key = os.environ.get("DATA_GO_KR_KEY", "").strip()
+    all_new, status, g2b_runs = [], [], []
     for ag in agencies:
         pages = args.pages or ag.get("pages") or defaults.get("pages", 3)
         print(f"\n▶ {ag['name']} ({ag['id']}, {ag['category']}) · 최대 {pages}페이지")
@@ -839,29 +925,50 @@ def main():
         except Exception as e:  # noqa: BLE001 - 기관 하나 실패로 전체 중단 금지
             st["error"] = str(e)[:300]
             print(f"    ✗ {ag['name']} 실패: {e}")
+
+        # 홈페이지가 막힌 기관은 나라장터 API로 보완(키가 있을 때만)
+        if st["status"] != "성공" and ag.get("narajangter") and api_key:
+            print(f"    ↻ {ag['name']} 나라장터 API 보완 수집")
+            try:
+                rows, info = fetch_narajangter_missing(api_key, ag, verbose=args.verbose)
+                st["g2b"] = info
+                if rows:
+                    all_new.extend(rows)
+                    st["crawl_error"] = st.get("error") or ""
+                    st.update({"status": "성공", "count": len(rows), "parser": "g2b_api",
+                               "url": G2B_BASE, "source": "나라장터 API 보완", "error": "",
+                               "note": "나라장터 API 보완(" + " ~ ".join(info["period"]) + ") · "
+                                       + "·".join(f"{k} {v}건" for k, v in info["by_category"].items()),
+                               "site_note": ag.get("note", "")})
+                    print(f"    ✓ 나라장터 API {len(rows)}건 (" +
+                          ", ".join(f"{k} {v}" for k, v in info["by_category"].items()) + ")")
+                else:
+                    st["note"] = ("나라장터 API 조회 성공 · " + " ~ ".join(info["period"]) + " 0건")
+                    print("    · 나라장터 API 조회 성공, 해당 기간 0건")
+                g2b_runs.append({"id": ag["id"], "name": ag["name"],
+                                 "count": len(rows), "info": info, "error": ""})
+            except Exception as e:  # noqa: BLE001
+                st["g2b_error"] = str(e)[:300]
+                print(f"    ! 나라장터 API 보완 실패: {e}")
+                g2b_runs.append({"id": ag["id"], "name": ag["name"], "count": 0,
+                                 "info": {}, "error": str(e)[:300]})
         st["elapsed"] = round(time.time() - t0, 1)
         status.append(st)
 
-    # 나라장터 API(보조)
-    key = os.environ.get("DATA_GO_KR_KEY", "").strip()
-    if key and (not args.agency or "narajangter" in set(args.agency)):
-        print("\n▶ 나라장터 계약정보 API (보조 경로)")
-        try:
-            rows = fetch_narajangter(key)
-            all_new.extend(rows)
-            status.append({"id": "narajangter", "name": "나라장터 API(보조)", "category": "전체",
-                           "parser": "api", "url": "apis.data.go.kr", "status": "성공",
-                           "count": len(rows), "pages": 1,
-                           "collected_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
-                           "error": "", "elapsed": 0})
-            print(f"    · 나라장터 API {len(rows)}건")
-        except Exception as e:  # noqa: BLE001
-            status.append({"id": "narajangter", "name": "나라장터 API(보조)", "category": "전체",
-                           "parser": "api", "url": "apis.data.go.kr", "status": "실패",
-                           "count": 0, "pages": 1,
-                           "collected_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
-                           "error": str(e)[:300], "elapsed": 0})
-    elif not key:
+    # 나라장터 API 보완 결과 요약(상태표 한 줄)
+    if g2b_runs:
+        ok = [g for g in g2b_runs if not g["error"]]
+        status.append({"id": "narajangter", "name": "나라장터 API(시군 보완)", "category": "전체",
+                       "parser": "g2b_api", "url": G2B_BASE,
+                       "status": "성공" if ok and sum(g["count"] for g in ok) else "실패",
+                       "count": sum(g["count"] for g in g2b_runs), "pages": 1,
+                       "collected_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
+                       "note": ", ".join(f"{g['name']} {g['count']}건" for g in g2b_runs),
+                       "error": "; ".join(f"{g['name']}: {g['error']}" for g in g2b_runs if g["error"])[:300],
+                       "elapsed": 0})
+        print("\n▶ 나라장터 API 보완: " +
+              ", ".join(f"{g['name']} {g['count']}건" for g in g2b_runs))
+    elif not api_key:
         print("\n· DATA_GO_KR_KEY 없음 → 홈페이지 크롤링만 수행합니다(정상 동작).")
 
     # 병합 + 중복 제거 (새 수집분 우선)
