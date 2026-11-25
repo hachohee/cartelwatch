@@ -163,6 +163,9 @@ def main():
         agency = items[0][1].get("agency", "")
         vendor = items[0][1].get("vendor") or ""
         items.sort(key=lambda x: x[0])
+        # 같은 업체·부서의 후보 묶음을 모두 만든 뒤, 더 큰 묶음에 완전히 포함되는 작은 묶음은 버린다.
+        # (7일 창을 하루씩 밀면 같은 사건이 13건·12건·11건… 카드로 겹쳐 쏟아지므로)
+        cands = []
         for i, (d0, c0) in enumerate(items):
             window = [c for d, c in items[i:] if (d - d0).days <= SPLIT_WINDOW_DAYS]
             if len(window) < SPLIT_MIN_COUNT:
@@ -172,10 +175,20 @@ def main():
             total = sum(c["amount"] for c in cluster)
             if len(cluster) < SPLIT_MIN_COUNT or total < SPLIT_MIN_TOTAL:
                 continue
-            sig = tuple(sorted(c["id"] for c in cluster))
+            cands.append(cluster)
+        cands.sort(key=lambda cl: (-len(cl), -sum(c["amount"] for c in cl)))
+        kept = []
+        for cl in cands:
+            ids = {c["id"] for c in cl}
+            if any(ids <= k for k in kept):
+                continue
+            kept.append(ids)
+            sig = tuple(sorted(ids))
             if sig in seen_sets:
                 continue
             seen_sets.add(sig)
+            cluster = cl
+            total = sum(c["amount"] for c in cluster)
             anomalies.append({
                 "id": "split-" + "-".join(sig[:2])[:40],
                 "type": "SPLIT",
