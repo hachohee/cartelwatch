@@ -88,9 +88,25 @@ python3 scripts/detect_anomalies.py
 | `wonju_table` | 원주시 계약현황 | 헤더 이름으로 열 매핑 |
 | `gyeyak` | 강릉·동해·홍천 (계약정보공개시스템 공통) | `ul.ul-body` 목록, `?p=` 페이지 |
 | `confin_post` | 도청·평창 (세입세출 계약정보공개) | 1행형/2행형 표 모두 처리, `POST pageIndex` |
-| `table_post_multi` | 정선 (공사·용역·물품 3개 게시판) | 헤더 이름 매핑, `POST pageIndex` |
+| `table_post_multi` | 정선·속초 (여러 게시판) | 헤더 이름 매핑, `POST pageIndex` |
+| `yanggu_ajax` | 양구·인제 (jqGrid 수의계약현황) | `ajaxOptionalList.do` JSON 직접 호출 |
+| `ihc_api` | 화천 (contract.ihc.go.kr) | `/api/situ` JSON, 10건 단위 |
 | `goe_keris` | 강원특별자치도교육청 수의계약내역공개 | 목록+상세(금액·업체·대표자·사유) |
 | `auto` | 그 외 | 알려진 표 구조를 찾아 자동 판별 |
+
+### TLS 인증서 체인 오류 기관 (허용목록)
+
+중간 인증서가 빠진 지자체 서버는 검증이 실패합니다. 해당 호스트만 `tls_relaxed_hosts`에
+적어 두면, **인증서 검증 실패일 때만** 검증을 완화해 읽기 전용으로 조회합니다.
+목록에 없는 호스트는 검증 실패를 그대로 실패로 남기므로 다른 기관에는 영향이 없습니다.
+
+```json
+"tls_relaxed_hosts": ["ehojo.taebaek.go.kr"]
+```
+
+완화 접속을 실제로 쓴 기관은 `data/meta.json`의 각 기관 `tls` 항목에 호스트와
+인증서 지문(SHA-256)이 남습니다. 지문이 바뀌면 서버 인증서가 교체된 것이니 확인하세요.
+웹방화벽(WAF)이 자동 요청을 막는 기관은 우회하지 않고 `웹방화벽(WAF) 차단`으로만 기록합니다.
 
 ### 나라장터 API 키 (선택 · 보조 경로)
 
