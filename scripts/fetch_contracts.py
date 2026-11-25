@@ -386,6 +386,12 @@ def dedupe(records):
     return merged
 
 
+def clean_dept(v):
+    """부서명에 붙어 나온 전화번호(예: "회계과 033-250-3043(공사) …")를 걷어낸다."""
+    v = txt(v)
+    return re.sub(r"\s*\d{2,3}-\d{3,4}-\d{4}.*$", "", v).strip()
+
+
 def rec(agency_id, category, agency, **kw):
     vendor = (kw.get("vendor") or "").strip()
     stype = kw.get("source_type") or "crawl"
@@ -395,7 +401,7 @@ def rec(agency_id, category, agency, **kw):
         "agency_id": agency_id,
         "category": category,          # 시군 / 도청 / 교육청 / 교육지원청 / 학교
         "agency": agency or "",
-        "department": kw.get("department") or "",
+        "department": clean_dept(kw.get("department")),
         "contract_no": (kw.get("contract_no") or "").strip(),
         "title": (kw.get("title") or "").strip(),
         "amount": int(kw.get("amount") or 0),

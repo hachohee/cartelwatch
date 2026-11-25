@@ -11,11 +11,14 @@
   const comma = n => (n || 0).toLocaleString("ko-KR");
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const today = () => new Date().toISOString().slice(0, 10);
-  // 원자료에 연도 오타(예: 2226-10-27)가 섞여 있어 통계·정렬에서 걸러낸다.
+  // 원자료에 연도 오타(예: 2226-10-27)나 미래 날짜가 섞여 있어 통계·정렬에서 걸러낸다.
   const validDate = d => {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(d || "")) return false;
+    const t = new Date(d + "T00:00:00").getTime();
+    if (Number.isNaN(t)) return false;
     const y = Number(d.slice(0, 4));
-    return y >= 2000 && y <= 2035;
+    if (y < 2000 || y > 2035) return false;
+    return t <= Date.now() + 31 * 86400000;   // 계약일자는 미래일 수 없다(원본 입력 오류)
   };
   const uid = () => "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
 
@@ -433,8 +436,12 @@
     Object.entries(sub).forEach(([name, v]) => {
       list.push({ id: "goe:" + name, name, category: "교육지원청", status: "성공", count: v.count, collected_at: DATA.generatedAt || "", note: "교육청 수의계약내역공개 + 나라장터에서 함께 수집" });
     });
-    const ok = list.filter(s => s.status === "성공").length;
-    $("#status-summary").textContent = `성공 ${ok} / 전체 ${list.length}곳`;
+    const ids = new Set(agencyList().map(a => a.id));
+    const ok = list.filter(s => ids.has(s.id) && s.status === "성공").length;
+    const mainCount = list.filter(s => ids.has(s.id)).length;
+    const subCount = list.length - mainCount;
+    $("#status-summary").textContent = `성공 ${ok} / 전체 ${mainCount}곳`
+      + (subCount ? ` · 교육지원청 ${subCount}곳 포함` : "");
     $("#tbl-status tbody").innerHTML = list.map(s => `
       <tr>
         <td><span class="tag ${esc(s.category)}">${esc(s.category)}</span></td>
@@ -458,8 +465,11 @@
     scoped.forEach(a => (byType[a.type] = byType[a.type] || []).push(a));
     const total = scoped.length;
     const scopeName = anomalyAgency ? agencyName(anomalyAgency) : "";
+    const scopeContracts = anomalyAgency
+      ? DATA.contracts.filter(c => c.agency_id === anomalyAgency).length
+      : DATA.contracts.length;
     $("#anomaly-headline").textContent = total
-      ? `${scopeName ? scopeName + " " : ""}계약 ${comma(DATA.contracts.length)}건에서 소재 후보 ${comma(total)}건을 찾았습니다. 카드에서 바로 소재 보드로 담으세요.`
+      ? `${scopeName ? scopeName + " " : "강원 전체 "}계약 ${comma(scopeContracts)}건에서 소재 후보 ${comma(total)}건을 찾았습니다. 카드에서 바로 소재 보드로 담으세요.`
       : `${scopeName ? scopeName + "에서는 " : ""}이번 수집분에서 임계치를 넘는 후보가 없습니다.`;
 
     $("#type-chips").innerHTML =
