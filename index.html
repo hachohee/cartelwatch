@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>카르텔워치 · 강원 공공계약 감시</title>
-<meta name="description" content="강원특별자치도 18개 시군·도청·교육청 공공계약 이상징후 감시 보드">
-<link rel="stylesheet" href="assets/style.css?v=20261124g">
+<meta name="description" content="강원특별자치도 18개 시군·도청·교육청 공공계약 이상징후 감시 보드 — 홈페이지 + 나라장터 양쪽 합산">
+<link rel="stylesheet" href="assets/style.css?v=20261125a">
 </head>
 <body>
 <aside class="sidebar">
@@ -34,7 +34,7 @@
 
   <div class="side-foot">
     <div class="src-badge" id="source-badge">데이터 확인 중…</div>
-    <p class="side-note">원문 근거(계약번호·금액·계약일·상세 URL)는 항상 표에 남깁니다.<br>수집 스크립트는 <code>scripts/</code>에.</p>
+    <p class="side-note">홈페이지 크롤링 + 나라장터 API를 합쳐 중복을 지운 뒤 누적합니다.<br>원문 근거(계약번호·금액·계약일·상세 URL)는 항상 표에 남깁니다.</p>
   </div>
 </aside>
 
@@ -56,22 +56,54 @@
 
   <!-- ══════════════════ 1. 계약 데이터 ══════════════════ -->
   <section class="screen active" id="screen-contracts">
-    <div class="filters card">
+    <div class="stat-grid">
+      <article class="stat-card">
+        <span class="stat-k">총 계약</span>
+        <b class="stat-v" id="stat-total">–</b>
+        <span class="stat-s" id="stat-source">–</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-k">총 금액</span>
+        <b class="stat-v" id="stat-amount">–</b>
+        <span class="stat-s" id="stat-period">–</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-k">수집 기관</span>
+        <b class="stat-v" id="stat-agencies">–</b>
+        <span class="stat-s">성공 / 전체 20곳</span>
+      </article>
+      <article class="stat-card alert">
+        <span class="stat-k">이상징후 후보</span>
+        <b class="stat-v" id="stat-anomalies">–</b>
+        <span class="stat-s">4대 유형 · 카드에서 바로 담기</span>
+      </article>
+    </div>
+
+    <div class="type-cards" id="type-cards"></div>
+
+    <section class="agency-panel card">
+      <div class="panel-head">
+        <h2>기관으로 보기</h2>
+        <span class="muted small panel-hint">버튼 한 번이면 그 기관 계약만 남습니다</span>
+      </div>
+      <div class="chip-row" id="office-chips"></div>
+      <div class="chip-grid" id="agency-chips"></div>
+      <div class="chip-legend">
+        <span><i class="dot-badge"></i>건수</span>
+        <span><i class="dot-badge warn"></i>이상징후</span>
+        <span class="muted">· 괄호 안은 이상징후 후보 수</span>
+      </div>
+    </section>
+
+    <details class="filters card" id="filter-box">
+      <summary>🔎 정밀 검색 · 부서 · 업체 · 기간 · 금액</summary>
       <div class="frow">
-        <label>구분
-          <select id="f-category"><option value="">전체</option></select>
-        </label>
-        <label>기관
-          <select id="f-agency"><option value="">전체</option></select>
-        </label>
         <label>부서
           <input id="f-dept" type="text" placeholder="예: 하수운영과">
         </label>
         <label>업체
           <input id="f-vendor" type="text" placeholder="예: 건설">
         </label>
-      </div>
-      <div class="frow">
         <label>계약일
           <span class="rng"><input id="f-from" type="date"> ~ <input id="f-to" type="date"></span>
         </label>
@@ -83,20 +115,19 @@
         </label>
         <button class="btn ghost" id="btn-reset-filter">필터 초기화</button>
       </div>
-    </div>
+    </details>
 
     <div class="list-head">
       <strong id="list-count">0건</strong>
       <span class="muted" id="list-sum">합계 0원</span>
+      <span class="muted small" id="list-scope"></span>
       <div class="spacer"></div>
-      <label class="inline">정렬
-        <select id="f-sort">
-          <option value="date-desc">계약일 최신순</option>
-          <option value="amount-desc">금액 높은순</option>
-          <option value="amount-asc">금액 낮은순</option>
-          <option value="date-asc">계약일 오래된순</option>
-        </select>
-      </label>
+      <div class="seg" id="sort-seg">
+        <button class="seg-btn on" data-sort="date-desc">최신순</button>
+        <button class="seg-btn" data-sort="amount-desc">금액 높은순</button>
+        <button class="seg-btn" data-sort="amount-asc">금액 낮은순</button>
+        <button class="seg-btn" data-sort="date-asc">오래된순</button>
+      </div>
       <button class="btn ghost" id="btn-csv">CSV 내려받기</button>
     </div>
 
@@ -120,7 +151,7 @@
       <div class="pager" id="pager-contracts"></div>
     </div>
 
-    <details class="card status-card" id="agency-status" open>
+    <details class="card status-card" id="agency-status">
       <summary>
         <span class="sum-title">기관별 수집 상태</span>
         <span class="muted" id="status-summary">–</span>
@@ -134,19 +165,29 @@
           <tbody></tbody>
         </table>
       </div>
-      <p class="hint">한 기관이 사이트 개편으로 깨져도 나머지는 계속 수집됩니다. <b>실패</b>로 표시된 기관은 <code>python3 scripts/fetch_contracts.py --agency &lt;id&gt;</code>로 따로 돌려 원인을 확인하세요.</p>
+      <p class="hint">한 기관이 사이트 개편으로 깨져도 나머지는 계속 수집됩니다. 홈페이지가 막힌 기관은 나라장터 API로 채웁니다. <b>실패</b>로 표시된 기관은 <code>python3 scripts/fetch_contracts.py --agency &lt;id&gt;</code>로 따로 돌려 원인을 확인하세요.</p>
     </details>
   </section>
 
   <!-- ══════════════════ 2. 이상징후 ══════════════════ -->
   <section class="screen" id="screen-anomalies">
     <div class="anomaly-top card">
-      <div>
+      <div class="anomaly-head">
         <h2>4대 탐지 결과</h2>
         <p class="muted" id="anomaly-headline">–</p>
       </div>
       <div class="type-chips" id="type-chips"></div>
     </div>
+
+    <section class="agency-panel card compact">
+      <div class="panel-head">
+        <h2>기관으로 좁히기</h2>
+        <span class="muted small panel-hint" id="anomaly-scope-label">전체 기관</span>
+      </div>
+      <div class="chip-row" id="anomaly-office-chips"></div>
+      <div class="chip-grid small" id="anomaly-agency-chips"></div>
+    </section>
+
     <div id="anomaly-groups"></div>
     <p class="hint">탐지 결과는 <b>소재 후보</b>입니다. 위법 여부·고의성은 취재로 확인해야 하며, 카드의 판정 기준(임계치)을 그대로 기사 근거로 쓰지 마세요.</p>
   </section>
@@ -200,6 +241,6 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="assets/app.js?v=20261124g"></script>
+<script src="assets/app.js?v=20261125a"></script>
 </body>
 </html>

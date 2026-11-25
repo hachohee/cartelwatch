@@ -7,18 +7,24 @@
 계약 공개 홈페이지를 직접 긁어 data/contracts.json 을 만듭니다.
 
 원칙
-- 나라장터 API는 "보완" 경로입니다. 홈페이지가 WAF·접속차단으로 막힌 기관(태백·삼척·철원 등)만
-  DATA_GO_KR_KEY 환경변수가 있을 때 조달청_나라장터 계약정보서비스로 채우고,
-  키가 없어도 홈페이지 크롤링만으로 앱이 실데이터로 돌아갑니다.
+- **양쪽 합산(하이브리드)**: 20개 전 기관에 대해 홈페이지 크롤링(소액 1인 수의계약 강점)과
+  나라장터 계약정보서비스(ao/CntrctInfoService, 큰 계약·입찰분)를 **둘 다** 조회해 합칩니다.
+  두 출처가 같은 계약을 가리키면 하나로 병합합니다(계약번호 → 기관+계약일+금액+업체명 앞부분).
+  DATA_GO_KR_KEY 가 없으면 홈페이지 크롤링만으로 정상 동작합니다.
+- **증분 누적**: 기존 data/contracts.json 을 먼저 읽고, 이번 수집분을 upsert/중복제거해 쌓습니다.
+  매일은 최근 10일(G2B_DAYS), --full 또는 --days 28 로 4주치를 훑습니다. --reset 은 새로 쓰기.
+- 각 레코드에 vendor_key(정규화 업체명)·agency_id·source_type(crawl/g2b_api/both)을 남겨
+  나중에 업체 정보·지방보조금·예산 집행 데이터를 같은 연결고리로 붙일 수 있게 합니다.
 - 인증키는 코드·저장소에 절대 넣지 않습니다(환경변수만).
 - 기관별 파서는 agencies.json 레지스트리로 분리. 한 기관이 깨져도 나머지는 계속 수집하고,
   실패는 meta.json 의 상태표에만 남깁니다.
 - 크롤링 예절: 요청 간 지연(기본 0.7초), 명시적 User-Agent, 기관별 페이지 상한.
 
 사용 예
-  python3 scripts/fetch_contracts.py                 # 전체 기관
+  python3 scripts/fetch_contracts.py                 # 전체 기관(최근 10일 API + 홈페이지)
+  python3 scripts/fetch_contracts.py --full          # 첫 적재·정기 전체(최근 28일 API)
   python3 scripts/fetch_contracts.py --agency goe --agency chuncheon
-  python3 scripts/fetch_contracts.py --pages 1 --out data/contracts.json
+  python3 scripts/fetch_contracts.py --pages 1 --no-api --out data/contracts.json
 """
 
 import argparse
@@ -241,21 +247,165 @@ def make_id(agency_id, contract_no, title, date, vendor, amount):
     return f"{agency_id}:{hashlib.md5(base.encode('utf-8')).hexdigest()[:12]}"
 
 
+# ------------------------------------------------- 확장 뼈대(연결고리)
+def vendor_key(name):
+    """업체명 정규화 키: 법인격 표기·공백·기호를 걷어낸다.
+
+    나중에 업체 정보(지역·업종)·지방보조금·예산 집행을 같은 키로 붙이는 연결고리.
+    """
+    s = txt(name)
+    if not s:
+        return ""
+    s = re.sub(r"\(주\)|\(유\)|\(합\)|\(자\)|\(사\)|㈜|주식회사|유한회사|합자회사|합명회사|사단법인|재단법인", "", s)
+    s = re.sub(r"[\s\.\,\-\_\\/\(\)\[\]\{\}\"'`·ㆍ]", "", s)
+    return s.upper()[:40]
+
+
+def norm_contract_no(no):
+    """계약번호 비교용 정규형(공백·하이픈 제거, 영문 대문자)."""
+    return re.sub(r"[^0-9A-Za-z]", "", (no or "")).upper()
+
+
+def record_keys(r):
+    """중복 판정 키 목록. 하나라도 같으면 같은 계약으로 본다.
+
+    1) (기관, 계약번호)          — 두 출처가 같은 계약번호를 쓸 때
+    2) (기관, 계약일, 금액, 업체명 앞부분) — 계약번호 형식이 다른 출처끼리
+    """
+    keys = []
+    no = norm_contract_no(r.get("contract_no"))
+    if len(no) >= 5:
+        keys.append(("no", r.get("agency_id"), no))
+    vk = r.get("vendor_key") or vendor_key(r.get("vendor"))
+    amt = int(r.get("amount") or 0)
+    dt = (r.get("contract_date") or "")[:10]
+    if vk and amt >= 10_000 and re.fullmatch(r"\d{4}-\d{2}-\d{2}", dt):
+        keys.append(("sig", r.get("agency_id"), dt, amt, vk[:10]))
+    return keys
+
+
+def merge_record(base, extra):
+    """같은 계약의 두 출처 레코드 병합(앞의 레코드를 기본으로, 빈 칸만 뒤에서 채움)."""
+    out = dict(base)
+    for k in ("department", "contract_no", "title", "contract_date", "vendor", "method", "detail_url"):
+        if not out.get(k) and extra.get(k):
+            out[k] = extra[k]
+    if not out.get("amount") and extra.get("amount"):
+        out["amount"] = extra["amount"]
+    ex = dict(out.get("extra") or {})
+    for k, v in (extra.get("extra") or {}).items():
+        if k not in ex or (not ex.get(k) and v):
+            ex[k] = v
+    if ex:
+        out["extra"] = ex
+    srcs = []
+    for s in (out.get("sources") or [out.get("source_type")]) + (extra.get("sources") or [extra.get("source_type")]):
+        if s and s not in srcs:
+            srcs.append(s)
+    if srcs:
+        out["sources"] = srcs
+        out["source_type"] = "both" if len(srcs) > 1 else srcs[0]
+    return out
+
+
+def title_sim(a, b):
+    ta = {w for w in re.findall(r"[0-9A-Za-z가-힣]{2,}", a or "")}
+    tb = {w for w in re.findall(r"[0-9A-Za-z가-힣]{2,}", b or "")}
+    if not ta or not tb:
+        return 0.0
+    return len(ta & tb) / len(ta | tb)
+
+
+def _sources(r):
+    return set(r.get("sources") or [r.get("source_type") or "crawl"])
+
+
+def dedupe(records):
+    """레코드 목록에서 중복 계약을 합친다.
+
+    1) 기관+계약번호가 같은 건은 무조건 같은 계약 → 병합(먼저 온 레코드가 기본).
+    2) 계약번호 형식이 다른 두 출처는 (기관+계약일+금액+업체명 앞부분) 서명으로 묶되,
+       **그 서명이 양쪽에 하나씩만 있을 때만** 병합한다. 같은 업체가 같은 날 같은 금액으로
+       여러 건을 나눠 받은 경우(쪼개기의 핵심 증거)에는 합치지 않는다.
+    """
+    out, pos_by_no, pos_by_id = [], {}, {}
+    for r in records:
+        no = norm_contract_no(r.get("contract_no"))
+        hit = pos_by_id.get(r.get("id"))
+        if hit is None and len(no) >= 5:
+            hit = pos_by_no.get((r.get("agency_id"), no))
+        if hit is not None:
+            out[hit] = merge_record(out[hit], r)
+            pos_by_id[out[hit].get("id")] = hit
+        else:
+            out.append(r)
+            pos_by_id[r.get("id")] = len(out) - 1
+            if len(no) >= 5:
+                pos_by_no[(r.get("agency_id"), no)] = len(out) - 1
+
+    sig_map = {}
+    for i, r in enumerate(out):
+        vk = r.get("vendor_key") or vendor_key(r.get("vendor"))
+        dt = (r.get("contract_date") or "")[:10]
+        amt = int(r.get("amount") or 0)
+        if not vk or amt < 10_000 or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", dt):
+            continue
+        sig_map.setdefault((r.get("agency_id"), dt, amt, vk[:10]), []).append(i)
+
+    parent = list(range(len(out)))
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for idxs in sig_map.values():
+        if len(idxs) != 2:
+            continue                       # 동일 서명이 여러 건이면 합치지 않는다
+        i, j = idxs
+        si, sj = _sources(out[i]), _sources(out[j])
+        if not (({"crawl"} & si and {"g2b_api"} & sj) or ({"crawl"} & sj and {"g2b_api"} & si)):
+            continue                       # 홈페이지와 API, 서로 다른 출처끼리만
+        if title_sim(out[i].get("title"), out[j].get("title")) < 0.4:
+            continue
+        ri, rj = find(i), find(j)
+        if ri != rj:
+            parent[max(ri, rj)] = min(ri, rj)
+
+    groups = {}
+    for i, r in enumerate(out):
+        groups.setdefault(find(i), []).append(r)
+    merged = []
+    for root in sorted(groups):
+        rows = groups[root]
+        base = rows[0]
+        for other in rows[1:]:
+            base = merge_record(base, other)
+        merged.append(base)
+    return merged
+
+
 def rec(agency_id, category, agency, **kw):
+    vendor = (kw.get("vendor") or "").strip()
+    stype = kw.get("source_type") or "crawl"
     return {
         "id": make_id(agency_id, kw.get("contract_no"), kw.get("title"),
-                      kw.get("contract_date"), kw.get("vendor"), kw.get("amount")),
+                      kw.get("contract_date"), vendor, kw.get("amount")),
         "agency_id": agency_id,
-        "category": category,          # 시군 / 도청 / 교육청 / 교육지원청
+        "category": category,          # 시군 / 도청 / 교육청 / 교육지원청 / 학교
         "agency": agency or "",
         "department": kw.get("department") or "",
         "contract_no": (kw.get("contract_no") or "").strip(),
         "title": (kw.get("title") or "").strip(),
         "amount": int(kw.get("amount") or 0),
         "contract_date": kw.get("contract_date") or "",
-        "vendor": (kw.get("vendor") or "").strip(),
+        "vendor": vendor,
+        "vendor_key": vendor_key(vendor),
         "method": kw.get("method") or "",
         "detail_url": kw.get("detail_url") or "",
+        "source_type": stype,
+        "sources": [stype],
         "extra": kw.get("extra") or {},
     }
 
@@ -737,7 +887,7 @@ G2B_OPS = (("물품", "getCntrctInfoListThngPPSSrch"),
            ("공사", "getCntrctInfoListCnstwkPPSSrch"),
            ("용역", "getCntrctInfoListServcPPSSrch"))
 G2B_WINDOW_DAYS = 7        # 조회기간 상한(2026-11-10 공지)
-G2B_DEFAULT_DAYS = 28      # 기본 수집 창(최근 4주). 환경변수 G2B_DAYS 로 조정
+G2B_DEFAULT_DAYS = 10      # 일일 수집 창(최근 10일). --full=28, --days, 환경변수 G2B_DAYS 로 조정
 G2B_PAGE_ROWS = 500        # 페이지당 결과 수(최대 999)
 G2B_MAX_PAGES = 40         # 한 창·한 기관명당 페이지 상한(안전장치)
 
@@ -786,11 +936,59 @@ def g2b_vendor(corp_list):
     return first
 
 
-def g2b_record(ag_id, cat, r):
+def _instt_short(instt):
+    return re.sub(r"^강원특별자치도\s*", "", (instt or "").strip())
+
+
+GWD_TOWN_PREFIXES = (
+    "춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시",
+    "홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군",
+    "양구군", "인제군", "고성군", "양양군",
+)
+SCHOOL_SUFFIXES = ("초등학교", "중학교", "고등학교", "유치원", "특수학교", "분교장")
+
+
+def g2b_agency(ag, instt):
+    """나라장터 계약기관명 → (기관 표시명, 구분). 레지스트리 kind 에 따라 다릅니다."""
+    kind = (ag.get("narajangter") or {}).get("kind") or "town"
+    instt = (instt or "").strip()
+    label = (ag.get("narajangter") or {}).get("agency_label") or ag.get("name") or ""
+    if kind == "edu":
+        parts = instt.split()
+        if len(parts) >= 3:
+            school = parts[-1]
+            return school, ("학교" if school.endswith(SCHOOL_SUFFIXES) else "교육기관")
+        if len(parts) == 2:
+            second = parts[1]
+            if "교육지원청" in second:
+                return second.replace("강원특별자치도", "").strip(), "교육지원청"
+            return second, ("학교" if second.endswith(SCHOOL_SUFFIXES) else "교육기관")
+        return label, "교육청"
+    if kind == "province":
+        return label, "도청"
+    return label, "시군"
+
+
+def g2b_skip(ag, instt):
+    """도청 질의는 '강원특별자치도'로 시작하는 모든 기관을 잡는다.
+
+    시군·교육청 몫은 각자 질의에서 수집하므로 여기서는 버린다(기관별 중복 방지).
+    """
+    kind = (ag.get("narajangter") or {}).get("kind") or "town"
+    if kind != "province":
+        return False
+    instt = (instt or "").strip()
+    if instt.startswith("강원특별자치도교육청"):
+        return True
+    return any(instt.startswith("강원특별자치도 " + t) for t in GWD_TOWN_PREFIXES)
+
+
+def g2b_record(ag, cat, r):
     """API 응답 1건 → 앱 표준 레코드. 금액은 금차계약금액(없으면 총계약금액)."""
     amount = money(r.get("thtmCntrctAmt")) or money(r.get("totCntrctAmt"))
-    instt = txt(r.get("cntrctInsttNm") or "").replace("강원특별자치도 ", "").strip()
-    return rec(ag_id, "시군", instt,
+    instt = txt(r.get("cntrctInsttNm") or "")
+    agency, category = g2b_agency(ag, instt)
+    return rec(ag["id"], category, agency,
                department=txt(r.get("cntrctInsttChrgDeptNm") or ""),
                contract_no=r.get("untyCntrctNo") or "",
                title=txt(r.get("cntrctNm") or r.get("cnstwkNm") or ""),
@@ -799,17 +997,18 @@ def g2b_record(ag_id, cat, r):
                vendor=g2b_vendor(r.get("corpList")),
                method=r.get("cntrctCnclsMthdNm") or "",
                detail_url=r.get("cntrctDtlInfoUrl") or "",
-               extra={"출처": "나라장터 API",
+               source_type="g2b_api",
+               extra={"계약기관": _instt_short(instt),
                       "계약구분": r.get("bsnsDivNm") or cat,
                       "공고번호": r.get("ntceNo") or "",
                       "총계약금액": money(r.get("totCntrctAmt")),
                       "장기계속": r.get("lngtrmCtnuDivNm") or ""})
 
 
-def fetch_narajangter_missing(key, ag, days=None, verbose=False):
-    """홈페이지가 WAF·접속차단으로 막힌 기관의 계약을 나라장터 API로 보완 수집.
+def fetch_narajangter(key, ag, days=None, verbose=False):
+    """한 기관의 나라장터 계약을 최근 N일치 조회한다(7일 창으로 잘라 호출).
 
-    레지스트리의 narajangter.instt_nm(계약기관 정식명)으로 7일 창을 거슬러 호출한다.
+    레지스트리의 narajangter.instt_nm(계약기관 정식명, 앞부분 일치)으로 거슬러 호출한다.
     반환: (레코드 목록, 수집 정보 dict)
     """
     names = [n for n in (ag.get("narajangter") or {}).get("instt_nm", []) if n]
@@ -819,7 +1018,7 @@ def fetch_narajangter_missing(key, ag, days=None, verbose=False):
     http = Http(delay=0.25, timeout=40, retries=3, verbose=verbose)
     today = datetime.now(KST).date()
     start = today - timedelta(days=days - 1)
-    items, by_cat, seen, calls = [], {}, set(), 0
+    items, by_cat, seen, calls, skipped = [], {}, set(), 0, 0
     window_end = today
     while window_end >= start:
         window_bgn = max(start, window_end - timedelta(days=G2B_WINDOW_DAYS - 1))
@@ -835,7 +1034,10 @@ def fetch_narajangter_missing(key, ag, days=None, verbose=False):
                     }, http)
                     calls += 1
                     for r in rows:
-                        item = g2b_record(ag["id"], cat, r)
+                        if g2b_skip(ag, r.get("cntrctInsttNm")):
+                            skipped += 1
+                            continue
+                        item = g2b_record(ag, cat, r)
                         if not item["title"] or item["id"] in seen:
                             continue
                         seen.add(item["id"])
@@ -848,6 +1050,8 @@ def fetch_narajangter_missing(key, ag, days=None, verbose=False):
         window_end = window_bgn - timedelta(days=1)
     info = {"period": [start.isoformat(), today.isoformat()],
             "by_category": by_cat, "calls": calls, "instt_nm": names}
+    if skipped:
+        info["skipped_other_agency"] = skipped
     return items, info
 
 
@@ -868,13 +1072,17 @@ def main():
     ap.add_argument("--pages", type=int, default=None, help="기관별 페이지 수 덮어쓰기")
     ap.add_argument("--out", default=os.path.join(DATA_DIR, "contracts.json"))
     ap.add_argument("--reset", action="store_true", help="기존 수집분을 합치지 않고 새로 씀")
+    ap.add_argument("--days", type=int, default=None, help="나라장터 API 조회 일수(기본 10, --full 은 28)")
+    ap.add_argument("--full", action="store_true", help="나라장터 API 4주치(28일) 조회 — 첫 적재·정기 전체")
+    ap.add_argument("--no-api", action="store_true", help="나라장터 API 없이 홈페이지만")
     ap.add_argument("--verbose", action="store_true")
     args = ap.parse_args()
 
     with open(REGISTRY_PATH, encoding="utf-8") as f:
         registry = json.load(f)
     defaults = registry.get("defaults", {})
-    agencies = registry["agencies"]
+    agencies_all = registry["agencies"]
+    agencies = agencies_all
     if args.agency:
         wanted = set(args.agency)
         agencies = [a for a in agencies if a["id"] in wanted]
@@ -884,12 +1092,18 @@ def main():
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     old = [] if args.reset else load_existing(args.out)
+    for r in old:                      # 이전 수집분에 확장 필드를 보강(하위 호환)
+        r.setdefault("vendor_key", vendor_key(r.get("vendor")))
+        r.setdefault("source_type", "crawl")
+        if not r.get("sources"):
+            r["sources"] = ["crawl", "g2b_api"] if r["source_type"] == "both" else [r["source_type"]]
     print(f"[카르텔워치] 기존 수집분 {len(old)}건 로드")
 
     base_http = Http(delay=defaults.get("delay_sec", 0.7), timeout=defaults.get("timeout_sec", 20),
                      retries=defaults.get("retries", 3), verbose=args.verbose)
 
     api_key = os.environ.get("DATA_GO_KR_KEY", "").strip()
+    days = 28 if args.full else int(args.days or os.environ.get("G2B_DAYS") or G2B_DEFAULT_DAYS)
     all_new, status, g2b_runs = [], [], []
     for ag in agencies:
         pages = args.pages or ag.get("pages") or defaults.get("pages", 3)
@@ -899,9 +1113,11 @@ def main():
               "parser": ag.get("parser", "auto"),
               "url": ag.get("list_url") or (ag.get("probe_urls") or [""])[0],
               "note": ag.get("note", ""),
-              "status": "실패", "count": 0, "pages": pages,
+              "status": "실패", "count": 0, "crawl_count": 0, "api_count": 0,
+              "pages": pages,
               "collected_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
               "error": ""}
+        rows_crawl = []
         try:
             http = Http(delay=ag.get("delay_sec", base_http.delay),
                         timeout=ag.get("timeout_sec", defaults.get("timeout_sec", 20)),
@@ -909,81 +1125,81 @@ def main():
                         tls_relaxed_hosts=ag.get("tls_relaxed_hosts"))
             parser = ag.get("parser", "auto")
             fn = p_auto if parser == "auto" else PARSERS[parser]
-            rows = fn(ag, http, pages)
+            rows_crawl = fn(ag, http, pages)
             if http.tls_relaxed_used:
                 st["tls"] = {"relaxed_hosts": sorted(set(http.tls_relaxed_used)),
                              "cert_sha256": http.last_cert_sha256}
                 print(f"    · TLS 인증서 검증 완화 사용: {', '.join(sorted(set(http.tls_relaxed_used)))}"
                       f" (지문 {http.last_cert_sha256[:16]}…)")
-            rows = [r for r in rows if r["title"]]
-            all_new.extend(rows)
-            st["status"] = "성공" if rows else "수집 0건"
-            st["count"] = len(rows)
+            rows_crawl = [r for r in rows_crawl if r["title"]]
+            st["crawl_count"] = len(rows_crawl)
+            st["status"] = "성공" if rows_crawl else "수집 0건"
+            st["count"] = len(rows_crawl)
         except WafBlocked as e:
             st["error"] = f"{e} (자동 요청 차단 — IP 기반으로 보임, 우회하지 않음)"[:300]
             print(f"    ✗ {ag['name']} {e}")
         except Exception as e:  # noqa: BLE001 - 기관 하나 실패로 전체 중단 금지
             st["error"] = str(e)[:300]
             print(f"    ✗ {ag['name']} 실패: {e}")
+        all_new.extend(rows_crawl)
 
-        # 홈페이지가 막힌 기관은 나라장터 API로 보완(키가 있을 때만)
-        if st["status"] != "성공" and ag.get("narajangter") and api_key:
-            print(f"    ↻ {ag['name']} 나라장터 API 보완 수집")
+        # ── 나라장터 API: 전 기관 공통(하이브리드 합산). 키가 있을 때만.
+        if api_key and not args.no_api and ag.get("narajangter"):
+            print(f"    ↻ {ag['name']} 나라장터 API 합산 수집({days}일)")
             try:
-                rows, info = fetch_narajangter_missing(api_key, ag, verbose=args.verbose)
+                rows_api, info = fetch_narajangter(api_key, ag, days=days, verbose=args.verbose)
                 st["g2b"] = info
-                if rows:
-                    all_new.extend(rows)
+                st["api_count"] = len(rows_api)
+                all_new.extend(rows_api)
+                if rows_api or rows_crawl:
+                    st["status"] = "성공"
+                st["count"] = len(rows_crawl) + len(rows_api)
+                st["source"] = ("홈페이지 + 나라장터 API" if rows_crawl and rows_api
+                                else "나라장터 API" if rows_api else "홈페이지")
+                if not rows_crawl and rows_api:
                     st["crawl_error"] = st.get("error") or ""
-                    st.update({"status": "성공", "count": len(rows), "parser": "g2b_api",
-                               "url": G2B_BASE, "source": "나라장터 API 보완", "error": "",
-                               "note": "나라장터 API 보완(" + " ~ ".join(info["period"]) + ") · "
-                                       + "·".join(f"{k} {v}건" for k, v in info["by_category"].items()),
-                               "site_note": ag.get("note", "")})
-                    print(f"    ✓ 나라장터 API {len(rows)}건 (" +
-                          ", ".join(f"{k} {v}" for k, v in info["by_category"].items()) + ")")
-                else:
-                    st["note"] = ("나라장터 API 조회 성공 · " + " ~ ".join(info["period"]) + " 0건")
-                    print("    · 나라장터 API 조회 성공, 해당 기간 0건")
+                    st["error"] = ""
+                    st["parser"] = f"g2b_api(+{st.get('parser')})"
+                    st["note"] = ("나라장터 API 수집(" + " ~ ".join(info["period"]) + ") · "
+                                  + "·".join(f"{k} {v}건" for k, v in info["by_category"].items()))
+                print(f"    ✓ 나라장터 API {len(rows_api)}건 (홈페이지 {len(rows_crawl)}건)")
                 g2b_runs.append({"id": ag["id"], "name": ag["name"],
-                                 "count": len(rows), "info": info, "error": ""})
+                                 "count": len(rows_api), "info": info, "error": ""})
             except Exception as e:  # noqa: BLE001
                 st["g2b_error"] = str(e)[:300]
-                print(f"    ! 나라장터 API 보완 실패: {e}")
+                print(f"    ! 나라장터 API 수집 실패: {e}")
                 g2b_runs.append({"id": ag["id"], "name": ag["name"], "count": 0,
                                  "info": {}, "error": str(e)[:300]})
         st["elapsed"] = round(time.time() - t0, 1)
         status.append(st)
 
-    # 나라장터 API 보완 결과 요약(상태표 한 줄)
+    # 나라장터 API 결과 요약(상태표 한 줄)
     if g2b_runs:
         ok = [g for g in g2b_runs if not g["error"]]
-        status.append({"id": "narajangter", "name": "나라장터 API(시군 보완)", "category": "전체",
+        status.append({"id": "narajangter", "name": f"나라장터 API({len(g2b_runs)}곳 합산)", "category": "전체",
                        "parser": "g2b_api", "url": G2B_BASE,
                        "status": "성공" if ok and sum(g["count"] for g in ok) else "실패",
                        "count": sum(g["count"] for g in g2b_runs), "pages": 1,
                        "collected_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
-                       "note": ", ".join(f"{g['name']} {g['count']}건" for g in g2b_runs),
+                       "note": f"조회 {len(g2b_runs)}곳 · 최근 {days}일 · "
+                               + ", ".join(f"{g['name']} {g['count']}건" for g in g2b_runs if g["count"]),
                        "error": "; ".join(f"{g['name']}: {g['error']}" for g in g2b_runs if g["error"])[:300],
                        "elapsed": 0})
-        print("\n▶ 나라장터 API 보완: " +
+        print("\n▶ 나라장터 API: " +
               ", ".join(f"{g['name']} {g['count']}건" for g in g2b_runs))
     elif not api_key:
         print("\n· DATA_GO_KR_KEY 없음 → 홈페이지 크롤링만 수행합니다(정상 동작).")
 
-    # 병합 + 중복 제거 (새 수집분 우선)
-    merged = {}
-    for r in old:
-        merged[r["id"]] = r
+    # ── 누적 병합 + 중복 제거 (이번 수집분 우선, 두 출처는 하나로 병합)
+    today_s = datetime.now(KST).strftime("%Y-%m-%d")
     for r in all_new:
-        prev = merged.get(r["id"])
-        if prev and not r.get("amount") and prev.get("amount"):
-            r["amount"] = prev["amount"]
-        if prev and not r.get("vendor") and prev.get("vendor"):
-            r["vendor"] = prev["vendor"]
-        r["last_seen"] = datetime.now(KST).strftime("%Y-%m-%d")
-        merged[r["id"]] = r
-    contracts = sorted(merged.values(), key=lambda x: (x.get("contract_date", ""), x.get("amount", 0)),
+        r["_fresh"] = True
+    records = dedupe(all_new + old)
+    for r in records:
+        if r.pop("_fresh", False):
+            r.setdefault("first_seen", today_s)
+            r["last_seen"] = today_s
+    contracts = sorted(records, key=lambda x: (x.get("contract_date", ""), x.get("amount", 0)),
                        reverse=True)
 
     # 실패만 있고 새 데이터가 없으면 기존 파일을 건드리지 않는다
@@ -991,17 +1207,41 @@ def main():
     if all_new == [] and old:
         print("\n! 이번 수집분이 0건이라 기존 contracts.json 을 그대로 둡니다.")
     else:
+        src_count = {"crawl": 0, "g2b_api": 0, "both": 0}
+        EXTRA_KEEP = {"원문_계약상대자", "구분", "관서", "계약기관"}
+        for r in contracts:
+            src_count[r.get("source_type") or "crawl"] = src_count.get(r.get("source_type") or "crawl", 0) + 1
+            # 빈 칸은 파일에서 덜어 용량을 줄인다(화면은 ?? 로 대체)
+            for k in ("department", "method", "detail_url", "contract_no", "vendor_key", "extra", "first_seen", "sources"):
+                if k in r and r[k] in ("", {}, None):
+                    r.pop(k, None)
+            ex = r.get("extra")
+            if isinstance(ex, dict):
+                ex = {k: v for k, v in ex.items() if k in EXTRA_KEEP and v}
+                if ex:
+                    r["extra"] = ex
+                else:
+                    r.pop("extra", None)
         payload = {
             "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
             "source": "live" if ok_count else "sample",
             "total": len(contracts),
+            "merged_this_run": len(all_new),
+            "by_source": src_count,
             "contracts": contracts,
         }
         tmp = args.out + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(payload, f, ensure_ascii=False, indent=1)
+            json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
         os.replace(tmp, args.out)
-        print(f"\n[저장] {args.out} · 총 {len(contracts)}건 (신규/갱신 {len(all_new)}건)")
+        print(f"\n[저장] {args.out} · 총 {len(contracts)}건 "
+              f"(이번 수집 {len(all_new)}건 → 중복 병합 후 누적) · 출처 {src_count}")
+
+    # 기관별 수집 상태 요약표
+    api_total = sum(1 for c in contracts if "g2b_api" in (c.get("sources") or [c.get("source_type")]))
+    for s in status:
+        if s["id"] == "narajangter":
+            s["count"] = api_total
 
     # meta.json (수집 상태표) — 기존 상태와 합쳐 기관별 최근 상태 유지
     meta_path = os.path.join(os.path.dirname(args.out), "meta.json")
@@ -1029,12 +1269,23 @@ def main():
             return False
         return d <= datetime.now(KST).date() + timedelta(days=31)
     dates = [c.get("contract_date", "") for c in contracts if _ok_date(c.get("contract_date", ""))]
+    src_total = {"crawl": 0, "g2b_api": 0, "both": 0}
+    amt_total = 0
+    for c in contracts:
+        k = c.get("source_type") or "crawl"
+        src_total[k] = src_total.get(k, 0) + 1
+        amt_total += int(c.get("amount") or 0)
     meta.update({
         "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
         "total": len(contracts),
+        "amount_total": amt_total,
+        "by_source": src_total,
+        "api_window_days": days,
         "source": source,
         "period": {"from": min(dates) if dates else "", "to": max(dates) if dates else ""},
         "agencies": sorted(prev_status.values(), key=lambda s: (s["category"], s["name"])),
+        "registry": [{"id": a["id"], "name": a["name"], "category": a["category"]}
+                     for a in agencies_all],
     })
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, ensure_ascii=False, indent=1)

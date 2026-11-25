@@ -40,7 +40,7 @@ CONCENTRATION_MIN_AMOUNT = 50_000_000
 
 NEWCOMER_MIN_AMOUNT = 100_000_000
 NEWCOMER_MAX_APPEARANCES = 1
-NEWCOMER_MAX_CARDS = 8
+NEWCOMER_MAX_CARDS = 25
 
 YEAR_END_START = (12, 20)
 YEAR_END_MIN_COUNT = 3
@@ -90,6 +90,13 @@ def parse_date(s):
         return None
 
 
+def vendor_key(name):
+    """업체명 정규화 키(수집기의 vendor_key 와 같은 규칙). 표기 차이로 탐지가 갈리지 않게."""
+    s = re.sub(r"\(주\)|\(유\)|\(합\)|\(자\)|\(사\)|㈜|주식회사|유한회사|합자회사|합명회사|사단법인|재단법인", "", name or "")
+    s = re.sub(r"[\s\.\,\-\_\\/\(\)\[\]\{\}\"'`·ㆍ]", "", s)
+    return s.upper()[:40]
+
+
 def tokens(title):
     t = re.sub(r"[\(\[]?[0-9]+차[\)\]]?", " ", title)
     t = re.sub(r"[^0-9A-Za-z가-힣 ]", " ", t)
@@ -106,6 +113,7 @@ def similarity(a, b):
 def slim(c, **extra):
     d = {
         "id": c["id"],
+        "agency_id": c.get("agency_id", ""),
         "agency": c.get("agency", ""),
         "department": c.get("department", ""),
         "contract_no": c.get("contract_no", ""),
@@ -114,6 +122,7 @@ def slim(c, **extra):
         "contract_date": c.get("contract_date", ""),
         "vendor": c.get("vendor", ""),
         "detail_url": c.get("detail_url", ""),
+        "source_type": c.get("source_type", "crawl"),
     }
     d.update(extra)
     return d
@@ -145,11 +154,14 @@ def main():
             continue
         if c.get("amount", 0) >= SPLIT_MAX_UNIT:
             continue
-        key = (c.get("agency"), c.get("department"), c.get("vendor") or "")
+        vk = c.get("vendor_key") or vendor_key(c.get("vendor"))
+        key = (c.get("agency_id") or c.get("agency"), c.get("department") or "", vk)
         buckets[key].append((d, c))
 
     seen_sets = set()
-    for (agency, dept, vendor), items in buckets.items():
+    for (aid, dept, _vk), items in buckets.items():
+        agency = items[0][1].get("agency", "")
+        vendor = items[0][1].get("vendor") or ""
         items.sort(key=lambda x: x[0])
         for i, (d0, c0) in enumerate(items):
             window = [c for d, c in items[i:] if (d - d0).days <= SPLIT_WINDOW_DAYS]
@@ -214,18 +226,18 @@ def main():
 
         scopes = []
         # 기관 단위
-        for vendor, a in vendor_agg(lambda r: r["vendor"]).items():
-            scopes.append(("기관", "-", vendor, a, total_amt, len(rows),
+        for vk, a in vendor_agg(lambda r: vendor_key(r["vendor"])).items():
+            scopes.append(("기관", "-", vk, a, total_amt, len(rows),
                            CONCENTRATION_MIN_COUNT))
         # 부서 단위 (계약이 충분한 부서만)
-        for (dept, vendor), a in vendor_agg(lambda r: (r.get("department") or "-", r["vendor"])).items():
+        for (dept, vk), a in vendor_agg(lambda r: (r.get("department") or "-", vendor_key(r["vendor"]))).items():
             if dept == "-" or dept_counts[dept] < 5:
                 continue
-            scopes.append(("부서", dept, vendor, a, dept_totals[dept], dept_counts[dept],
+            scopes.append(("부서", dept, vk, a, dept_totals[dept], dept_counts[dept],
                            CONCENTRATION_MIN_COUNT))
 
         used = set()
-        for scope, dept, vendor, agg, base, base_count, min_count in scopes:
+        for scope, dept, vk, agg, base, base_count, min_count in scopes:
             if base <= 0:
                 continue
             share = agg["amount"] / base
@@ -233,9 +245,11 @@ def main():
                 continue
             if agg["count"] < min_count or agg["amount"] < CONCENTRATION_MIN_AMOUNT:
                 continue
-            if (dept, vendor) in used:
+            if (dept, vk) in used:
                 continue
-            used.add((dept, vendor))
+            used.add((dept, vk))
+            vendor = max({r["vendor"] for r in agg["rows"]},
+                         key=lambda n: sum(1 for r in agg["rows"] if r["vendor"] == n))
             label = dept if scope == "부서" else agency + "(기관 전체)"
             anomalies.append({
                 "id": f"conc-{agency}-{dept}-{vendor}"[:60],
@@ -266,12 +280,13 @@ def main():
     v_rows = defaultdict(list)
     for c in contracts:
         if c.get("vendor"):
-            v_rows[c["vendor"]].append(c)
-    for vendor, rows in v_rows.items():
+            v_rows[c.get("vendor_key") or vendor_key(c["vendor"])].append(c)
+    for vk, rows in v_rows.items():
         rows.sort(key=lambda x: x["contract_date"])
         if len(rows) > NEWCOMER_MAX_APPEARANCES:
             continue
         first = rows[0]
+        vendor = first.get("vendor") or ""
         if first.get("amount", 0) >= NEWCOMER_MIN_AMOUNT:
             anomalies.append({
                 "id": f"new-{vendor}"[:60],
@@ -343,12 +358,44 @@ def main():
     anomalies = [a for a in anomalies if a["type"] != "NEWCOMER"] + new_cards
     anomalies.sort(key=lambda a: (order.get(a["severity"], 3), -a["amount"]))
 
+    # 카드마다 기관 id를 붙인다(화면의 기관 버튼 필터가 바로 쓸 수 있게)
+    for a in anomalies:
+        if not a.get("agency_id"):
+            a["agency_id"] = (a.get("contracts") or [{}])[0].get("agency_id", "")
+
     counts = defaultdict(int)
     for a in anomalies:
         counts[a["type"]] += 1
     amounts = defaultdict(int)
     for a in anomalies:
         amounts[a["type"]] += a["amount"]
+
+    # 기관별 미리 계산한 요약(화면 버튼 배지가 즉시 뜨도록)
+    meta = load(os.path.join(DATA, "meta.json"), {})
+    reg = {r.get("id"): r for r in meta.get("registry", [])}
+    status_by_id = {s.get("id"): s for s in meta.get("agencies", [])}
+    order_ids = [r["id"] for r in meta.get("registry", [])]
+    order_ids += sorted({c.get("agency_id", "") for c in contracts} - set(order_ids))
+    by_agency = []
+    for aid in order_ids:
+        if not aid:
+            continue
+        rows = [c for c in contracts if c.get("agency_id") == aid]
+        ants = [a for a in anomalies if a.get("agency_id") == aid]
+        t_counts = defaultdict(int)
+        for a in ants:
+            t_counts[a["type"]] += 1
+        by_agency.append({
+            "id": aid,
+            "name": reg.get(aid, {}).get("name") or (rows[0].get("agency", "") if rows else aid),
+            "category": reg.get(aid, {}).get("category") or (rows[0].get("category", "") if rows else ""),
+            "contracts": len(rows),
+            "amount": sum(int(c.get("amount") or 0) for c in rows),
+            "anomalies": len(ants),
+            "by_type": dict(t_counts),
+            "status": (status_by_id.get(aid) or {}).get("status", ""),
+            "source": (status_by_id.get(aid) or {}).get("source", ""),
+        })
 
     out = {
         "generated_at": datetime.now(KST).strftime("%Y-%m-%d %H:%M:%S"),
@@ -369,7 +416,11 @@ def main():
             "YEAR_END_MIN_COUNT": YEAR_END_MIN_COUNT,
             "YEAR_END_MIN_SHARE": YEAR_END_MIN_SHARE,
         },
-        "summary": {"total": len(anomalies), "by_type": dict(counts), "amount_by_type": dict(amounts)},
+        "summary": {"total": len(anomalies), "by_type": dict(counts), "amount_by_type": dict(amounts),
+                    "contracts": len(contracts),
+                    "contract_amount": sum(int(c.get("amount") or 0) for c in contracts),
+                    "agencies": len([b for b in by_agency if b["contracts"]]),
+                    "by_agency": by_agency},
         "contract_stats": {
             "total": len(contracts),
             "bad_dates": bad_dates,

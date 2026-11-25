@@ -6,7 +6,7 @@
   --blue:#2f6fed; --blue-soft:#eaf1fe;
   --green:#0f8a52; --green-soft:#e6f5ec;
   --amber:#b7791f; --amber-soft:#fdf3e0;
-  --violet:#6d4aff;
+  --violet:#6d4aff; --violet-soft:#f2edff;
   --radius:12px; --shadow:0 1px 2px rgba(17,24,39,.05),0 6px 18px rgba(17,24,39,.06);
   --mono:ui-monospace,SFMono-Regular,Menlo,"D2Coding",monospace;
 }
@@ -57,7 +57,7 @@ code{font-family:var(--mono);font-size:.92em;background:#f0f2f6;padding:1px 4px;
 .side-note code{background:#1d2a44;color:#9fb0cb}
 
 /* 메인 */
-.main{padding:0 22px 40px;min-width:0}
+.main{padding:0 22px 40px;min-width:0;max-width:1560px}
 .topbar{
   display:flex;align-items:center;gap:14px;padding:16px 2px 14px;position:sticky;top:0;z-index:20;
   background:linear-gradient(var(--bg) 78%,rgba(245,246,248,0));flex-wrap:wrap;
@@ -78,9 +78,92 @@ code{font-family:var(--mono);font-size:.92em;background:#f0f2f6;padding:1px 4px;
 .screen.active{display:block}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
 
-/* 필터 */
-.filters{padding:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
-.frow{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+/* ── 요약 카드 ───────────────────────────────────────── */
+.stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.stat-card{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;position:relative;overflow:hidden;
+}
+.stat-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat-card:nth-child(2)::before{background:var(--violet)}
+.stat-card:nth-child(3)::before{background:var(--green)}
+.stat-card.alert::before{background:var(--accent)}
+.stat-k{font-size:11.5px;font-weight:700;color:var(--ink-3);letter-spacing:.02em}
+.stat-v{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat-s{font-size:11.5px;color:var(--ink-3)}
+
+/* ── 유형 바로가기 카드 ──────────────────────────────── */
+.type-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.type-card{
+  display:flex;flex-direction:column;gap:2px;align-items:flex-start;text-align:left;
+  font:inherit;cursor:pointer;padding:14px 16px;border-radius:14px;border:1px solid var(--line);
+  background:#fff;box-shadow:var(--shadow);transition:transform .08s,box-shadow .12s,border-color .12s;
+}
+.type-card:hover{transform:translateY(-1px);border-color:#c9d3e6;box-shadow:0 6px 20px rgba(17,24,39,.1)}
+.type-card .tc-top{display:flex;align-items:center;gap:8px;width:100%}
+.type-card .tc-ico{
+  width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:14px;
+  background:var(--blue-soft);
+}
+.type-card.t-split .tc-ico{background:var(--accent-soft)}
+.type-card.t-conc .tc-ico{background:var(--amber-soft)}
+.type-card.t-new .tc-ico{background:var(--violet-soft)}
+.type-card.t-year .tc-ico{background:var(--green-soft)}
+.type-card .tc-name{font-size:13px;font-weight:700;color:var(--ink)}
+.type-card .tc-count{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.type-card .tc-amt{font-size:11.5px;color:var(--ink-3)}
+.type-card .tc-go{margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:700}
+
+/* ── 기관 버튼 패널 ─────────────────────────────────── */
+.agency-panel{padding:14px 16px 12px;margin-bottom:14px}
+.agency-panel.compact{padding:12px 14px 10px}
+.panel-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.panel-head h2{font-size:14px}
+.panel-hint{margin-left:auto}
+.chip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:8px}
+.chip-grid.small{grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:6px}
+.achip{
+  font:inherit;cursor:pointer;text-align:left;padding:9px 10px;border-radius:10px;
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);display:flex;flex-direction:column;gap:2px;
+  transition:background .1s,border-color .1s,color .1s;
+}
+.achip:hover{background:#f8f9fc;border-color:#c9d3e6}
+.achip .n-name{font-size:12.5px;font-weight:650;display:flex;align-items:center;gap:5px}
+.achip .n-meta{font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.achip .b{
+  font-size:10.5px;font-weight:800;padding:0 5px;border-radius:99px;background:var(--accent-soft);
+  color:var(--accent);line-height:1.6;min-width:18px;text-align:center;
+}
+.achip .b.zero{background:#f1f3f7;color:#a3adbd}
+.achip.on{background:#111b2b;border-color:#111b2b;color:#fff}
+.achip.on .n-meta{color:#9fb0cb}
+.achip.on .b{background:var(--accent);color:#fff}
+.achip.on .b.zero{background:#2b3b5c;color:#9fb0cb}
+.achip.st-fail{border-style:dashed}
+.chip-legend{display:flex;gap:12px;align-items:center;font-size:10.5px;color:var(--ink-3);margin-top:9px}
+.dot-badge{display:inline-block;width:7px;height:7px;border-radius:99px;background:#c3cad6;margin-right:4px}
+.dot-badge.warn{background:var(--accent)}
+
+/* 세그먼트 버튼 */
+.seg{display:inline-flex;background:#f1f3f7;border:1px solid var(--line);border-radius:9px;padding:2px;gap:2px;flex-wrap:wrap}
+.seg-btn{
+  font:inherit;font-size:11.5px;font-weight:650;padding:5px 10px;border-radius:7px;border:0;
+  background:transparent;color:var(--ink-3);cursor:pointer;white-space:nowrap;
+}
+.seg-btn:hover{color:var(--ink)}
+.seg-btn.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(17,24,39,.12)}
+
+/* ── 필터(정밀 검색) ─────────────────────────────────── */
+.filters{margin-bottom:14px;padding:0}
+.filters>summary{
+  list-style:none;cursor:pointer;padding:12px 16px;font-size:12.5px;font-weight:700;color:var(--ink-2);
+  display:flex;align-items:center;gap:8px;
+}
+.filters>summary::-webkit-details-marker{display:none}
+.filters>summary::after{content:"▾";margin-left:auto;color:var(--ink-3);transition:transform .15s}
+.filters[open]>summary::after{transform:rotate(180deg)}
+.filters[open]>summary{border-bottom:1px solid var(--line)}
+.frow{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;padding:12px 16px 14px}
 .filters label{display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--ink-3);font-weight:600;white-space:nowrap}
 .filters .rng{display:flex;align-items:center;gap:6px}
 .filters .rng input{flex:1;min-width:112px}
@@ -109,9 +192,8 @@ input:focus,select:focus{outline:2px solid #cdddfb;outline-offset:1px;border-col
 .btn.file{cursor:pointer}
 
 /* 목록 */
-.list-head{display:flex;align-items:center;gap:10px;margin:0 2px 8px;font-size:12.5px}
+.list-head{display:flex;align-items:center;gap:10px;margin:0 2px 8px;font-size:12.5px;flex-wrap:wrap}
 .list-head strong{font-size:13px}
-.list-head .inline{display:flex;gap:6px;align-items:center;color:var(--ink-3);font-size:11.5px;font-weight:600}
 .table-wrap{overflow:auto}
 .table-wrap.inner{border:0;box-shadow:none;border-radius:0}
 table.grid{width:100%;border-collapse:collapse;font-size:12.5px}
@@ -133,6 +215,7 @@ table.grid.small td{padding:6px 10px}
 .tag.교육청{background:#e9f7f0;color:#0f8a52}
 .tag.교육지원청{background:#eefaf5;color:#0c7a58}
 .tag.학교{background:#f0f4fa;color:#4a6b9a}
+.tag.교육기관{background:#f5f1fb;color:#6b4fa8}
 .pill{font-size:11px;color:var(--ink-3)}
 a.src{color:var(--blue);text-decoration:none;font-weight:600;font-size:11.5px}
 a.src:hover{text-decoration:underline}
@@ -156,16 +239,19 @@ a.src:hover{text-decoration:underline}
 
 /* 이상징후 */
 .anomaly-top{display:flex;gap:18px;align-items:flex-start;padding:16px;margin-bottom:14px;flex-wrap:wrap}
-.anomaly-top h2{margin-bottom:3px}
-.type-chips{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap}
+.anomaly-head{flex:1;min-width:240px}
+.anomaly-head h2{margin-bottom:3px}
+.type-chips{display:flex;gap:8px;flex-wrap:wrap}
 .type-chip{
-  font-size:11.5px;font-weight:700;padding:7px 10px;border-radius:9px;border:1px solid var(--line);
-  background:#fff;color:var(--ink-2);cursor:pointer;display:flex;gap:6px;align-items:center;
+  font-size:11.5px;font-weight:700;padding:8px 12px;border-radius:10px;border:1px solid var(--line);
+  background:#fff;color:var(--ink-2);cursor:pointer;display:flex;gap:7px;align-items:center;
+  transition:background .1s,border-color .1s,color .1s;
 }
+.type-chip:hover{border-color:#c9d3e6;background:#f8f9fc}
 .type-chip.on{border-color:var(--ink);background:#111b2b;color:#fff}
 .type-chip b{font-variant-numeric:tabular-nums}
 .group{margin-bottom:22px}
-.group-head{display:flex;align-items:baseline;gap:9px;margin:0 2px 8px}
+.group-head{display:flex;align-items:baseline;gap:9px;margin:0 2px 8px;flex-wrap:wrap}
 .group-head h3{font-size:14.5px}
 .group-head .desc{font-size:11.5px;color:var(--ink-3)}
 .acards{display:grid;gap:12px}
@@ -189,6 +275,8 @@ a.src:hover{text-decoration:underline}
 .checks{margin:8px 0 0;padding-left:18px;font-size:11.5px;color:var(--ink-2)}
 .checks li{margin:2px 0}
 .zero-state{padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--ink-3);font-size:12.5px;background:#fbfbfd}
+.group-more{padding:10px;text-align:center;border:1px dashed var(--line);border-radius:10px;background:#fbfbfd}
+.group-more button{font:inherit;font-size:12px;font-weight:700;color:var(--blue);background:none;border:0;cursor:pointer}
 
 /* 칸반 */
 .board-top{display:flex;gap:14px;align-items:flex-end;margin-bottom:14px;flex-wrap:wrap}
@@ -262,6 +350,10 @@ a.src:hover{text-decoration:underline}
   padding:10px 16px;border-radius:10px;font-size:12.5px;z-index:80;box-shadow:0 8px 24px rgba(0,0,0,.2)
 }
 
+@media (max-width:1200px){
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .type-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:1080px){
   .kanban{grid-template-columns:repeat(2,minmax(0,1fr))}
   .fc-layout{grid-template-columns:1fr}
@@ -274,5 +366,21 @@ a.src:hover{text-decoration:underline}
   .nav-item{padding:8px 10px;white-space:nowrap}
   .main{padding:0 12px 32px}
   .kanban{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .type-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chip-grid{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
+  .panel-hint{display:none}
+  .list-head{gap:8px}
   table.grid td.title{max-width:200px}
 }
+@media (max-width:520px){
+  .stat-v{font-size:21px}
+  .type-card .tc-count{font-size:19px}
+  .chip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* 기관 칩 상단 줄(전체·도청·교육청) */
+.chip-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.chip-row .achip{flex-direction:row;align-items:center;gap:8px}
+.chip-row .achip .n-meta{margin-left:auto}
+@media (max-width:520px){.chip-row{grid-template-columns:1fr}}

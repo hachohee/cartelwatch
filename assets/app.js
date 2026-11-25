@@ -23,13 +23,23 @@
   const STAGE_LABEL = { review: "검토 전", reporting: "취재 중", factcheck: "팩트체크", published: "발행" };
   const STAGE_SHORT = { review: "검토", reporting: "취재", factcheck: "팩트", published: "발행" };
   const STAGES = ["review", "reporting", "factcheck", "published"];
-  const TYPE_LABEL = { SPLIT: "쪼개기 수수의계약", CONCENTRATION: "일감 몰아주기", NEWCOMER: "신생법인 특혜(의심)", YEAR_END: "연말 예산 밀어내기" };
-  const TYPE_DESC = {
-    SPLIT: "같은 부서·같은 업체가 짧은 기간에 소액으로 나눠 받은 계약",
-    CONCENTRATION: "한 업체가 특정 부서(또는 기관) 일감을 과도하게 차지",
-    NEWCOMER: "수집 데이터에 처음 등장한 업체가 큰 금액을 수주(설립일 확인 필요)",
-    YEAR_END: "12월 하순에 집중된 집행(예산 소진·불용액 회피 의심)",
+
+  const TYPE_ORDER = ["SPLIT", "CONCENTRATION", "NEWCOMER", "YEAR_END"];
+  const TYPE_META = {
+    SPLIT: { label: "쪼개기 수의계약", icon: "🧩", cls: "t-split", desc: "같은 부서·같은 업체가 짧은 기간에 소액으로 나눠 받은 계약" },
+    CONCENTRATION: { label: "일감 몰아주기", icon: "🎯", cls: "t-conc", desc: "한 업체가 특정 부서(또는 기관) 일감을 과도하게 차지" },
+    NEWCOMER: { label: "신생법인 특혜(의심)", icon: "🌱", cls: "t-new", desc: "수집 데이터에 처음 등장한 업체가 큰 금액을 수주(설립일 확인 필요)" },
+    YEAR_END: { label: "연말 예산 밀어내기", icon: "🗓", cls: "t-year", desc: "12월 하순에 집중된 집행(예산 소진·불용액 회피 의심)" },
   };
+  const TYPE_LABEL = Object.fromEntries(TYPE_ORDER.map(t => [t, TYPE_META[t].label]));
+  const TYPE_DESC = Object.fromEntries(TYPE_ORDER.map(t => [t, TYPE_META[t].desc]));
+
+  // 시군 버튼 순서(춘천에서 시계방향) — 레지스트리 순서와 무관하게 보기 좋게 고정
+  const CITY_ORDER = ["chuncheon", "wonju", "gangneung", "donghae", "taebaek", "samcheok",
+    "sokcho", "yangyang", "goseong", "inje", "yanggu", "hwacheon", "cheorwon", "hoengseong",
+    "hongcheon", "pyeongchang", "jeongseon", "yeongwol"];
+  const OFFICE_ORDER = ["gwd", "goe"];
+  const CAT_LABEL = { 시군: "시군", 도청: "도청", 교육청: "교육청", 교육지원청: "교육지원청", 학교: "학교", 교육기관: "교육기관" };
 
   const FACT_TEMPLATE = [
     {
@@ -83,14 +93,51 @@
   };
   const K_BOARD = "cw:board:v1", K_FACT = "cw:fact:v1";
 
-  let DATA = { contracts: [], anomalies: [], meta: {}, thresholds: {}, source: "live", sample: false };
+  let DATA = { contracts: [], anomalies: [], meta: {}, thresholds: {}, source: "live", sample: false, byAgency: [] };
   let board = store.get(K_BOARD, []);
   let fact = store.get(K_FACT, {});
-  let filter = { q: "", category: "", agency: "", dept: "", vendor: "", from: "", to: "", amin: "", amax: "", sort: "date-desc" };
+  let filter = { q: "", agencyId: "", dept: "", vendor: "", from: "", to: "", amin: "", amax: "", sort: "date-desc" };
   let page = 1;
   const PAGE_SIZE = 40;
   let activeType = "";
+  let anomalyAgency = "";
+  const expandedTypes = new Set();
   let activeFact = null;
+
+  /* ── 기관 목록 ────────────────────────────────────────── */
+  function agencyList() {
+    const reg = (DATA.meta && DATA.meta.registry) || [];
+    if (reg.length) return reg.map(a => ({ id: a.id, name: a.name, category: a.category }));
+    const seen = new Map();
+    DATA.contracts.forEach(c => {
+      if (!c.agency_id) return;
+      if (!seen.has(c.agency_id)) seen.set(c.agency_id, { id: c.agency_id, name: c.agency, category: c.category });
+    });
+    return [...seen.values()];
+  }
+  function agencyName(id) {
+    const a = agencyList().find(x => x.id === id);
+    return a ? a.name : (id || "");
+  }
+  function agencyStats() {
+    const map = new Map();
+    agencyList().forEach(a => map.set(a.id, { count: 0, amount: 0, anomalies: 0, status: "" }));
+    DATA.contracts.forEach(c => {
+      const s = map.get(c.agency_id);
+      if (!s) return;
+      s.count++;
+      s.amount += c.amount || 0;
+    });
+    DATA.anomalies.forEach(a => {
+      const s = map.get(a.agency_id);
+      if (s) s.anomalies++;
+    });
+    (DATA.meta.agencies || []).forEach(st => {
+      const s = map.get(st.id);
+      if (s) s.status = st.status || "";
+    });
+    return map;
+  }
 
   /* ── 데이터 로드 ──────────────────────────────────────── */
   async function json(url) {
@@ -112,8 +159,11 @@
       DATA.contracts = (c && c.contracts) || [];
       DATA.anomalies = a.anomalies || [];
       DATA.thresholds = a.thresholds || {};
+      DATA.byAgency = (a.summary && a.summary.by_agency) || [];
+      DATA.summary = (a && a.summary) || {};
       DATA.source = (c && c.source) || meta.source || "live";
       DATA.generatedAt = (c && c.generated_at) || meta.generated_at || "";
+      DATA.bySource = (c && c.by_source) || meta.by_source || {};
       DATA.sample = DATA.source === "sample";
     } catch (err) {
       // 실제 수집 파일이 없을 때만 샘플로 뜬다(화면에 '샘플' 배지)
@@ -155,10 +205,13 @@
   /* ── 렌더: 전체 ───────────────────────────────────────── */
   function renderAll() {
     renderMeta();
-    renderFilters();
+    renderStats();
+    renderTypeCards();
+    renderAgencyChips();
     renderTable();
     renderStatus();
     renderAnomalies();
+    renderAnomalyChips();
     renderBoard();
     renderFactList();
     updateNavCounts();
@@ -169,9 +222,10 @@
     const badge = $("#badge-source");
     badge.className = "badge " + (src === "sample" ? "sample" : src === "mixed" ? "mixed" : "");
     badge.textContent = src === "sample" ? "샘플 데이터" : src === "mixed" ? "실데이터 + 샘플" : "실데이터";
+    const bs = DATA.bySource || {};
     $("#source-badge").textContent = src === "sample"
       ? "샘플 데이터로 표시 중"
-      : `실데이터 ${comma(DATA.contracts.length)}건 수집`;
+      : `홈페이지+API ${comma(DATA.contracts.length)}건`;
 
     $("#meta-total").innerHTML = `총 <strong>${comma(DATA.contracts.length)}</strong>건`;
     const g = DATA.generatedAt || DATA.meta.generated_at || "";
@@ -182,29 +236,121 @@
     $("#meta-period").textContent = `데이터 기간 ${from} ~ ${to}`;
     $("#nav-count-contracts").textContent = comma(DATA.contracts.length);
     $("#nav-count-anomalies").textContent = DATA.anomalies.length;
+    $("#list-scope").textContent = filter.agencyId ? `${agencyName(filter.agencyId)}만 보는 중` : "";
   }
 
-  function renderFilters() {
-    // 구분은 고정 분류(수집분에 없어도 필터에 남긴다)
-    const catOrder = ["시군", "도청", "교육청", "교육지원청", "학교"];
-    const present = new Set(DATA.contracts.map(c => c.category).filter(Boolean));
-    const cats = catOrder.concat([...present].filter(c => !catOrder.includes(c)));
-    const selCat = $("#f-category");
-    selCat.innerHTML = '<option value="">전체</option>' + cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
-    selCat.value = filter.category;
+  function renderStats() {
+    const total = DATA.contracts.length;
+    const amount = DATA.contracts.reduce((s, c) => s + (c.amount || 0), 0);
+    const ids = new Set(agencyList().map(a => a.id));
+    const ok = (DATA.meta.agencies || []).filter(s => ids.has(s.id) && s.status === "성공").length;
+    const totalAgencies = ids.size || 20;
+    $("#stat-total").textContent = comma(total) + "건";
+    $("#stat-amount").textContent = won(amount);
+    $("#stat-agencies").textContent = `${ok} / ${totalAgencies}`;
+    $("#stat-anomalies").textContent = comma(DATA.anomalies.length) + "건";
+    const bs = DATA.bySource || {};
+    $("#stat-source").textContent = `홈페이지 ${comma(bs.crawl || 0)} · 나라장터 ${comma(bs.g2b_api || 0)} · 양쪽 ${comma(bs.both || 0)}`;
+    const p = DATA.meta.period || {};
+    $("#stat-period").textContent = p.from ? `${p.from} ~ ${p.to} 수집분` : "수집 기간 미상";
+  }
 
-    const agencies = [...new Set(DATA.contracts.filter(c => !filter.category || c.category === filter.category).map(c => c.agency).filter(Boolean))].sort((a, b) => a.localeCompare(b, "ko"));
-    const selAg = $("#f-agency");
-    selAg.innerHTML = '<option value="">전체</option>' + agencies.map(a => `<option value="${esc(a)}">${esc(a)}</option>`).join("");
-    selAg.value = filter.agency;
+  function typeCounts(list) {
+    const c = {};
+    TYPE_ORDER.forEach(t => (c[t] = 0));
+    (list || DATA.anomalies).forEach(a => { c[a.type] = (c[a.type] || 0) + 1; });
+    return c;
+  }
+  function typeAmounts(list) {
+    const c = {};
+    (list || DATA.anomalies).forEach(a => { c[a.type] = (c[a.type] || 0) + (a.amount || 0); });
+    return c;
+  }
+
+  function renderTypeCards() {
+    const counts = typeCounts();
+    const amounts = typeAmounts();
+    $("#type-cards").innerHTML = TYPE_ORDER.map(t => {
+      const m = TYPE_META[t];
+      return `<button class="type-card ${m.cls}" data-type="${t}" title="${esc(m.desc)}">
+        <span class="tc-top"><span class="tc-ico">${m.icon}</span><span class="tc-name">${esc(m.label)}</span><span class="tc-go">보기 →</span></span>
+        <span class="tc-count">${comma(counts[t] || 0)}</span>
+        <span class="tc-amt">${(counts[t] || 0) ? won(amounts[t] || 0) : "임계치를 넘은 후보 없음"}</span>
+      </button>`;
+    }).join("");
+  }
+
+  /* ── 기관 버튼 ────────────────────────────────────────── */
+  function chipHTML(a, stats, active, small) {
+    const s = stats.get(a.id) || { count: 0, anomalies: 0, status: "" };
+    const on = active === a.id ? " on" : "";
+    const fail = s.status && s.status !== "성공" ? " st-fail" : "";
+    return `<button class="achip${on}${fail}" data-agency="${a.id}" title="${esc(a.name)}${s.status ? " · " + esc(s.status) : ""}">
+      <span class="n-name">${esc(a.name)}</span>
+      <span class="n-meta"><span>${comma(s.count)}건</span><span class="b ${s.anomalies ? "" : "zero"}">${s.anomalies ? "이상 " + s.anomalies : "0"}</span></span>
+    </button>`;
+  }
+
+  function renderAgencyChips() {
+    const list = agencyList();
+    const stats = agencyStats();
+    const offices = OFFICE_ORDER.map(id => list.find(a => a.id === id)).filter(Boolean);
+    const cities = CITY_ORDER.map(id => list.find(a => a.id === id)).filter(Boolean)
+      .concat(list.filter(a => !CITY_ORDER.includes(a.id) && !OFFICE_ORDER.includes(a.id) && a.category === "시군"));
+    const totalAll = { count: DATA.contracts.length, anomalies: DATA.anomalies.length, status: "성공" };
+
+    $("#office-chips").innerHTML =
+      `<button class="achip${filter.agencyId === "" ? " on" : ""}" data-agency="">
+         <span class="n-name">전체</span>
+         <span class="n-meta"><span>${comma(totalAll.count)}건</span><span class="b">이상 ${comma(totalAll.anomalies)}</span></span>
+       </button>` +
+      offices.map(a => {
+        const s = stats.get(a.id) || { count: 0, anomalies: 0 };
+        return `<button class="achip${filter.agencyId === a.id ? " on" : ""}" data-agency="${a.id}">
+          <span class="n-name">${esc(a.name)}</span>
+          <span class="n-meta"><span>${comma(s.count)}건</span><span class="b ${s.anomalies ? "" : "zero"}">${s.anomalies ? "이상 " + s.anomalies : "0"}</span></span>
+        </button>`;
+      }).join("");
+
+    $("#agency-chips").innerHTML = cities.map(a => chipHTML(a, stats, filter.agencyId)).join("");
+  }
+
+  function renderAnomalyChips() {
+    const list = agencyList();
+    const stats = agencyStats();
+    const offices = OFFICE_ORDER.map(id => list.find(a => a.id === id)).filter(Boolean);
+    const cities = CITY_ORDER.map(id => list.find(a => a.id === id)).filter(Boolean)
+      .concat(list.filter(a => !CITY_ORDER.includes(a.id) && !OFFICE_ORDER.includes(a.id) && a.category === "시군"));
+
+    $("#anomaly-office-chips").innerHTML =
+      `<button class="achip${anomalyAgency === "" ? " on" : ""}" data-af="">
+         <span class="n-name">전체 기관</span>
+         <span class="n-meta"><span>${comma(DATA.anomalies.length)}건</span></span>
+       </button>` +
+      offices.map(a => {
+        const s = stats.get(a.id) || { anomalies: 0 };
+        return `<button class="achip${anomalyAgency === a.id ? " on" : ""}" data-af="${a.id}">
+          <span class="n-name">${esc(a.name)}</span>
+          <span class="n-meta"><span class="b ${s.anomalies ? "" : "zero"}">${s.anomalies ? "이상 " + s.anomalies : "0"}</span></span>
+        </button>`;
+      }).join("");
+
+    $("#anomaly-agency-chips").innerHTML = cities.map(a => {
+      const s = stats.get(a.id) || { anomalies: 0 };
+      return `<button class="achip${anomalyAgency === a.id ? " on" : ""}" data-af="${a.id}">
+        <span class="n-name">${esc(a.name)}</span>
+        <span class="n-meta"><span class="b ${s.anomalies ? "" : "zero"}">${s.anomalies ? "이상 " + s.anomalies : "0"}</span></span>
+      </button>`;
+    }).join("");
+
+    $("#anomaly-scope-label").textContent = anomalyAgency ? `${agencyName(anomalyAgency)} 이상징후만` : "전체 기관";
   }
 
   /* ── 렌더: 계약 표 ────────────────────────────────────── */
   function filtered() {
     const q = filter.q.trim().toLowerCase();
     let rows = DATA.contracts.filter(c => {
-      if (filter.category && c.category !== filter.category) return false;
-      if (filter.agency && c.agency !== filter.agency) return false;
+      if (filter.agencyId && c.agency_id !== filter.agencyId) return false;
       if (filter.dept && !(c.department || "").toLowerCase().includes(filter.dept.toLowerCase())) return false;
       if (filter.vendor && !(c.vendor || "").toLowerCase().includes(filter.vendor.toLowerCase())) return false;
       if (filter.from && (c.contract_date || "") < filter.from) return false;
@@ -234,6 +380,7 @@
     const total = rows.reduce((s, c) => s + (c.amount || 0), 0);
     $("#list-count").textContent = comma(rows.length) + "건";
     $("#list-sum").textContent = "합계 " + won(total);
+    $("#list-scope").textContent = filter.agencyId ? `${agencyName(filter.agencyId)}만 보는 중` : "";
     const maxPage = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
     if (page > maxPage) page = maxPage;
     const slice = rows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -284,7 +431,7 @@
       if ((c.contract_date || "") > sub[c.agency].last) sub[c.agency].last = c.contract_date;
     });
     Object.entries(sub).forEach(([name, v]) => {
-      list.push({ id: "goe:" + name, name, category: "교육지원청", status: "성공", count: v.count, collected_at: DATA.generatedAt || "", note: "교육청 수의계약내역공개에서 함께 수집" });
+      list.push({ id: "goe:" + name, name, category: "교육지원청", status: "성공", count: v.count, collected_at: DATA.generatedAt || "", note: "교육청 수의계약내역공개 + 나라장터에서 함께 수집" });
     });
     const ok = list.filter(s => s.status === "성공").length;
     $("#status-summary").textContent = `성공 ${ok} / 전체 ${list.length}곳`;
@@ -295,37 +442,49 @@
         <td class="st-${esc(String(s.status).replace(/\s/g, ""))}">${esc(s.status)}</td>
         <td class="num">${comma(s.count)}</td>
         <td class="sub">${esc(s.collected_at || "-")}</td>
-        <td class="sub">${esc(s.note || s.error || "")}</td>
+        <td class="sub">${esc(s.note || s.error || s.crawl_error || "")}</td>
       </tr>`).join("") || '<tr><td colspan="6" class="empty-row">수집 상태 정보가 없습니다. scripts/fetch_contracts.py를 실행하세요.</td></tr>';
   }
 
   /* ── 렌더: 이상징후 ───────────────────────────────────── */
-  function renderAnomalies() {
-    const byType = {};
-    DATA.anomalies.forEach(a => (byType[a.type] = byType[a.type] || []).push(a));
-    const total = DATA.anomalies.length;
-    $("#anomaly-headline").textContent = total
-      ? `계약 ${comma(DATA.contracts.length)}건에서 소재 후보 ${total}건을 찾았습니다. 카드에서 바로 소재 보드로 담으세요.`
-      : "이번 수집분에서는 임계치를 넘는 후보가 없습니다.";
+  function anomalyInScope(a) {
+    if (anomalyAgency && a.agency_id !== anomalyAgency) return false;
+    return true;
+  }
 
-    $("#type-chips").innerHTML = Object.keys(TYPE_LABEL).map(t => `
+  function renderAnomalies() {
+    const scoped = DATA.anomalies.filter(anomalyInScope);
+    const byType = {};
+    scoped.forEach(a => (byType[a.type] = byType[a.type] || []).push(a));
+    const total = scoped.length;
+    const scopeName = anomalyAgency ? agencyName(anomalyAgency) : "";
+    $("#anomaly-headline").textContent = total
+      ? `${scopeName ? scopeName + " " : ""}계약 ${comma(DATA.contracts.length)}건에서 소재 후보 ${comma(total)}건을 찾았습니다. 카드에서 바로 소재 보드로 담으세요.`
+      : `${scopeName ? scopeName + "에서는 " : ""}이번 수집분에서 임계치를 넘는 후보가 없습니다.`;
+
+    $("#type-chips").innerHTML =
+      `<button class="type-chip ${activeType === "" ? "on" : ""}" data-type="">전체 <b>${comma(total)}</b></button>` +
+      TYPE_ORDER.map(t => `
       <button class="type-chip ${activeType === t ? "on" : ""}" data-type="${t}">
-        ${esc(TYPE_LABEL[t])} <b>${(byType[t] || []).length}</b>
+        ${esc(TYPE_LABEL[t])} <b>${comma((byType[t] || []).length)}</b>
       </button>`).join("");
 
-    const html = Object.keys(TYPE_LABEL).filter(t => !activeType || t === activeType).map(t => {
-      const cards = byType[t] || [];
+    const html = TYPE_ORDER.filter(t => !activeType || t === activeType).map(t => {
+      const cards = (byType[t] || []);
+      const shown = expandedTypes.has(t) ? cards : cards.slice(0, 12);
+      const rest = cards.length - shown.length;
       return `
         <section class="group">
           <div class="group-head">
-            <h3>${esc(TYPE_LABEL[t])}</h3>
+            <h3>${esc(TYPE_META[t].icon)} ${esc(TYPE_LABEL[t])}</h3>
             <span class="desc">${esc(TYPE_DESC[t])}</span>
             <span class="pill">${cards.length}건 · ${won(cards.reduce((s, a) => s + (a.amount || 0), 0))}</span>
           </div>
           <div class="acards">
-            ${cards.length ? cards.map(a => anomalyCard(a)).join("")
+            ${cards.length ? shown.map(a => anomalyCard(a)).join("")
         : `<div class="zero-state">이번 수집분에서 임계치를 넘는 후보가 없습니다. 기준: ${esc(thresholdText(t))}</div>`}
           </div>
+          ${rest > 0 ? `<div class="group-more"><button data-more="${t}">${esc(TYPE_LABEL[t])} ${comma(rest)}건 더 보기</button></div>` : ""}
         </section>`;
     }).join("");
     $("#anomaly-groups").innerHTML = html;
@@ -648,9 +807,10 @@
 
   function exportCsv() {
     const rows = filtered();
-    const head = ["구분", "기관", "부서", "계약일", "계약명", "업체", "금액", "계약방법", "계약번호", "상세URL"];
+    const head = ["구분", "기관", "부서", "계약일", "계약명", "업체", "금액", "계약방법", "계약번호", "출처", "상세URL"];
+    const srcName = s => s === "both" ? "홈페이지+API" : s === "g2b_api" ? "나라장터" : "홈페이지";
     const lines = [head.join(",")].concat(rows.map(c => [
-      c.category, c.agency, c.department, c.contract_date, c.title, c.vendor, c.amount, c.method, c.contract_no, c.detail_url,
+      c.category, c.agency, c.department, c.contract_date, c.title, c.vendor, c.amount, c.method, c.contract_no, srcName(c.source_type), c.detail_url,
     ].map(v => `"${String(v == null ? "" : v).replace(/"/g, '""')}"`).join(",")));
     const blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
@@ -667,12 +827,18 @@
   }
 
   /* ── 이벤트 ───────────────────────────────────────────── */
+  function setAgency(id) {
+    filter.agencyId = id || "";
+    page = 1;
+    renderAgencyChips();
+    renderTable();
+    $("#list-scope").textContent = filter.agencyId ? `${agencyName(filter.agencyId)}만 보는 중` : "";
+  }
+
   function bind() {
     $$(".nav-item").forEach(b => b.onclick = () => go(b.dataset.screen));
 
     const applyFilter = () => { page = 1; renderTable(); };
-    $("#f-category").onchange = e => { filter.category = e.target.value; filter.agency = ""; renderFilters(); applyFilter(); };
-    $("#f-agency").onchange = e => { filter.agency = e.target.value; applyFilter(); };
     $("#f-dept").oninput = e => { filter.dept = e.target.value; applyFilter(); };
     $("#f-vendor").oninput = e => { filter.vendor = e.target.value; applyFilter(); };
     $("#f-from").onchange = e => { filter.from = e.target.value; applyFilter(); };
@@ -680,28 +846,72 @@
     $("#f-amin").oninput = e => { filter.amin = e.target.value; applyFilter(); };
     $("#f-amax").oninput = e => { filter.amax = e.target.value; applyFilter(); };
     $("#f-q").oninput = e => { filter.q = e.target.value; applyFilter(); };
-    $("#f-sort").onchange = e => { filter.sort = e.target.value; renderTable(); };
     $("#btn-reset-filter").onclick = () => {
-      filter = { q: "", category: "", agency: "", dept: "", vendor: "", from: "", to: "", amin: "", amax: "", sort: "date-desc" };
+      filter = { q: "", agencyId: filter.agencyId, dept: "", vendor: "", from: "", to: "", amin: "", amax: "", sort: filter.sort };
       ["f-dept", "f-vendor", "f-from", "f-to", "f-amin", "f-amax", "f-q"].forEach(id => { $("#" + id).value = ""; });
-      $("#f-sort").value = "date-desc";
-      renderFilters(); renderTable();
+      page = 1; renderTable();
     };
     $("#btn-csv").onclick = exportCsv;
     $("#btn-reload").onclick = () => { loadData(); toast("data/*.json을 다시 읽었습니다."); };
 
+    // 정렬 세그먼트
+    $("#sort-seg").addEventListener("click", e => {
+      const b = e.target.closest("[data-sort]");
+      if (!b) return;
+      filter.sort = b.dataset.sort;
+      $$("#sort-seg .seg-btn").forEach(x => x.classList.toggle("on", x === b));
+      renderTable();
+    });
+
+    // 기관 칩(계약 화면)
+    const onAgencyClick = e => {
+      const b = e.target.closest("[data-agency]");
+      if (!b) return;
+      setAgency(b.dataset.agency);
+    };
+    $("#office-chips").addEventListener("click", onAgencyClick);
+    $("#agency-chips").addEventListener("click", onAgencyClick);
+
+    // 유형 카드 → 이상징후 화면으로
+    $("#type-cards").addEventListener("click", e => {
+      const b = e.target.closest("[data-type]");
+      if (!b) return;
+      activeType = b.dataset.type;
+      anomalyAgency = filter.agencyId;
+      expandedTypes.clear();
+      go("anomalies");
+      renderAnomalies();
+      renderAnomalyChips();
+    });
+
     $("#anomaly-groups").addEventListener("click", e => {
       const add = e.target.closest("[data-add]");
       const fc = e.target.closest("[data-fact]");
+      const more = e.target.closest("[data-more]");
       if (add) addFromAnomaly(add.dataset.add, false);
       if (fc) addFromAnomaly(fc.dataset.fact, true);
+      if (more) { expandedTypes.add(more.dataset.more); renderAnomalies(); }
     });
     $("#type-chips").addEventListener("click", e => {
       const b = e.target.closest("[data-type]");
       if (!b) return;
-      activeType = activeType === b.dataset.type ? "" : b.dataset.type;
+      const t = b.dataset.type;
+      activeType = activeType === t ? "" : t;
+      expandedTypes.clear();
       renderAnomalies();
     });
+
+    // 기관 칩(이상징후 화면)
+    const onAfClick = e => {
+      const b = e.target.closest("[data-af]");
+      if (!b) return;
+      anomalyAgency = b.dataset.af || "";
+      expandedTypes.clear();
+      renderAnomalies();
+      renderAnomalyChips();
+    };
+    $("#anomaly-office-chips").addEventListener("click", onAfClick);
+    $("#anomaly-agency-chips").addEventListener("click", onAfClick);
 
     $("#btn-export").onclick = exportJson;
     $("#file-import").onchange = e => { if (e.target.files[0]) importJson(e.target.files[0]); e.target.value = ""; };

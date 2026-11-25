@@ -16,7 +16,14 @@
       "pages": 7,
       "detail_limit": 88,
       "note": "교육청 수의계약내역공개. 목록에 금액·업체가 없어 상세페이지를 건별로 열어 보강(교육지원청·각급 학교 포함).",
-      "delay_sec": 0.35
+      "delay_sec": 0.35,
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도교육청"
+        ],
+        "kind": "edu",
+        "agency_label": "강원특별자치도교육청"
+      }
     },
     {
       "id": "chuncheon",
@@ -25,7 +32,14 @@
       "parser": "chuncheon",
       "list_url": "https://www.chuncheon.go.kr/contract/data/data1/data1-4/",
       "pages": 8,
-      "note": "춘천시청 계약정보공개 1인 견적 수의계약 목록"
+      "note": "춘천시청 계약정보공개 1인 견적 수의계약 목록",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 춘천시"
+        ],
+        "kind": "town",
+        "agency_label": "춘천시"
+      }
     },
     {
       "id": "wonju",
@@ -36,7 +50,14 @@
       "pages": 6,
       "agency_label": "원주시 상하수도사업소",
       "note": "원주시 계약현황(상하수도사업소 공개분). 계약상대자 칸에 발주기관명이 들어간 원자료 오류는 파서가 걸러냅니다.",
-      "delay_sec": 0.5
+      "delay_sec": 0.5,
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 원주시"
+        ],
+        "kind": "town",
+        "agency_label": "원주시"
+      }
     },
     {
       "id": "gangneung",
@@ -45,7 +66,14 @@
       "parser": "gyeyak",
       "list_url": "https://www.gn.go.kr/gyeyak/contract/lists?p={page}",
       "pages": 8,
-      "note": "강릉시 계약정보공개시스템(계약현황 전체)"
+      "note": "강릉시 계약정보공개시스템(계약현황 전체)",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 강릉시"
+        ],
+        "kind": "town",
+        "agency_label": "강릉시"
+      }
     },
     {
       "id": "donghae",
@@ -54,7 +82,14 @@
       "parser": "gyeyak",
       "list_url": "https://www.dh.go.kr/gyeyak/contract/lists?p={page}",
       "pages": 8,
-      "note": "동해시 계약정보공개시스템(계약현황 전체)"
+      "note": "동해시 계약정보공개시스템(계약현황 전체)",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 동해시"
+        ],
+        "kind": "town",
+        "agency_label": "동해시"
+      }
     },
     {
       "id": "hongcheon",
@@ -63,7 +98,14 @@
       "parser": "gyeyak",
       "list_url": "https://www.hongcheon.go.kr/gyeyak/contract/lists?p={page}",
       "pages": 8,
-      "note": "홍천군 계약정보공개시스템(계약현황 전체)"
+      "note": "홍천군 계약정보공개시스템(계약현황 전체)",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 홍천군"
+        ],
+        "kind": "town",
+        "agency_label": "홍천군"
+      }
     },
     {
       "id": "gwd",
@@ -72,7 +114,14 @@
       "parser": "confin_post",
       "list_url": "https://confin.gwd.go.kr/contract/continfo",
       "pages": 8,
-      "note": "강원특별자치도 세입세출 계약정보공개 시스템(계약체결 현황·공사). POST pageIndex 페이지네이션."
+      "note": "강원특별자치도 세입세출 계약정보공개 시스템(계약체결 현황·공사). POST pageIndex 페이지네이션.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도"
+        ],
+        "kind": "province",
+        "agency_label": "강원특별자치도"
+      }
     },
     {
       "id": "pyeongchang",
@@ -81,7 +130,14 @@
       "parser": "confin_post",
       "list_url": "https://www.pc.go.kr/contract/continfo",
       "pages": 8,
-      "note": "평창군 세입세출 계약정보공개 시스템"
+      "note": "평창군 세입세출 계약정보공개 시스템",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 평창군"
+        ],
+        "kind": "town",
+        "agency_label": "평창군"
+      }
     },
     {
       "id": "yanggu",
@@ -94,7 +150,14 @@
       "referer": "https://www.yanggu.go.kr/contract/basis/optionalList.do",
       "row_num": 40,
       "pages": 3,
-      "note": "양구군 계약정보공개시스템 중 수의계약현황. 목록이 jqGrid(AJAX)로 그려져 정적 HTML에 표가 없어, 화면 스크립트가 쓰는 ajaxOptionalList.do(JSON)를 직접 호출."
+      "note": "양구군 계약정보공개시스템 중 수의계약현황. 목록이 jqGrid(AJAX)로 그려져 정적 HTML에 표가 없어, 화면 스크립트가 쓰는 ajaxOptionalList.do(JSON)를 직접 호출.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 양구군"
+        ],
+        "kind": "town",
+        "agency_label": "양구군"
+      }
     },
     {
       "id": "yeongwol",
@@ -103,7 +166,14 @@
       "parser": "confin_post",
       "list_url": "https://www.yw.go.kr/confin/contract/continfo",
       "pages": 8,
-      "note": "영월군 세입세출 계약정보공개(계약현황 전체). 목록 URL은 /confin/contract/continfo(하위 /contract 는 표 없는 안내 페이지). POST pageIndex 페이지네이션."
+      "note": "영월군 세입세출 계약정보공개(계약현황 전체). 목록 URL은 /confin/contract/continfo(하위 /contract 는 표 없는 안내 페이지). POST pageIndex 페이지네이션.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 영월군"
+        ],
+        "kind": "town",
+        "agency_label": "영월군"
+      }
     },
     {
       "id": "jeongseon",
@@ -125,7 +195,14 @@
         ]
       ],
       "pages": 3,
-      "note": "정선군 수의계약현황(공사·용역·물품). POST pageIndex 페이지네이션."
+      "note": "정선군 수의계약현황(공사·용역·물품). POST pageIndex 페이지네이션.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 정선군"
+        ],
+        "kind": "town",
+        "agency_label": "정선군"
+      }
     },
     {
       "id": "samcheok",
@@ -137,7 +214,13 @@
         "https://www.samcheok.go.kr/gyeyak/contract/lists"
       ],
       "pages": 2,
-      "narajangter": {"instt_nm": ["강원특별자치도 삼척시"], "agency_label": "삼척시"},
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 삼척시"
+        ],
+        "kind": "town",
+        "agency_label": "삼척시"
+      },
       "note": "삼척시는 홈페이지 전체가 웹방화벽(WAF) 정책으로 이 서버 IP의 요청을 차단한다(2026-11-25 확인). 우회하지 않고 나라장터 API로만 보완 수집한다."
     },
     {
@@ -147,9 +230,17 @@
       "parser": "gyeyak",
       "list_url": "https://ehojo.taebaek.go.kr/contract/lists?p={page}",
       "pages": 8,
-      "tls_relaxed_hosts": ["ehojo.taebaek.go.kr"],
+      "tls_relaxed_hosts": [
+        "ehojo.taebaek.go.kr"
+      ],
       "retries": 1,
-      "narajangter": {"instt_nm": ["강원특별자치도 태백시"], "agency_label": "태백시"},
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 태백시"
+        ],
+        "kind": "town",
+        "agency_label": "태백시"
+      },
       "note": "태백시 계약정보공개시스템(ehojo.taebaek.go.kr/contract/lists, 계약현황 전체). 이 서버는 TLS 인증서 체인이 불완전(중간 인증서 누락)해 검증이 실패하므로 이 호스트만 지정해 검증을 완화한다. 완화 후에도 서버가 403(WAF)을 돌려줘 홈페이지 수집은 불가 — 나라장터 API로 보완한다."
     },
     {
@@ -158,13 +249,31 @@
       "category": "시군",
       "parser": "table_post_multi",
       "list_urls": [
-        ["https://confin.sokcho.go.kr/contract/continfo/status/conconst", "공사"],
-        ["https://confin.sokcho.go.kr/contract/continfo/status/conservice", "용역"],
-        ["https://confin.sokcho.go.kr/contract/continfo/status/congoods", "물품"]
+        [
+          "https://confin.sokcho.go.kr/contract/continfo/status/conconst",
+          "공사"
+        ],
+        [
+          "https://confin.sokcho.go.kr/contract/continfo/status/conservice",
+          "용역"
+        ],
+        [
+          "https://confin.sokcho.go.kr/contract/continfo/status/congoods",
+          "물품"
+        ]
       ],
       "pages": 3,
-      "tls_relaxed_hosts": ["confin.sokcho.go.kr"],
-      "note": "속초시 세입세출 계약정보공개(confin.sokcho.go.kr). 시청 홈페이지 '입찰공고'가 이 시스템으로 연결. 인증서 체인이 불완전해 이 호스트만 검증을 완화. POST pageIndex 페이지네이션·8열 표."
+      "tls_relaxed_hosts": [
+        "confin.sokcho.go.kr"
+      ],
+      "note": "속초시 세입세출 계약정보공개(confin.sokcho.go.kr). 시청 홈페이지 '입찰공고'가 이 시스템으로 연결. 인증서 체인이 불완전해 이 호스트만 검증을 완화. POST pageIndex 페이지네이션·8열 표.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 속초시"
+        ],
+        "kind": "town",
+        "agency_label": "속초시"
+      }
     },
     {
       "id": "hoengseong",
@@ -173,7 +282,14 @@
       "parser": "gyeyak",
       "list_url": "https://gyeyak.hsg.go.kr/contract/lists?p={page}",
       "pages": 8,
-      "note": "횡성군 계약정보공개시스템(gyeyak.hsg.go.kr, 계약현황 전체). 군청 홈페이지 '계약정보공개' 메뉴가 이 시스템으로 연결."
+      "note": "횡성군 계약정보공개시스템(gyeyak.hsg.go.kr, 계약현황 전체). 군청 홈페이지 '계약정보공개' 메뉴가 이 시스템으로 연결.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 횡성군"
+        ],
+        "kind": "town",
+        "agency_label": "횡성군"
+      }
     },
     {
       "id": "cheorwon",
@@ -187,7 +303,13 @@
       "pages": 2,
       "timeout_sec": 8,
       "retries": 1,
-      "narajangter": {"instt_nm": ["강원특별자치도 철원군"], "agency_label": "철원군"},
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 철원군"
+        ],
+        "kind": "town",
+        "agency_label": "철원군"
+      },
       "note": "철원군 도메인은 www.cwg.go.kr 이다(기존 www.cw.go.kr 는 존재하지 않는 도메인이라 DNS 실패). 이 서버 IP에서는 접속 자체가 시간 초과되어 2026-11-25 현재 홈페이지 수집 불가 — 나라장터 API로 보완한다."
     },
     {
@@ -201,7 +323,14 @@
       "referer": "https://contract.ihc.go.kr/situ/2",
       "row_num": 10,
       "pages": 8,
-      "note": "화천군 계약정보시스템(contract.ihc.go.kr). 군청 도메인은 www.ihc.go.kr(기존 www.hwacheon.go.kr 는 없는 도메인). 목록은 /api/situ JSON(10건 단위)으로 그려진다."
+      "note": "화천군 계약정보시스템(contract.ihc.go.kr). 군청 도메인은 www.ihc.go.kr(기존 www.hwacheon.go.kr 는 없는 도메인). 목록은 /api/situ JSON(10건 단위)으로 그려진다.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 화천군"
+        ],
+        "kind": "town",
+        "agency_label": "화천군"
+      }
     },
     {
       "id": "inje",
@@ -214,8 +343,17 @@
       "referer": "https://www.inje.go.kr/contract/basis/optionalList.do",
       "row_num": 40,
       "pages": 3,
-      "tls_relaxed_hosts": ["www.inje.go.kr"],
-      "note": "인제군 계약정보공개시스템(수의계약현황). 목록이 jqGrid AJAX(ajaxOptionalList.do JSON)로 그려져 정적 HTML에 표가 없다. 인증서 체인이 불완전해 이 호스트만 검증을 완화한다."
+      "tls_relaxed_hosts": [
+        "www.inje.go.kr"
+      ],
+      "note": "인제군 계약정보공개시스템(수의계약현황). 목록이 jqGrid AJAX(ajaxOptionalList.do JSON)로 그려져 정적 HTML에 표가 없다. 인증서 체인이 불완전해 이 호스트만 검증을 완화한다.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 인제군"
+        ],
+        "kind": "town",
+        "agency_label": "인제군"
+      }
     },
     {
       "id": "goseong",
@@ -224,7 +362,14 @@
       "parser": "gyeyak",
       "list_url": "https://www.gwgs.go.kr/gyeyak/contract/lists?p={page}",
       "pages": 8,
-      "note": "고성군(강원) 계약정보공개시스템. 군청 주소는 www.gwgs.go.kr이며 www.goseong.go.kr 은 경남 고성군이라 쓰면 안 된다."
+      "note": "고성군(강원) 계약정보공개시스템. 군청 주소는 www.gwgs.go.kr이며 www.goseong.go.kr 은 경남 고성군이라 쓰면 안 된다.",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 고성군"
+        ],
+        "kind": "town",
+        "agency_label": "고성군"
+      }
     },
     {
       "id": "yangyang",
@@ -233,7 +378,14 @@
       "parser": "gyeyak",
       "list_url": "http://gyeyak.yangyang.go.kr/contract/lists?p={page}",
       "pages": 8,
-      "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지)."
+      "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지).",
+      "narajangter": {
+        "instt_nm": [
+          "강원특별자치도 양양군"
+        ],
+        "kind": "town",
+        "agency_label": "양양군"
+      }
     }
   ]
 }
