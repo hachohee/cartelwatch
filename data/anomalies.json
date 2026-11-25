@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-25 10:26:46",
- "base_generated_at": "2026-11-25 10:20:55",
+ "generated_at": "2026-11-25 10:30:42",
+ "base_generated_at": "2026-11-25 10:30:41",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -306,7 +306,7 @@
      "SPLIT": 3
     },
     "status": "성공",
-    "source": ""
+    "source": "홈페이지 + 나라장터 API"
    }
   ]
  },

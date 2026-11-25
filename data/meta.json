@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25 10:20:55",
+ "generated_at": "2026-11-25 10:30:41",
  "total": 10129,
  "source": "live",
  "period": {
@@ -279,13 +279,29 @@
    "url": "http://gyeyak.yangyang.go.kr/contract/lists?p={page}",
    "note": "양양군 계약정보공개시스템(계약현황 전체). 이 서버는 https 접속을 받지 않아 http로만 수집한다(공개 조회 페이지).",
    "status": "성공",
-   "count": 10,
-   "crawl_count": 10,
-   "api_count": 0,
-   "pages": 1,
-   "collected_at": "2026-11-25 10:20:54",
+   "count": 239,
+   "crawl_count": 80,
+   "api_count": 159,
+   "pages": 8,
+   "collected_at": "2026-11-25 10:29:39",
    "error": "",
-   "elapsed": 1.1
+   "g2b": {
+    "period": [
+     "2026-10-29",
+     "2026-11-25"
+    ],
+    "by_category": {
+     "물품": 16,
+     "공사": 96,
+     "용역": 47
+    },
+    "calls": 12,
+    "instt_nm": [
+     "강원특별자치도 양양군"
+    ]
+   },
+   "source": "홈페이지 + 나라장터 API",
+   "elapsed": 61.4
   },
   {
    "id": "yeongwol",
@@ -654,9 +670,9 @@
    "parser": "g2b_api",
    "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
    "status": "성공",
-   "count": 159,
+   "count": 9197,
    "pages": 1,
-   "collected_at": "2026-11-25 10:20:34",
+   "collected_at": "2026-11-25 10:30:41",
    "note": "조회 1곳 · 최근 28일 · 양양군 159건",
    "error": "",
    "elapsed": 0
@@ -668,7 +684,7 @@
   "g2b_api": 7400,
   "both": 1797
  },
- "api_window_days": 10,
+ "api_window_days": 28,
  "registry": [
   {
    "id": "goe",
