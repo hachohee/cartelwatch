@@ -665,7 +665,7 @@
   },
   {
    "id": "narajangter",
-   "name": "나라장터 API(1곳 합산)",
+   "name": "나라장터 API(20곳 합산)",
    "category": "전체",
    "parser": "g2b_api",
    "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
@@ -673,7 +673,7 @@
    "count": 10169,
    "pages": 1,
    "collected_at": "2026-11-27 06:37:14",
-   "note": "조회 1곳 · 최근 10일 · 인제군 74건",
+   "note": "20곳 전 기관 · 최근 10일 조회분 누적 10,169건",
    "error": "",
    "elapsed": 0
   }
