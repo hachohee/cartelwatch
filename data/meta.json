@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-27 06:33:30",
- "total": 11434,
+ "generated_at": "2026-11-27 06:37:22",
+ "total": 11315,
  "source": "live",
  "period": {
-  "from": "2023-12-08",
+  "from": "2026-08-10",
   "to": "2026-12-03"
  },
  "agencies": [
@@ -379,7 +379,7 @@
    "crawl_count": 120,
    "api_count": 74,
    "pages": 3,
-   "collected_at": "2026-11-27 06:26:38",
+   "collected_at": "2026-11-27 06:36:29",
    "error": "",
    "tls": {
     "relaxed_hosts": [
@@ -403,7 +403,7 @@
     ]
    },
    "source": "홈페이지 + 나라장터 API",
-   "elapsed": 46.1
+   "elapsed": 44.2
   },
   {
    "id": "jeongseon",
@@ -665,22 +665,22 @@
   },
   {
    "id": "narajangter",
-   "name": "나라장터 API(6곳 합산)",
+   "name": "나라장터 API(1곳 합산)",
    "category": "전체",
    "parser": "g2b_api",
    "url": "https://apis.data.go.kr/1230000/ao/CntrctInfoService",
    "status": "성공",
    "count": 10169,
    "pages": 1,
-   "collected_at": "2026-11-27 06:33:29",
-   "note": "조회 6곳 · 최근 10일 · 원주시 297건, 평창군 104건, 양구군 116건, 영월군 114건, 정선군 219건, 삼척시 247건",
+   "collected_at": "2026-11-27 06:37:14",
+   "note": "조회 1곳 · 최근 10일 · 인제군 74건",
    "error": "",
    "elapsed": 0
   }
  ],
- "amount_total": 900350323558,
+ "amount_total": 895596676208,
  "by_source": {
-  "crawl": 1265,
+  "crawl": 1146,
   "g2b_api": 8159,
   "both": 2010
  },

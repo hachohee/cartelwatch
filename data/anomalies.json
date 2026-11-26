@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-27 06:33:36",
- "base_generated_at": "2026-11-27 06:33:29",
+ "generated_at": "2026-11-27 06:37:24",
+ "base_generated_at": "2026-11-27 06:37:22",
  "source": "live",
  "thresholds": {
   "SPLIT_WINDOW_DAYS": 7,
@@ -18,19 +18,19 @@
   "YEAR_END_MIN_SHARE": 0.25
  },
  "summary": {
-  "total": 297,
+  "total": 292,
   "by_type": {
-   "CONCENTRATION": 4,
-   "SPLIT": 268,
+   "CONCENTRATION": 3,
+   "SPLIT": 264,
    "NEWCOMER": 25
   },
   "amount_by_type": {
-   "CONCENTRATION": 13145710300,
-   "SPLIT": 9139251360,
+   "CONCENTRATION": 13093800300,
+   "SPLIT": 9021753360,
    "NEWCOMER": 109713015040
   },
-  "contracts": 11433,
-  "contract_amount": 900348863558,
+  "contracts": 11314,
+  "contract_amount": 895595216208,
   "agencies": 20,
   "by_agency": [
    {
@@ -274,12 +274,11 @@
     "id": "inje",
     "name": "인제군",
     "category": "시군",
-    "contracts": 531,
-    "amount": 38102433530,
-    "anomalies": 19,
+    "contracts": 412,
+    "amount": 33348786180,
+    "anomalies": 14,
     "by_type": {
-     "SPLIT": 18,
-     "CONCENTRATION": 1
+     "SPLIT": 14
     },
     "status": "성공",
     "source": "홈페이지 + 나라장터 API"
@@ -314,12 +313,12 @@
   ]
  },
  "contract_stats": {
-  "total": 11433,
+  "total": 11314,
   "bad_dates": 1,
-  "with_amount": 11429,
-  "with_vendor": 11386,
+  "with_amount": 11310,
+  "with_vendor": 11267,
   "period": [
-   "2023-12-08",
+   "2026-08-10",
    "2029-01-29"
   ]
  },
@@ -3111,100 +3110,6 @@
    "agency_id": "gwd"
   },
   {
-   "id": "conc-인제군-상남면-하늘샷시",
-   "type": "CONCENTRATION",
-   "type_label": "일감 몰아주기",
-   "severity": "중",
-   "title": "상남면 · 하늘샷시 점유율 49.1%",
-   "vendor": "하늘샷시",
-   "agency": "인제군",
-   "department": "상남면",
-   "amount": 51910000,
-   "count": 5,
-   "summary": "상남면 계약 1.1억 원 중 하늘샷시가 5,191만 원 (49.1%, 5건 / 모집단 10건)",
-   "threshold": "부서 내 한 업체 점유율 35% 초과 & 3건 이상 & 5,000만 원 이상",
-   "facts": {
-    "모집단 금액": 105742000,
-    "모집단 건수": 10,
-    "업체 금액": 51910000,
-    "점유율": "49.1%",
-    "건수": 5
-   },
-   "checks": [
-    "해당 업체의 다른 지자체·부서 수주 이력(지역·부서 편중)",
-    "업체 대표·주소·설립일과 발주부서 공무원과의 관계(이해충돌)",
-    "경쟁 업체가 입찰하지 못한 이유(자격 제한·지역 제한·견적 미요청)"
-   ],
-   "contracts": [
-    {
-     "id": "inje:9be525c671d0",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115066",
-     "title": "상남면종합복지회관 목욕탕 입구 및 탈의실 출입문 자동문 교체공사",
-     "amount": 13943000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115066",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:394662221eef",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115063",
-     "title": "상남면종합복지회관 목욕탕 남탕 황토 찜질방 보수공사",
-     "amount": 11909000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115063",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:9af7f9cb5c23",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115061",
-     "title": "상남면종합복지회관 목욕탕 여탕 황토 찜질방 보수공사",
-     "amount": 11909000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115061",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:2015995f38ce",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202600113254",
-     "title": "상남면종합복지회관 비상구 페인트 공사",
-     "amount": 7931000,
-     "contract_date": "2026-10-20",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202600113254",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:4e73dea9725c",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202600113368",
-     "title": "상남면 미기동 정자 보수공사",
-     "amount": 6218000,
-     "contract_date": "2026-11-03",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202600113368",
-     "source_type": "crawl"
-    }
-   ],
-   "agency_id": "inje"
-  },
-  {
    "id": "split-hwacheon:25c5fb280848-hwacheon:adfdc32ee",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -5744,134 +5649,6 @@
      "vendor": "주식회사 삼호",
      "detail_url": "https://www.g2b.go.kr/link/FIUA027_01/single/?ctrtNo=R26TA02455569&ctrtChgOrd=00&prcmBsneSeCd=조070001&srchName=ctrtCrst&openUrl=Y",
      "source_type": "g2b_api"
-    }
-   ],
-   "agency_id": "inje"
-  },
-  {
-   "id": "split-inje:7b4b03c11567-inje:adbcdc809a62",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "인제군 본청 · 12사단 의무대대 노후 다목적실 시설개선공사",
-   "vendor": "상지건설(주)",
-   "agency": "인제군",
-   "department": "본청",
-   "amount": 37834000,
-   "count": 2,
-   "summary": "상지건설(주)가 7일 안에 2건을 나눠 받음 · 합산 3,783만 원 (건별 최대 1,935만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 37834000,
-    "건수": 2,
-    "건별금액": [
-     19353000,
-     18481000
-    ],
-    "기간": "2023-12-19 ~ 2023-12-19"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "inje:adbcdc809a62",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "본청",
-     "contract_no": "202300115075",
-     "title": "12사단 의무대대 노후 다목적실 시설개선공사",
-     "amount": 19353000,
-     "contract_date": "2023-12-19",
-     "vendor": "상지건설(주)",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115075",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:7b4b03c11567",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "본청",
-     "contract_no": "202300115090",
-     "title": "KCTC 13보병대대 노후 다목적실 시설개선공사",
-     "amount": 18481000,
-     "contract_date": "2023-12-19",
-     "vendor": "상지건설(주)",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115090",
-     "source_type": "crawl"
-    }
-   ],
-   "agency_id": "inje"
-  },
-  {
-   "id": "split-inje:394662221eef-inje:9af7f9cb5c23",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "인제군 상남면 · 상남면종합복지회관 목욕탕 입구 및 탈의실 출입문 자동문 교체공사",
-   "vendor": "하늘샷시",
-   "agency": "인제군",
-   "department": "상남면",
-   "amount": 37761000,
-   "count": 3,
-   "summary": "하늘샷시가 7일 안에 3건을 나눠 받음 · 합산 3,776만 원 (건별 최대 1,394만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 37761000,
-    "건수": 3,
-    "건별금액": [
-     13943000,
-     11909000,
-     11909000
-    ],
-    "기간": "2023-12-15 ~ 2023-12-15"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "inje:9be525c671d0",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115066",
-     "title": "상남면종합복지회관 목욕탕 입구 및 탈의실 출입문 자동문 교체공사",
-     "amount": 13943000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115066",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:394662221eef",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115063",
-     "title": "상남면종합복지회관 목욕탕 남탕 황토 찜질방 보수공사",
-     "amount": 11909000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115063",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:9af7f9cb5c23",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상남면",
-     "contract_no": "202300115061",
-     "title": "상남면종합복지회관 목욕탕 여탕 황토 찜질방 보수공사",
-     "amount": 11909000,
-     "contract_date": "2023-12-15",
-     "vendor": "하늘샷시",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300115061",
-     "source_type": "crawl"
     }
    ],
    "agency_id": "inje"
@@ -16228,63 +16005,6 @@
    "agency_id": "hongcheon"
   },
   {
-   "id": "split-inje:78e1fb113e61-inje:dc0d8a64cfc7",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "인제군 상하수도사업소 · 위생환경사업장 가압부상조 응집제 구입결의",
-   "vendor": "정수환경",
-   "agency": "인제군",
-   "department": "상하수도사업소",
-   "amount": 21606000,
-   "count": 2,
-   "summary": "정수환경이 7일 안에 2건을 나눠 받음 · 합산 2,161만 원 (건별 최대 1,178만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 21606000,
-    "건수": 2,
-    "건별금액": [
-     11785000,
-     9821000
-    ],
-    "기간": "2023-12-23 ~ 2023-12-23"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "inje:78e1fb113e61",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상하수도사업소",
-     "contract_no": "202300314720",
-     "title": "위생환경사업장 가압부상조 응집제 구입결의",
-     "amount": 11785000,
-     "contract_date": "2023-12-23",
-     "vendor": "정수환경",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300314720",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:dc0d8a64cfc7",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "상하수도사업소",
-     "contract_no": "202300314719",
-     "title": "위생환경사업장 탈수기 응집제 구입결의",
-     "amount": 9821000,
-     "contract_date": "2023-12-23",
-     "vendor": "정수환경",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300314719",
-     "source_type": "crawl"
-    }
-   ],
-   "agency_id": "inje"
-  },
-  {
    "id": "split-gangneung:59611c788306-gangneung:aee9da4",
    "type": "SPLIT",
    "type_label": "쪼개기 수의계약",
@@ -17522,63 +17242,6 @@
     }
    ],
    "agency_id": "sokcho"
-  },
-  {
-   "id": "split-inje:8289295d77a6-inje:b93a5ab42021",
-   "type": "SPLIT",
-   "type_label": "쪼개기 수의계약",
-   "severity": "중",
-   "title": "인제군 본청 · 하추리자연체험학교 태양광 설치공사 실시설계용역",
-   "vendor": "(주)다올이엔지",
-   "agency": "인제군",
-   "department": "본청",
-   "amount": 20297000,
-   "count": 2,
-   "summary": "(주)다올이엔지가 7일 안에 2건을 나눠 받음 · 합산 2,030만 원 (건별 최대 1,337만 원)",
-   "threshold": "같은 부서·같은 업체 / 7일 이내 / 건별 2,000만 원 미만 & 합산 2,000만 원 이상 / 계약명 유사도 0.45 이상",
-   "facts": {
-    "합산금액": 20297000,
-    "건수": 2,
-    "건별금액": [
-     13374000,
-     6923000
-    ],
-    "기간": "2023-12-14 ~ 2023-12-20"
-   },
-   "checks": [
-    "지방계약법 시행령 제77조(분할계약 금지) 위반 여부",
-    "각 건의 계약 사유·견적 수(1인 견적 여부)",
-    "동일 사업을 나눈 근거가 있는지(예산 절감·현장 여건) 발주부서 해명"
-   ],
-   "contracts": [
-    {
-     "id": "inje:b93a5ab42021",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "본청",
-     "contract_no": "202300214867",
-     "title": "하추리자연체험학교 태양광 설치공사 실시설계용역",
-     "amount": 6923000,
-     "contract_date": "2023-12-14",
-     "vendor": "(주)다올이엔지",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300214867",
-     "source_type": "crawl"
-    },
-    {
-     "id": "inje:8289295d77a6",
-     "agency_id": "inje",
-     "agency": "인제군",
-     "department": "본청",
-     "contract_no": "202300214739",
-     "title": "신재생에너지 확대기반사업 하추리자연체험학교 태양광 설치공사 감리용역",
-     "amount": 13374000,
-     "contract_date": "2023-12-20",
-     "vendor": "(주)다올이엔지",
-     "detail_url": "https://www.inje.go.kr/contract/basis/optionalView.do?ctrtAcctBookMngNo=202300214739",
-     "source_type": "crawl"
-    }
-   ],
-   "agency_id": "inje"
   },
   {
    "id": "split-chuncheon:7865615bc237-chuncheon:79e6758",
